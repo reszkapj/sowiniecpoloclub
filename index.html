@@ -110,42 +110,49 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="min-h-screen hero-gradient flex items-center justify-center relative overflow-hidden">
-        <div class="absolute inset-0 opacity-5">
-            <svg class="w-full h-full object-cover" viewBox="0 0 800 600" fill="currentColor" class="text-burgundy">
-                <path class="horse-animation" d="M200 400 Q280 320 360 360 Q440 320 520 400 Q500 420 460 400 Q420 380 360 390 Q300 380 260 400 Q220 420 200 400 Z M320 280 Q330 270 345 275 Q355 265 370 270 Q380 275 375 285 Q365 290 345 285 Q325 290 320 280 Z M390 280 Q400 270 415 275 Q425 265 440 270 Q450 275 445 285 Q435 290 415 285 Q395 290 390 280 Z"/>
-            </svg>
-            <div class="absolute inset-0">
-  <img src="public/sowiniecpuchar.jpg" alt="Background" class="w-full h-full object-cover" />
-  <svg class="w-full h-full object-cover opacity-5 text-burgundy absolute inset-0" 
-       viewBox="0 0 800 600" fill="currentColor">
-    <path d="M200 400 Q280 320 360 360 Q440 320 520 400 Q500 420 460 400 Q420 380 360 390 Q300 380 260 400 Q220 420 200 400 Z 
-             M320 280 Q330 270 345 275 Q355 265 370 270 Q380 275 375 285 Q365 290 345 285 Q325 290 320 280 Z 
-             M390 280 Q400 270 415 275 Q425 265 440 270 Q450 275 445 285 Q435 290 415 285 Q395 290 390 280 Z"/>
-  </svg>
-</div>
-        </div>
-        
-        <div class="text-center z-10 px-6 max-w-4xl mx-auto">
-            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-gradient mb-8 fade-in-up">
-                Sowiniec
-            </h1>
-            <p class="text-xl md:text-2xl text-charcoal/80 mb-12 font-light leading-relaxed fade-in-up stagger-1">
-                Gdzie elegancja spotyka się z pasją.<br>
-                <span class="text-lg">Ekskluzywny klub polo w sercu natury.</span>
-            </p>
-            <div class="space-y-4 md:space-y-0 md:space-x-6 md:flex md:justify-center fade-in-up stagger-2">
-                <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" 
-                        class="w-full md:w-auto px-8 py-4 bg-burgundy text-cream rounded-full font-medium hover:bg-burgundy/90 transition-all duration-300 hover:shadow-lg">
-                    Odkryj Naszą Historię
-                </button>
-                <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
-                        class="w-full md:w-auto px-8 py-4 border-2 border-burgundy text-burgundy rounded-full font-medium hover:bg-burgundy hover:text-cream transition-all duration-300">
-                    Dołącz Do Nas
-                </button>
-            </div>
-        </div>
-    </section>
+<section id="home" class="min-h-screen hero-gradient flex items-center justify-center relative overflow-hidden">
+  
+  <!-- Zdjęcie w tle -->
+  <div class="absolute inset-0">
+    <img src="public/sowiniecpuchar.jpg" alt="Background" class="w-full h-full object-cover" />
+    
+    <!-- Overlay (ciemny półprzezroczysty) -->
+    <div class="absolute inset-0 bg-black/30"></div>
+    
+    <!-- SVG dekoracyjne -->
+    <svg class="w-full h-full object-cover opacity-10 text-burgundy absolute inset-0" 
+         viewBox="0 0 800 600" fill="currentColor">
+      <path d="M200 400 Q280 320 360 360 Q440 320 520 400 Q500 420 460 400 
+               Q420 380 360 390 Q300 380 260 400 Q220 420 200 400 Z 
+               M320 280 Q330 270 345 275 Q355 265 370 270 Q380 275 375 285 
+               Q365 290 345 285 Q325 290 320 280 Z 
+               M390 280 Q400 270 415 275 Q425 265 440 270 Q450 275 445 285 
+               Q435 290 415 285 Q395 290 390 280 Z"/>
+    </svg>
+  </div>
+
+  <!-- Treść -->
+  <div class="text-center z-10 px-6 max-w-4xl mx-auto">
+    <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-gradient mb-8 fade-in-up">
+      Sowiniec
+    </h1>
+    <p class="text-xl md:text-2xl text-charcoal/80 mb-12 font-light leading-relaxed fade-in-up stagger-1">
+      Gdzie elegancja spotyka się z pasją.<br>
+      <span class="text-lg">Ekskluzywny klub polo w sercu natury.</span>
+    </p>
+    <div class="space-y-4 md:space-y-0 md:space-x-6 md:flex md:justify-center fade-in-up stagger-2">
+      <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" 
+              class="w-full md:w-auto px-8 py-4 bg-burgundy text-cream rounded-full font-medium hover:bg-burgundy/90 transition-all duration-300 hover:shadow-lg">
+        Odkryj Naszą Historię
+      </button>
+      <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
+              class="w-full md:w-auto px-8 py-4 border-2 border-burgundy text-burgundy rounded-full font-medium hover:bg-burgundy hover:text-cream transition-all duration-300">
+        Dołącz Do Nas
+      </button>
+    </div>
+  </div>
+</section>
+
 
 <!-- About Section -->
 <section id="about" class="py-24 bg-white">
