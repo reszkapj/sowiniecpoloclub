@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sowiniec Polo Club - Elegancja w Ruchu</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'burgundy': '#722F37',
+                        'gold': '#D4AF37',
+                        'cream': '#FAF7F0',
+                        'sage': '#9CAF88',
+                        'charcoal': '#2C2C2C'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .hero-gradient {
+            background: linear-gradient(135deg, #FAF7F0 0%, #F5F1E8 50%, #EDE7D3 100%);
+        }
+        
+        .text-gradient {
+            background: linear-gradient(135deg, #722F37 0%, #8B4513 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(20px);
+            background: rgba(250, 247, 240, 0.85);
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .horse-animation {
+            animation: gentle-float 6s ease-in-out infinite;
+        }
+        
+        @keyframes gentle-float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(1deg); }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; }
+        .stagger-2 { animation-delay: 0.2s; }
+        .stagger-3 { animation-delay: 0.3s; }
+        
+        .elegant-shadow {
+            box-shadow: 0 20px 40px rgba(114, 47, 55, 0.1);
+        }
+        
+        .hover-lift {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px rgba(114, 47, 55, 0.15);
+        }
+    </style>
+</head>
+<body class="font-sans text-charcoal bg-cream">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex justify-between items-center py-6">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-br from-burgundy to-gold flex items-center justify-center">
+                        <svg class="w-6 h-6 text-cream" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M8.5 7L9.91 8.41L6.41 11.91L5 10.5L8.5 7M15.5 7L19 10.5L17.59 11.91L14.09 8.41L15.5 7M12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9Z"/>
+                        </svg>
+                    </div>
+                    <span class="font-serif text-xl font-medium text-burgundy">Sowiniec</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-charcoal hover:text-burgundy transition-colors duration-300 font-medium">Dom</a>
+                    <a href="#about" class="text-charcoal hover:text-burgundy transition-colors duration-300 font-medium">Historia</a>
+                    <a href="#services" class="text-charcoal hover:text-burgundy transition-colors duration-300 font-medium">Doświadczenia</a>
+                    <a href="#gallery" class="text-charcoal hover:text-burgundy transition-colors duration-300 font-medium">Galeria</a>
+                    <a href="#contact" class="text-charcoal hover:text-burgundy transition-colors duration-300 font-medium">Kontakt</a>
+                </div>
+                <button class="md:hidden p-2" id="mobile-menu-btn">
+                    <svg class="w-6 h-6 text-charcoal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen hero-gradient flex items-center justify-center relative overflow-hidden">
+        <div class="absolute inset-0 opacity-5">
+            <svg class="w-full h-full object-cover" viewBox="0 0 800 600" fill="currentColor" class="text-burgundy">
+                <path class="horse-animation" d="M200 400 Q280 320 360 360 Q440 320 520 400 Q500 420 460 400 Q420 380 360 390 Q300 380 260 400 Q220 420 200 400 Z M320 280 Q330 270 345 275 Q355 265 370 270 Q380 275 375 285 Q365 290 345 285 Q325 290 320 280 Z M390 280 Q400 270 415 275 Q425 265 440 270 Q450 275 445 285 Q435 290 415 285 Q395 290 390 280 Z"/>
+            </svg>
+        </div>
+        
+        <div class="text-center z-10 px-6 max-w-4xl mx-auto">
+            <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-gradient mb-8 fade-in-up">
+                Sowiniec
+            </h1>
+            <p class="text-xl md:text-2xl text-charcoal/80 mb-12 font-light leading-relaxed fade-in-up stagger-1">
+                Gdzie elegancja spotyka się z pasją.<br>
+                <span class="text-lg">Ekskluzywny klub polo w sercu natury.</span>
+            </p>
+            <div class="space-y-4 md:space-y-0 md:space-x-6 md:flex md:justify-center fade-in-up stagger-2">
+                <button onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})" 
+                        class="w-full md:w-auto px-8 py-4 bg-burgundy text-cream rounded-full font-medium hover:bg-burgundy/90 transition-all duration-300 hover:shadow-lg">
+                    Odkryj Naszą Historię
+                </button>
+                <button onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})" 
+                        class="w-full md:w-auto px-8 py-4 border-2 border-burgundy text-burgundy rounded-full font-medium hover:bg-burgundy hover:text-cream transition-all duration-300">
+                    Dołącz Do Nas
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="space-y-8">
+                    <div>
+                        <h2 class="font-serif text-4xl md:text-5xl font-light text-burgundy mb-6">
+                            Tradycja w Każdym Ruchu
+                        </h2>
+                        <div class="w-16 h-0.5 bg-gold mb-8"></div>
+                    </div>
+                    <p class="text-lg text-charcoal/70 leading-relaxed">
+                        Od ponad dwudziestu lat kultywujemy sztukę polo w harmonii z naturą. 
+                        Każdy dzień w Sowiniec to celebracja elegancji, precyzji i wzajemnego 
+                        szacunku między jeźdźcem a koniem.
+                    </p>
+                    <p class="text-lg text-charcoal/70 leading-relaxed">
+                        Nasze argentyńskie konie polo to nie tylko zwierzęta - to partnerzy 
+                        w tańcu, który łączy tradycję z nowoczesnością, siłę z delikatnością.
+                    </p>
+                    <div class="grid grid-cols-3 gap-8 pt-8">
+                        <div class="text-center">
+                            <div class="text-3xl font-serif font-light text-burgundy mb-2">20+</div>
+                            <div class="text-sm text-charcoal/60 uppercase tracking-wider">Lat Pasji</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-serif font-light text-burgundy mb-2">45</div>
+                            <div class="text-sm text-charcoal/60 uppercase tracking-wider">Koni Polo</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-serif font-light text-burgundy mb-2">150+</div>
+                            <div class="text-sm text-charcoal/60 uppercase tracking-wider">Członków</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="glass-effect rounded-3xl p-12 elegant-shadow">
+                        <svg class="w-full h-80 text-burgundy/20" viewBox="0 0 400 300" fill="currentColor">
+                            <path d="M100 220 Q140 180 180 200 Q220 180 260 220 Q240 240 200 220 Q180 200 180 210 Q160 200 140 210 Q120 240 100 220 Z"/>
+                            <ellipse cx="150" cy="160" rx="4" ry="6"/>
+                            <ellipse cx="210" cy="160" rx="4" ry="6"/>
+                            <path d="M130 150 Q150 140 170 150 Q180 140 190 150 Q200 160 180 170 Q160 160 130 150"/>
+                            <path d="M120 170 Q130 165 145 170 L150 180 Q140 190 120 185 Z"/>
+                            <path d="M190 170 Q205 165 220 170 L215 180 Q205 190 190 185 Z"/>
+                            <path d="M80 200 L85 250 M95 200 L100 250 M260 200 L265 250 M275 200 L280 250"/>
+                            <path d="M140 140 Q145 130 155 135 Q160 125 170 130" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-cream">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="font-serif text-4xl md:text-5xl font-light text-burgundy mb-6">
+                    Nasze Doświadczenia
+                </h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto mb-8"></div>
+                <p class="text-lg text-charcoal/70 max-w-2xl mx-auto">
+                    Każde doświadczenie w Sowiniec to podróż ku doskonałości
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-3xl p-8 hover-lift elegant-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-burgundy/10 to-gold/10 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-medium text-burgundy mb-4">Lekcje Polo</h3>
+                    <p class="text-charcoal/70 leading-relaxed mb-6">
+                        Indywidualne i grupowe lekcje z doświadczonymi instruktorami. 
+                        Od pierwszych kroków po zaawansowane techniki.
+                    </p>
+                    <div class="text-sm text-burgundy font-medium">Od 300 zł / lekcja</div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-8 hover-lift elegant-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-burgundy/10 to-gold/10 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-medium text-burgundy mb-4">Hodowla Koni</h3>
+                    <p class="text-charcoal/70 leading-relaxed mb-6">
+                        Argentyńskie konie polo najwyższej klasy. Każdy koń to dzieło sztuki, 
+                        starannie wyselekcjonowane i wytrenowane.
+                    </p>
+                    <div class="text-sm text-burgundy font-medium">Konsultacje dostępne</div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-8 hover-lift elegant-shadow">
+                    <div class="w-16 h-16 bg-gradient-to-br from-burgundy/10 to-gold/10 rounded-2xl flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-serif text-xl font-medium text-burgundy mb-4">Wydarzenia Prywatne</h3>
+                    <p class="text-charcoal/70 leading-relaxed mb-6">
+                        Ekskluzywne turnieje, pokazy i wydarzenia korporacyjne. 
+                        Tworzymy niezapomniane chwile w wyjątkowej atmosferze.
+                    </p>
+                    <div class="text-sm text-burgundy font-medium">Na zamówienie</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-24 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="font-serif text-4xl md:text-5xl font-light text-burgundy mb-6">
+                    Chwile Elegancji
+                </h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-gradient-to-br from-burgundy/5 to-gold/5 rounded-3xl p-12 hover-lift elegant-shadow aspect-square flex items-center justify-center">
+                    <svg class="w-24 h-24 text-burgundy/30" viewBox="0 0 200 200" fill="currentColor">
+                        <path d="M60 140 Q90 110 120 130 Q150 110 180 140 Q170 150 140 130 Q120 120 120 125 Q110 120 90 125 Q70 150 60 140 Z"/>
+                        <ellipse cx="95" cy="95" rx="3" ry="4"/>
+                        <ellipse cx="145" cy="95" rx="3" ry="4"/>
+                        <path d="M80 85 Q95 80 110 85 Q120 80 130 85 Q140 90 120 95 Q100 90 80 85"/>
+                        <path d="M100 80 Q105 75 115 80"/>
+                    </svg>
+                </div>
+                
+                <div class="bg-gradient-to-br from-sage/20 to-cream rounded-3xl p-8 hover-lift elegant-shadow aspect-square flex flex-col items-center justify-center">
+                    <div class="w-16 h-16 bg-burgundy/10 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-2xl">🏆</span>
+                    </div>
+                    <h3 class="font-serif text-lg text-burgundy mb-2">Turniej Letni</h3>
+                    <p class="text-sm text-charcoal/60 text-center">Coroczne mistrzostwa klubowe</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-burgundy/5 to-gold/5 rounded-3xl p-12 hover-lift elegant-shadow aspect-square flex items-center justify-center">
+                    <svg class="w-24 h-24 text-burgundy/30" viewBox="0 0 200 200" fill="currentColor">
+                        <path d="M70 130 Q100 100 130 120 Q160 100 190 130 Q180 140 150 120 Q130 110 130 115 Q120 110 100 115 Q80 140 70 130 Z"/>
+                        <ellipse cx="105" cy="85" rx="2" ry="3"/>
+                        <ellipse cx="155" cy="85" rx="2" ry="3"/>
+                        <path d="M90 75 Q105 70 120 75 Q130 70 140 75 Q150 80 130 85 Q110 80 90 75"/>
+                        <path d="M110 70 Q115 65 125 70"/>
+                        <path d="M60 120 L65 160 M75 120 L80 160 M180 120 L185 160 M195 120 L200 160"/>
+                    </svg>
+                </div>
+                
+                <div class="bg-gradient-to-br from-sage/20 to-cream rounded-3xl p-8 hover-lift elegant-shadow aspect-square flex flex-col items-center justify-center">
+                    <div class="w-16 h-16 bg-burgundy/10 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-2xl">🌿</span>
+                    </div>
+                    <h3 class="font-serif text-lg text-burgundy mb-2">Stadniny</h3>
+                    <p class="text-sm text-charcoal/60 text-center">Nasze argentyńskie konie</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-burgundy/5 to-gold/5 rounded-3xl p-12 hover-lift elegant-shadow aspect-square flex items-center justify-center">
+                    <svg class="w-24 h-24 text-burgundy/30" viewBox="0 0 200 200" fill="currentColor">
+                        <rect x="80" y="110" width="40" height="30" rx="3"/>
+                        <path d="M85 110 L85 95 Q85 85 95 85 L105 85 Q115 85 115 95 L115 110"/>
+                        <circle cx="95" cy="95" r="2"/>
+                        <circle cx="105" cy="95" r="2"/>
+                        <path d="M95 105 Q100 108 105 105"/>
+                    </svg>
+                </div>
+                
+                <div class="bg-gradient-to-br from-sage/20 to-cream rounded-3xl p-8 hover-lift elegant-shadow aspect-square flex flex-col items-center justify-center">
+                    <div class="w-16 h-16 bg-burgundy/10 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-2xl">✨</span>
+                    </div>
+                    <h3 class="font-serif text-lg text-burgundy mb-2">Wydarzenia</h3>
+                    <p class="text-sm text-charcoal/60 text-center">Ekskluzywne spotkania</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-cream">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <h2 class="font-serif text-4xl md:text-5xl font-light text-burgundy mb-6">
+                    Dołącz Do Nas
+                </h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto mb-8"></div>
+                <p class="text-lg text-charcoal/70 max-w-2xl mx-auto">
+                    Rozpocznij swoją przygodę z polo w najbardziej eleganckim klubie w Polsce
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-16">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-burgundy/10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-6 h-6 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-burgundy mb-2">Lokalizacja</h4>
+                            <p class="text-charcoal/70">ul. Sowiniec 123<br>05-800 Pruszków</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-burgundy/10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-6 h-6 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-burgundy mb-2">Telefon</h4>
+                            <p class="text-charcoal/70">+48 22 123 45 67</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-burgundy/10 rounded-2xl flex items-center justify-center flex-shrink-0 mt-1">
+                            <svg class="w-6 h-6 text-burgundy" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-medium text-burgundy mb-2">Email</h4>
+                            <p class="text-charcoal/70">kontakt@sowiniecpolo.pl</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8">
+                        <h4 class="font-medium text-burgundy mb-4">Godziny Otwarcia</h4>
+                        <div class="space-y-2 text-charcoal/70">
+                            <div class="flex justify-between">
+                                <span>Poniedziałek - Piątek</span>
+                                <span>8:00 - 18:00</span>
+                            </div>
+                            <div class="flex justify-between">
+                                <span>Sobota - Niedziela</span>
+                                <span>9:00 - 17:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-3xl p-8 elegant-shadow">
+                    <h3 class="font-serif text-xl font-medium text-burgundy mb-6">Formularz Kontaktowy - Demo</h3>
+                    <form class="space-y-6" onsubmit="handleFormSubmit(event)">
+                        <div>
+                            <label class="block text-charcoal font-medium mb-3">Imię i Nazwisko</label>
+                            <input type="text" class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:border-burgundy transition-colors" required>
+                        </div>
+                        <div>
+                            <label class="block text-charcoal font-medium mb-3">Email</label>
+                            <input type="email" class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:border-burgundy transition-colors" required>
+                        </div>
+                        <div>
+                            <label class="block text-charcoal font-medium mb-3">Wiadomość</label>
+                            <textarea rows="4" class="w-full px-4 py-3 border border-gray-200 rounded-2xl focus:outline-none focus:border-burgundy transition-colors resize-none" required></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-burgundy text-cream py-4 rounded-2xl font-medium hover:bg-burgundy/90 transition-all duration-300 hover:shadow-lg">
+                            Wyślij Wiadomość
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-charcoal text-cream py-16">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div>
+                    <div class="flex items-center space-x-3 mb-6">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-burgundy to-gold flex items-center justify-center">
+                            <svg class="w-5 h-5 text-cream" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C13.1 2 14 2.9 14 4C14 5.1 13.1 6 12 6C10.9 6 10 5.1 10 4C10 2.9 10.9 2 12 2M8.5 7L9.91 8.41L6.41 11.91L5 10.5L8.5 7M15.5 7L19 10.5L17.59 11.91L14.09 8.41L15.5 7M12 9C13.66 9 15 10.34 15 12C15 13.66 13.66 15 12 15C10.34 15 9 13.66 9 12C9 10.34 10.34 9 12 9Z"/>
+                            </svg>
+                        </div>
+                        <span class="font-serif text-lg">Sowiniec Polo Club</span>
+                    </div>
+                    <p class="text-cream/70 leading-relaxed">
+                        Ekskluzywny klub polo, gdzie tradycja spotyka się z elegancją, 
+                        a każdy dzień to celebracja piękna sportu konnego.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-6">Nawigacja</h4>
+                    <ul class="space-y-3 text-cream/70">
+                        <li><a href="#home" class="hover:text-gold transition-colors">Dom</a></li>
+                        <li><a href="#about" class="hover:text-gold transition-colors">Historia</a></li>
+                        <li><a href="#services" class="hover:text-gold transition-colors">Doświadczenia</a></li>
+                        <li><a href="#contact" class="hover:text-gold transition-colors">Kontakt</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-medium mb-6">Społeczność</h4>
+                    <div class="flex space-x-4">
+                        <div class="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-gold/20 transition-colors cursor-pointer">
+                            <span class="text-sm">📘</span>
+                        </div>
+                        <div class="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-gold/20 transition-colors cursor-pointer">
+                            <span class="text-sm">📷</span>
+                        </div>
+                        <div class="w-10 h-10 bg-cream/10 rounded-full flex items-center justify-center hover:bg-gold/20 transition-colors cursor-pointer">
+                            <span class="text-sm">🐦</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-cream/10 mt-12 pt-8 text-center text-cream/50">
+                <p>&copy; 2024 Sowiniec Polo Club. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+            // Simple mobile menu implementation
+            alert('Menu mobilne - w pełnej wersji byłoby to rozwijane menu');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('glass-effect');
+            } else {
+                navbar.classList.remove('glass-effect');
+            }
+        });
+
+        // Form submission
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert('Dziękujemy za zainteresowanie! To jest wersja demonstracyjna - formularz nie wysyła rzeczywistych wiadomości.');
+        }
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in-up').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'974b4d1996e658ea',t:'MTc1NjEyNzEyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
