@@ -96,6 +96,19 @@
     .hover-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(114,47,55,.14); }
 
     @media (min-width: 768px){ .brand-logo{height:48px;} }
+    
+      /* --- FIX: kolory w mobilnym menu --- */
+  #mobile-menu { 
+    background:#ffffff; 
+  }
+  #mobile-menu a { 
+    color:#722F37 !important;     /* burgundy */
+    opacity: 1 !important;
+  }
+  #mobile-menu a:hover { 
+    color:#2C2C2C !important;     /* charcoal */
+  }
+
   </style>
 </head>
 <body class="font-sans text-charcoal bg-cream">
@@ -131,7 +144,7 @@
   </div>
 
   <!-- MOBILE MENU (hidden by default) -->
-  <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+<div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg border-t border-burgundy/10">
     <div class="flex flex-col space-y-4 p-6">
       <a href="#home" class="font-medium text-burgundy">Home</a>
       <a href="#about" class="font-medium text-burgundy">Our Story</a>
