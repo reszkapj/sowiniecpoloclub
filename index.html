@@ -4,8 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sowiniec Polo Club - Elegance in Motion</title>
+
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PWA / Theme -->
   <meta name="theme-color" content="#722F37" />
+
+  <!-- Tailwind config -->
   <script>
     tailwind.config = {
       theme: {
@@ -25,197 +31,121 @@
       },
     };
   </script>
+
+  <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="16x16" href="public/favicon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="public/favicon.png" />
   <link rel="apple-touch-icon" href="public/favicon.png" />
   <link rel="icon" href="public/favicon.png" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <!-- Page styles -->
   <style>
-    .hero-gradient {
-      background: linear-gradient(
-        135deg,
-        #faf7f0 0%,
-        #f5f1e8 50%,
-        #ede7d3 100%
-      );
+    /* HERO – overlay + vignette for contrast */
+    .hero-overlay {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse at center, rgba(0,0,0,0) 35%, rgba(44,44,44,0.35) 100%),
+        linear-gradient(180deg, rgba(44,44,44,0.55) 0%, rgba(114,47,55,0.38) 60%, rgba(114,47,55,0.28) 100%);
     }
 
-    .text-gradient {
-      background: linear-gradient(135deg, #722f37 0%, #8b4513 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    /* Subtle glass card behind hero copy */
+    .hero-card {
+      backdrop-filter: blur(10px);
+      background: rgba(250,247,240,0.85);
+      border: 1px solid rgba(212,175,55,0.12);
+      border-radius: 1.5rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
     }
 
-    .glass-effect {
-      backdrop-filter: blur(20px);
-      background: rgba(250, 247, 240, 0.85);
-      border: 1px solid rgba(212, 175, 55, 0.1);
-    }
+    /* Nav modes */
+    .nav-on-hero { color: #FAF7F0; }
+    .nav-on-hero a { color: #FAF7F0; }
+    .nav-on-hero a:hover { color: #D4AF37; }
+    .nav-on-hero .brand-text { color: #FAF7F0; }
+    .nav-on-hero .brand-logo { filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6)); }
 
-    .horse-animation {
-      animation: gentle-float 6s ease-in-out infinite;
+    .nav-solid {
+      background: rgba(255,255,255,0.98);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
     }
+    .nav-solid a { color: #722F37; }
+    .nav-solid a:hover { color: #2C2C2C; }
+    .nav-solid .brand-text { color: #722F37; }
 
-    @keyframes gentle-float {
-      0%,
-      100% {
-        transform: translateY(0px) rotate(0deg);
-      }
-      50% {
-        transform: translateY(-10px) rotate(1deg);
-      }
-    }
+    /* Nice lifting hover */
+    .elegant-shadow { box-shadow: 0 20px 40px rgba(114, 47, 55, 0.1); }
+    .hover-lift { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+    .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(114, 47, 55, 0.15); }
 
-    .fade-in-up {
-      animation: fadeInUp 0.8s ease-out forwards;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .stagger-1 {
-      animation-delay: 0.1s;
-    }
-    .stagger-2 {
-      animation-delay: 0.2s;
-    }
-    .stagger-3 {
-      animation-delay: 0.3s;
-    }
-
-    .elegant-shadow {
-      box-shadow: 0 20px 40px rgba(114, 47, 55, 0.1);
-    }
-
-    .hover-lift {
-      transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .hover-lift:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px rgba(114, 47, 55, 0.15);
+    @media (min-width: 768px) {
+      .brand-logo { height: 48px; }
     }
   </style>
 </head>
 <body class="font-sans text-charcoal bg-cream">
-  <!-- Navigation -->
-  <nav class="fixed top-0 w-full z-50 transition-all duration-300" id="navbar">
+
+  <!-- ================= NAV ================= -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 nav-on-hero">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex justify-between items-center py-6">
+      <div class="flex justify-between items-center py-4 md:py-5">
         <div class="flex items-center space-x-3">
-          <img
-            src="public/logosowiniec.png"
-            alt="Sowiniec Polo Club"
-            class="h-10 w-auto object-contain flex-shrink-0"
-          />
-          <span class="font-serif text-xl font-medium text-burgundy"
-            >Sowiniec Polo Club</span
-          >
+          <img src="public/logosowiniec.png" alt="Sowiniec Polo Club" class="brand-logo h-10 md:h-12 w-auto object-contain" />
+          <span class="brand-text font-serif text-lg md:text-xl font-medium">Sowiniec Polo Club</span>
         </div>
 
-        <div class="hidden md:flex space-x-8">
-          <a
-            href="#home"
-            class="text-burgundy hover:text-charcoal transition-colors duration-300 font-medium"
-            >Home</a
-          >
-          <a
-            href="#about"
-            class="text-burgundy hover:text-charcoal transition-colors duration-300 font-medium"
-            >Our Story</a
-          >
-          <a
-            href="#services"
-            class="text-burgundy hover:text-charcoal transition-colors duration-300 font-medium"
-            >Experiences</a
-          >
-          <a
-            href="#gallery"
-            class="text-burgundy hover:text-charcoal transition-colors duration-300 font-medium"
-            >Gallery</a
-          >
-          <a
-            href="#contact"
-            class="text-burgundy hover:text-charcoal transition-colors duration-300 font-medium"
-            >Contact</a
-          >
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="#home" class="font-medium">Home</a>
+          <a href="#about" class="font-medium">Our Story</a>
+          <a href="#services" class="font-medium">Experiences</a>
+          <a href="#tournaments" class="font-medium">Tournaments</a>
+          <a href="#gallery" class="font-medium">Gallery</a>
+          <a href="#contact" class="font-medium">Contact</a>
         </div>
-        <button class="md:hidden p-2" id="mobile-menu-btn">
-          <svg
-            class="w-6 h-6 text-charcoal"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
+
+        <button class="md:hidden p-2" id="mobile-menu-btn" aria-label="Open menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
-  <section
-    id="home"
-    class="min-h-screen hero-gradient flex items-center justify-center relative overflow-hidden"
-  >
+  <!-- ================= HERO ================= -->
+  <section id="home" class="min-h-screen relative overflow-hidden">
     <!-- Background -->
-    <div class="absolute inset-0">
-      <img
-        src="public/sowiniecpuchar.jpg"
-        alt="Background"
-        class="w-full h-full object-cover"
-      />
-      <div class="absolute inset-0 bg-cream/70"></div>
-    </div>
+    <img src="public/sowiniecpuchar.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover" />
+    <div class="hero-overlay"></div>
 
-    <!-- Content -->
-    <div class="text-center z-10 px-6 max-w-4xl mx-auto">
-      <h1
-        class="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-gradient mb-8 fade-in-up"
-      >
-        Sowiniec
-      </h1>
-      <p
-        class="text-xl md:text-2xl text-charcoal/80 mb-12 font-light leading-relaxed fade-in-up stagger-1"
-      >
-        Where elegance meets passion.<br />
-        <span class="text-lg">An exclusive polo club in the heart of nature.</span>
-      </p>
-      <div
-        class="space-y-4 md:space-y-0 md:space-x-6 md:flex md:justify-center fade-in-up stagger-2"
-      >
-        <button
-          onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
-          class="w-full md:w-auto px-8 py-4 bg-burgundy text-cream rounded-full font-medium hover:bg-burgundy/90 transition-all duration-300 hover:shadow-lg"
-        >
-          Discover Our Story
-        </button>
-        <button
-          onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
-          class="w-full md:w-auto px-8 py-4 border-2 border-burgundy text-burgundy rounded-full font-medium hover:bg-burgundy hover:text-cream transition-all duration-300"
-        >
-          Join Us
-        </button>
+    <!-- Centered content on a glass card -->
+    <div class="relative z-10 px-6">
+      <div class="max-w-3xl mx-auto mt-[24vh] md:mt-[28vh] hero-card p-6 md:p-10 text-center">
+        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-burgundy mb-4">
+          Sowiniec
+        </h1>
+        <p class="text-base md:text-xl text-charcoal/80 mb-8 leading-relaxed">
+          Where elegance meets passion.<br>
+          <span class="text-sm md:text-lg">An exclusive polo club in the heart of nature.</span>
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <button
+            onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
+            class="px-8 py-4 bg-burgundy text-cream rounded-full font-medium hover:bg-burgundy/90 transition-all duration-300 hover:shadow-lg">
+            Discover Our Story
+          </button>
+          <button
+            onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
+            class="px-8 py-4 border-2 border-burgundy text-burgundy rounded-full font-medium hover:bg-burgundy hover:text-cream transition-all duration-300">
+            Join Us
+          </button>
+        </div>
       </div>
     </div>
   </section>
-
   <!-- About -->
   <section id="about" class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6 lg:px-8">
