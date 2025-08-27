@@ -372,20 +372,29 @@
     >
       ✕
     </button>
+
+    <!-- Siatka miniaturek -->
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
       <img src="public/fields1.jpg" alt="Gallery image"
-           class="w-full h-40 object-cover rounded-xl" />
+           class="w-full h-40 object-cover rounded-xl cursor-pointer" />
       <img src="public/fields2.jpg" alt="Gallery image"
-           class="w-full h-40 object-cover rounded-xl" />
+           class="w-full h-40 object-cover rounded-xl cursor-pointer" />
       <img src="public/fields3.jpg" alt="Gallery image"
-           class="w-full h-40 object-cover rounded-xl" />
+           class="w-full h-40 object-cover rounded-xl cursor-pointer" />
       <img src="public/fields4.jpg" alt="Gallery image"
-           class="w-full h-40 object-cover rounded-xl" />
+           class="w-full h-40 object-cover rounded-xl cursor-pointer" />
       <img src="public/fields5.jpg" alt="Gallery image"
-           class="w-full h-40 object-cover rounded-xl" />
+           class="w-full h-40 object-cover rounded-xl cursor-pointer" />
+      <img src="public/fields6.jpg" alt="Gallery image"
+           class="w-full h-40 object-cover rounded-xl cursor-pointer" />
+      <img src="public/fields7.jpg" alt="Gallery image"
+           class="w-full h-40 object-cover rounded-xl cursor-pointer" />
+      <img src="public/fields8.jpg" alt="Gallery image"
+           class="w-full h-40 object-cover rounded-xl cursor-pointer" />
+      <img src="public/fields9.jpg" alt="Gallery image"
+           class="w-full h-40 object-cover rounded-xl cursor-pointer" />
     </div>
   </div>
-</div>
 
 
   <!-- Instagram -->
@@ -918,6 +927,43 @@
       observer.observe(el);
     });
   </script>
+  <script>
+  // Prosty zoom w modalu: kliknij miniaturę => pokaż duży podgląd
+  (function () {
+    const modal = document.getElementById('galleryModal');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+
+    // Nasłuchuj klików w miniatury TYLKO wewnątrz modala
+    modal.querySelectorAll('img').forEach(img => {
+      img.addEventListener('click', () => {
+        // pomiń klik w logo / inne obrazki — tu mamy tylko miniatury w tej sekcji
+        lightboxImg.src = img.src;
+        lightbox.classList.remove('hidden');
+        lightbox.setAttribute('aria-hidden', 'false');
+      });
+    });
+
+    // Zamknij klikając w tło (nie w obraz)
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.add('hidden');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+      }
+    });
+
+    // Zamknij klawiszem Esc
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+        lightbox.classList.add('hidden');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+      }
+    });
+  })();
+</script>
+
 </body>
 </html>
 
