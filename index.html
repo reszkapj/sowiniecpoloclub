@@ -98,16 +98,15 @@
     @media (min-width: 768px){ .brand-logo{height:48px;} }
     
       /* --- FIX: kolory w mobilnym menu --- */
-  #mobile-menu { 
-    background:#ffffff; 
-  }
-  #mobile-menu a { 
-    color:#722F37 !important;     /* burgundy */
-    opacity: 1 !important;
-  }
-  #mobile-menu a:hover { 
-    color:#2C2C2C !important;     /* charcoal */
-  }
+.mobile-glass {
+  background: rgba(20, 20, 20, 0.28);
+  backdrop-filter: saturate(120%) blur(8px);
+  -webkit-backdrop-filter: saturate(120%) blur(8px); /* dla iOS/Safari */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FAF7F0;
+}
+.mobile-glass a { color: #FAF7F0; }
+.mobile-glass a:hover { color: #D4AF37; }
 
   </style>
 </head>
@@ -144,9 +143,9 @@
   </div>
 
   <!-- MOBILE MENU (hidden by default) -->
-<div id="mobile-menu" class="md:hidden hidden nav-hero">
+<div id="mobile-menu" class="md:hidden hidden mobile-glass shadow-lg">
     <div class="flex flex-col space-y-4 p-6">
-      <a href="#home" class="font-medium text-burgundy">Home</a>
+      <a href="#home" class="font-medium hover:text-gold transition-colors">Home</a>
       <a href="#about" class="font-medium text-burgundy">Our Story</a>
       <a href="#services" class="font-medium text-burgundy">Experiences</a>
       <a href="#tournaments" class="font-medium text-burgundy">Tournaments</a>
