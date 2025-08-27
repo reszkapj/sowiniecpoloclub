@@ -928,9 +928,6 @@
   </footer>
 
   <script>
-    document.getElementById("mobile-menu-btn").addEventListener("click", function () {
-      alert("Mobile menu - in full version this would expand.");
-    });
 
     // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -1027,6 +1024,28 @@
     });
   });
 </script>
+
+  <script>
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  function toggleMenu() {
+    const isHidden = mobileMenu.classList.contains("hidden");
+    mobileMenu.classList.toggle("hidden");
+    // atrybut dla dostępności
+    menuBtn.setAttribute("aria-expanded", String(isHidden));
+  }
+
+  menuBtn.addEventListener("click", toggleMenu);
+
+  // zamknij menu po kliknięciu w link
+  document.querySelectorAll("#mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      if (!mobileMenu.classList.contains("hidden")) toggleMenu();
+    });
+  });
+</script>
+
 
 </body>
 </html>
