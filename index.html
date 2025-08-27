@@ -8,7 +8,7 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- PWA / Theme -->
+  <!-- Theme -->
   <meta name="theme-color" content="#722F37" />
 
   <!-- Tailwind config -->
@@ -27,76 +27,72 @@
             serif: ["Lora", "serif"],
             sans: ["Inter", "sans-serif"],
           },
+          boxShadow: {
+            header: "0 8px 24px rgba(0,0,0,.08)",
+          }
         },
       },
     };
   </script>
 
-  <!-- Favicon -->
+  <!-- Icons / Fonts -->
   <link rel="icon" type="image/png" sizes="16x16" href="public/favicon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="public/favicon.png" />
   <link rel="apple-touch-icon" href="public/favicon.png" />
   <link rel="icon" href="public/favicon.png" />
-
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 
-  <!-- Page styles -->
   <style>
-    /* HERO – overlay + vignette for contrast */
+    /* HERO overlay – mocniejszy, z winietą */
     .hero-overlay {
       position: absolute; inset: 0;
       background:
-        radial-gradient(ellipse at center, rgba(0,0,0,0) 35%, rgba(44,44,44,0.35) 100%),
-        linear-gradient(180deg, rgba(44,44,44,0.55) 0%, rgba(114,47,55,0.38) 60%, rgba(114,47,55,0.28) 100%);
+        radial-gradient(80% 60% at 50% 40%, rgba(0,0,0,0) 40%, rgba(0,0,0,.42) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.35) 40%, rgba(114,47,55,.35) 100%);
     }
 
-    /* Subtle glass card behind hero copy */
-    .hero-card {
-      backdrop-filter: blur(10px);
-      background: rgba(250,247,240,0.85);
-      border: 1px solid rgba(212,175,55,0.12);
-      border-radius: 1.5rem;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.25);
-    }
+    /* Tekst na hero z delikatnym cieniem */
+    .title-shadow { text-shadow: 0 4px 24px rgba(0,0,0,.45); }
+    .copy-shadow  { text-shadow: 0 2px 16px rgba(0,0,0,.35); }
 
-    /* Nav modes */
-    .nav-on-hero { color: #FAF7F0; }
-    .nav-on-hero a { color: #FAF7F0; }
-    .nav-on-hero a:hover { color: #D4AF37; }
-    .nav-on-hero .brand-text { color: #FAF7F0; }
-    .nav-on-hero .brand-logo { filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6)); }
+    /* NAV tryby */
+    .nav-hero {
+      color: #FAF7F0;
+      background: rgba(20,20,20,0.28);
+      backdrop-filter: saturate(120%) blur(8px);
+      border-bottom: 1px solid rgba(255,255,255,0.12);
+    }
+    .nav-hero a { color:#FAF7F0; }
+    .nav-hero a:hover { color:#D4AF37; }
+    .nav-hero .brand-text { color:#FAF7F0; }
 
     .nav-solid {
       background: rgba(255,255,255,0.98);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      box-shadow: var(--tw-shadow,0 0 #0000), 0 8px 24px rgba(0,0,0,.08);
     }
-    .nav-solid a { color: #722F37; }
-    .nav-solid a:hover { color: #2C2C2C; }
-    .nav-solid .brand-text { color: #722F37; }
+    .nav-solid a { color:#722F37; }
+    .nav-solid a:hover { color:#2C2C2C; }
+    .nav-solid .brand-text { color:#722F37; }
 
-    /* Nice lifting hover */
     .elegant-shadow { box-shadow: 0 20px 40px rgba(114, 47, 55, 0.1); }
-    .hover-lift { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-    .hover-lift:hover { transform: translateY(-8px); box-shadow: 0 25px 50px rgba(114, 47, 55, 0.15); }
+    .hover-lift { transition: all .35s cubic-bezier(.4,0,.2,1); }
+    .hover-lift:hover { transform: translateY(-6px); box-shadow: 0 20px 48px rgba(114,47,55,.14); }
 
-    @media (min-width: 768px) {
-      .brand-logo { height: 48px; }
-    }
+    @media (min-width: 768px){ .brand-logo{height:48px;} }
   </style>
 </head>
 <body class="font-sans text-charcoal bg-cream">
 
-  <!-- ================= NAV ================= -->
-  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 nav-on-hero">
+  <!-- ============== NAV ============== -->
+  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 nav-hero">
     <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex justify-between items-center py-4 md:py-5">
-        <div class="flex items-center space-x-3">
+      <div class="flex justify-between items-center py-3.5 md:py-4">
+        <div class="flex items-center gap-3">
           <img src="public/logosowiniec.png" alt="Sowiniec Polo Club" class="brand-logo h-10 md:h-12 w-auto object-contain" />
           <span class="brand-text font-serif text-lg md:text-xl font-medium">Sowiniec Polo Club</span>
         </div>
 
-        <div class="hidden md:flex items-center space-x-8">
+        <div class="hidden md:flex items-center gap-8">
           <a href="#home" class="font-medium">Home</a>
           <a href="#about" class="font-medium">Our Story</a>
           <a href="#services" class="font-medium">Experiences</a>
@@ -115,34 +111,31 @@
     </div>
   </nav>
 
-  <!-- ================= HERO ================= -->
-  <section id="home" class="min-h-screen relative overflow-hidden">
-    <!-- Background -->
+  <!-- ============== HERO ============== -->
+  <section id="home" class="relative min-h-[88vh] md:min-h-screen overflow-hidden">
+    <!-- BG -->
     <img src="public/sowiniecpuchar.jpg" alt="Background" class="absolute inset-0 w-full h-full object-cover" />
     <div class="hero-overlay"></div>
 
-    <!-- Centered content on a glass card -->
-    <div class="relative z-10 px-6">
-      <div class="max-w-3xl mx-auto mt-[24vh] md:mt-[28vh] hero-card p-6 md:p-10 text-center">
-        <h1 class="font-serif text-5xl md:text-7xl lg:text-8xl font-light text-burgundy mb-4">
-          Sowiniec
-        </h1>
-        <p class="text-base md:text-xl text-charcoal/80 mb-8 leading-relaxed">
-          Where elegance meets passion.<br>
-          <span class="text-sm md:text-lg">An exclusive polo club in the heart of nature.</span>
-        </p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <button
-            onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})"
-            class="px-8 py-4 bg-burgundy text-cream rounded-full font-medium hover:bg-burgundy/90 transition-all duration-300 hover:shadow-lg">
-            Discover Our Story
-          </button>
-          <button
-            onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})"
-            class="px-8 py-4 border-2 border-burgundy text-burgundy rounded-full font-medium hover:bg-burgundy hover:text-cream transition-all duration-300">
-            Join Us
-          </button>
-        </div>
+    <!-- COPY (bez pudełka) -->
+    <div class="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 pt-[26vh] md:pt-[32vh] pb-24 text-center">
+      <h1 class="title-shadow font-serif font-light text-5xl md:text-7xl lg:text-8xl text-cream tracking-tight">
+        Sowiniec
+      </h1>
+      <p class="copy-shadow mt-6 text-base md:text-xl text-cream/90 leading-relaxed">
+        Where elegance meets passion.
+        <br>
+        <span class="text-sm md:text-lg">An exclusive polo club in the heart of nature.</span>
+      </p>
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#about"
+           class="px-8 py-4 rounded-full font-medium bg-burgundy text-cream hover:bg-burgundy/90 transition-all hover:shadow-lg">
+          Discover Our Story
+        </a>
+        <a href="#contact"
+           class="px-8 py-4 rounded-full font-medium border-2 border-cream text-cream hover:bg-cream hover:text-burgundy transition-all">
+          Join Us
+        </a>
       </div>
     </div>
   </section>
