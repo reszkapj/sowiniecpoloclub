@@ -101,32 +101,47 @@
 <body class="font-sans text-charcoal bg-cream">
 
   <!-- ============== NAV ============== -->
-  <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 nav-hero">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8">
-      <div class="flex justify-between items-center py-3.5 md:py-4">
-        <div class="flex items-center gap-3">
-          <img src="public/logosowiniec.png" alt="Sowiniec Polo Club" class="brand-logo h-10 md:h-12 w-auto object-contain" />
-          <span class="brand-text font-serif text-lg md:text-xl font-medium">Sowiniec Polo Club</span>
-        </div>
-
-        <div class="hidden md:flex items-center gap-8">
-          <a href="#home" class="font-medium">Home</a>
-          <a href="#about" class="font-medium">Our Story</a>
-          <a href="#services" class="font-medium">Experiences</a>
-          <a href="#tournaments" class="font-medium">Tournaments</a>
-          <a href="#instagram" class="font-medium">Gallery</a>
-          <a href="#contact" class="font-medium">Contact</a>
-        </div>
-
-        <button class="md:hidden p-2" id="mobile-menu-btn" aria-label="Open menu">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                  d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
+<nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 nav-hero">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <div class="flex justify-between items-center py-3.5 md:py-4">
+      <!-- LOGO -->
+      <div class="flex items-center gap-3">
+        <img src="public/logosowiniec.png" alt="Sowiniec Polo Club" class="brand-logo h-10 md:h-12 w-auto object-contain" />
+        <span class="brand-text font-serif text-lg md:text-xl font-medium">Sowiniec Polo Club</span>
       </div>
+
+      <!-- DESKTOP MENU -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#home" class="font-medium">Home</a>
+        <a href="#about" class="font-medium">Our Story</a>
+        <a href="#services" class="font-medium">Experiences</a>
+        <a href="#tournaments" class="font-medium">Tournaments</a>
+        <a href="#instagram" class="font-medium">Gallery</a>
+        <a href="#contact" class="font-medium">Contact</a>
+      </div>
+
+      <!-- MOBILE BUTTON -->
+      <button class="md:hidden p-2" id="mobile-menu-btn" aria-label="Open menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
-  </nav>
+  </div>
+
+  <!-- MOBILE MENU (hidden by default) -->
+  <div id="mobile-menu" class="md:hidden hidden bg-white shadow-lg">
+    <div class="flex flex-col space-y-4 p-6">
+      <a href="#home" class="font-medium text-burgundy">Home</a>
+      <a href="#about" class="font-medium text-burgundy">Our Story</a>
+      <a href="#services" class="font-medium text-burgundy">Experiences</a>
+      <a href="#tournaments" class="font-medium text-burgundy">Tournaments</a>
+      <a href="#instagram" class="font-medium text-burgundy">Gallery</a>
+      <a href="#contact" class="font-medium text-burgundy">Contact</a>
+    </div>
+  </div>
+</nav>
 
   <!-- ============== HERO ============== -->
   <section id="home" class="relative min-h-[88vh] md:min-h-screen overflow-hidden">
@@ -977,7 +992,7 @@
       });
     });
 
-    // Zamknij klikając w tło (nie w obraz)
+    // Close when on background (not on image)
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         lightbox.classList.add('hidden');
@@ -986,7 +1001,7 @@
       }
     });
 
-    // Zamknij klawiszem Esc
+    // Close with Esc
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
         lightbox.classList.add('hidden');
@@ -995,6 +1010,22 @@
       }
     });
   })();
+</script>
+
+  <script>
+  const menuBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  menuBtn.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  // Opcjonalnie: zamknij menu po kliknięciu w link
+  document.querySelectorAll("#mobile-menu a").forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
+  });
 </script>
 
 </body>
