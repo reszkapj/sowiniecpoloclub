@@ -172,6 +172,295 @@
     </div>
   </section>
 
+  <!-- ======= GROUPS & BRACKET (add under live match) ======= -->
+<style>
+  /* lightweight, scoped */
+  .flag {
+    width: 28px; height: 18px; border-radius: 3px;
+    background-size: cover; background-position: center;
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+    animation: wave 2s infinite ease-in-out;
+  }
+  @keyframes wave {
+    0% { transform: rotate(0deg) scaleY(1); }
+    25%{ transform: rotate(1deg) scaleY(1.02); }
+    50%{ transform: rotate(0deg) scaleY(1); }
+    75%{ transform: rotate(-1deg) scaleY(0.98); }
+    100%{ transform: rotate(0deg) scaleY(1); }
+  }
+  .match-card{ border:1px solid #eee }
+</style>
+
+<section id="groups-and-bracket" class="bg-cream/50 py-10 px-4">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="font-serif text-2xl md:text-3xl text-burgundy text-center mb-6">
+      Group Stage & Knockout Bracket
+    </h2>
+
+    <!-- Groups overview -->
+    <div class="grid md:grid-cols-2 gap-6 mb-8">
+      <!-- Group A -->
+      <div class="bg-white rounded-2xl p-5 shadow">
+        <h3 class="font-semibold text-burgundy mb-3">Group A</h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-center justify-between">
+            <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/pl.svg')"></span>Poland</span>
+            <span class="text-xs text-charcoal/60">POL</span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/de.svg')"></span>Germany</span>
+            <span class="text-xs text-charcoal/60">GER</span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/ch.svg')"></span>Switzerland</span>
+            <span class="text-xs text-charcoal/60">SUI</span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/nl.svg')"></span>Netherlands</span>
+            <span class="text-xs text-charcoal/60">NED</span>
+          </li>
+        </ul>
+      </div>
+      <!-- Group B -->
+      <div class="bg-white rounded-2xl p-5 shadow">
+        <h3 class="font-semibold text-burgundy mb-3">Group B</h3>
+        <ul class="space-y-2 text-sm">
+          <li class="flex items-center justify-between">
+            <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/es.svg')"></span>Spain</span>
+            <span class="text-xs text-charcoal/60">ESP</span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/it.svg')"></span>Italy</span>
+            <span class="text-xs text-charcoal/60">ITA</span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/hu.svg')"></span>Hungary</span>
+            <span class="text-xs text-charcoal/60">HUN</span>
+          </li>
+          <li class="flex items-center justify-between">
+            <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/fr.svg')"></span>France</span>
+            <span class="text-xs text-charcoal/60">FRA</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Schedule (mobile-first list, desktop two columns) -->
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- LEFT COLUMN: Fri + Sun + Mon -->
+      <div class="space-y-4">
+        <!-- Friday -->
+        <div class="bg-white rounded-2xl p-5 shadow match-card">
+          <h4 class="font-semibold text-burgundy mb-2">Friday, Aug 28, 2025</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-start justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">13:30</div>
+              <div class="flex-1">
+                <div class="flex items-center justify-between">
+                  <span class="flex items-center gap-2">
+                    <span class="flag" style="background-image:url('https://flagcdn.com/pl.svg')"></span>Poland
+                  </span>
+                  <span class="text-burgundy font-semibold">—</span>
+                  <span class="flex items-center gap-2">
+                    Germany<span class="flag" style="background-image:url('https://flagcdn.com/de.svg')"></span>
+                  </span>
+                </div>
+                <p class="text-xs text-red-600 italic mt-1">Interrupted in 1st chukker due to rain</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sunday -->
+        <div class="bg-white rounded-2xl p-5 shadow match-card">
+          <h4 class="font-semibold text-burgundy mb-2">Sunday, Aug 31, 2025</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">12:00</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/ch.svg')"></span>Switzerland</span>
+                <span class="text-burgundy font-semibold">8 : 6</span>
+                <span class="flex items-center gap-2">Netherlands<span class="flag" style="background-image:url('https://flagcdn.com/nl.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">13:30</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/es.svg')"></span>Spain</span>
+                <span class="text-burgundy font-semibold">7 : 9</span>
+                <span class="flex items-center gap-2">Italy<span class="flag" style="background-image:url('https://flagcdn.com/it.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">16:00</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/hu.svg')"></span>Hungary</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">France<span class="flag" style="background-image:url('https://flagcdn.com/fr.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">17:30</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/pl.svg')"></span>Poland</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Switzerland<span class="flag" style="background-image:url('https://flagcdn.com/ch.svg')"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Monday -->
+        <div class="bg-white rounded-2xl p-5 shadow match-card">
+          <h4 class="font-semibold text-burgundy mb-2">Monday, Sep 1, 2025</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">12:00</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/de.svg')"></span>Germany</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Netherlands<span class="flag" style="background-image:url('https://flagcdn.com/nl.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">13:30</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/es.svg')"></span>Spain</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">France<span class="flag" style="background-image:url('https://flagcdn.com/fr.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">16:00</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/it.svg')"></span>Italy</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Hungary<span class="flag" style="background-image:url('https://flagcdn.com/hu.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">17:30</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/pl.svg')"></span>Poland</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Netherlands<span class="flag" style="background-image:url('https://flagcdn.com/nl.svg')"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT COLUMN: Wed + Thu + Bracket -->
+      <div class="space-y-6">
+        <!-- Wednesday -->
+        <div class="bg-white rounded-2xl p-5 shadow match-card">
+          <h4 class="font-semibold text-burgundy mb-2">Wednesday, Sep 3, 2025</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">12:00</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/de.svg')"></span>Germany</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Switzerland<span class="flag" style="background-image:url('https://flagcdn.com/ch.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">13:30</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/es.svg')"></span>Spain</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Hungary<span class="flag" style="background-image:url('https://flagcdn.com/hu.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">16:00</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/it.svg')"></span>Italy</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">France<span class="flag" style="background-image:url('https://flagcdn.com/fr.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">17:30</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/pl.svg')"></span>Poland</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Germany<span class="flag" style="background-image:url('https://flagcdn.com/de.svg')"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Thursday -->
+        <div class="bg-white rounded-2xl p-5 shadow match-card">
+          <h4 class="font-semibold text-burgundy mb-2">Thursday, Sep 4, 2025</h4>
+          <div class="space-y-3 text-sm">
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">12:00</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/nl.svg')"></span>Netherlands</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Poland<span class="flag" style="background-image:url('https://flagcdn.com/pl.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">13:30</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/ch.svg')"></span>Switzerland</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Germany<span class="flag" style="background-image:url('https://flagcdn.com/de.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">16:00</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/es.svg')"></span>Spain</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Italy<span class="flag" style="background-image:url('https://flagcdn.com/it.svg')"></span></span>
+              </div>
+            </div>
+            <div class="flex items-center justify-between gap-3">
+              <div class="min-w-[70px] text-charcoal/70">17:30</div>
+              <div class="flex-1 flex items-center justify-between">
+                <span class="flex items-center gap-2"><span class="flag" style="background-image:url('https://flagcdn.com/fr.svg')"></span>France</span>
+                <span class="text-burgundy font-semibold">—</span>
+                <span class="flex items-center gap-2">Hungary<span class="flag" style="background-image:url('https://flagcdn.com/hu.svg')"></span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bracket -->
+        <div class="bg-white rounded-2xl p-5 shadow">
+          <h3 class="font-semibold text-burgundy mb-3">Knockout Bracket</h3>
+          <div class="grid sm:grid-cols-2 gap-4 text-sm">
+            <!-- Semifinals (Saturday) -->
+            <div class="bg-cream rounded-xl p-4">
+              <p class="text-charcoal/70 text-xs mb-1">Saturday, Sep 6 — 12:00</p>
+              <p class="font-medium">SF1: Group A #1 vs Group B #2</p>
+            </div>
+            <div class="bg-cream rounded-xl p-4">
+              <p class="text-charcoal/70 text-xs mb-1">Saturday, Sep 6 — 13:30</p>
+              <p class="font-medium">SF2: Group B #1 vs Group A #2</p>
+            </div>
+            <!-- 3rd place + Final (Sunday) -->
+            <div class="bg-cream rounded-xl p-4">
+              <p class="text-charcoal/70 text-xs mb-1">Sunday, Sep 7 — 12:00</p>
+              <p class="font-medium">3rd Place: Loser SF1 vs Loser SF2</p>
+            </div>
+            <div class="bg-cream rounded-xl p-4">
+              <p class="text-charcoal/70 text-xs mb-1">Sunday, Sep 7 — 15:00</p>
+              <p class="font-medium">Final: Winner SF1 vs Winner SF2</p>
+            </div>
+          </div>
+          <p class="text-xs text-charcoal/60 mt-3">* Pairings auto-resolve from group standings.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
   <!-- FOOTER -->
   <footer class="bg-burgundy text-cream py-6 mt-12">
     <div class="text-center text-sm">
