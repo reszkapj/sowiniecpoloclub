@@ -505,64 +505,85 @@
   </div>
 </section>
 
-  <!-- MEET THE TEAMS -->
-<section class="max-w-6xl mx-auto py-12 px-4">
-  <h2 class="text-center font-serif text-3xl text-burgundy mb-10">Meet the Teams</h2>
+<!-- =============== MEET THE TEAMS =============== -->
+<style>
+  /* waving flags */
+  .flag {
+    width: 40px; height: 26px; border-radius: 4px;
+    background-size: cover; background-position: center;
+    box-shadow: 0 2px 6px rgba(0,0,0,.3);
+    animation: wave 2s infinite ease-in-out;
+  }
+  @keyframes wave {
+    0% { transform: rotate(0deg) scaleY(1); }
+    25% { transform: rotate(1deg) scaleY(1.02); }
+    50% { transform: rotate(0deg) scaleY(1); }
+    75% { transform: rotate(-1deg) scaleY(0.98); }
+    100% { transform: rotate(0deg) scaleY(1); }
+  }
+</style>
+
+<section id="teams" class="max-w-7xl mx-auto py-12 px-4">
+  <h2 class="text-center font-serif text-3xl md:text-4xl text-burgundy mb-10">Meet the Teams</h2>
 
   <div class="grid gap-8 md:grid-cols-2">
-    <!-- Team Card -->
+    <!-- ================= POLAND ================= -->
     <div class="bg-white rounded-3xl shadow-lg p-6">
-      <!-- Team Header -->
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-3">
-          <div class="flag" style="background-image:url('https://flagcdn.com/w40/pl.png');"></div>
+          <div class="flag" style="background-image:url('https://flagcdn.com/w40/pl.png');" aria-hidden="true"></div>
           <h3 class="font-serif text-xl text-burgundy">Poland</h3>
         </div>
         <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 18</span>
       </div>
 
-      <!-- Coach -->
-      <div class="flex items-center gap-3 mb-5 p-3 bg-cream rounded-xl">
-        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4zM4.9 16.2c-.1.5.2 1 .7 1.2 2.1.8 4.2 1.3 6.4 1.3h1.3c.6 0 1-.4 1-1s-.4-1-1-1H12c-1.9 0-3.9-.4-5.7-1.1-.5-.2-1 .1-1.1.7z"/>
+      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
+        <!-- coach cap icon -->
+        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/>
         </svg>
         <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Jan Kowalski</span>
       </div>
 
+      <!-- Jersey -->
+      <div class="mb-5">
+        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Poland+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Poland jersey">
+      </div>
+
       <!-- Players -->
       <div class="grid sm:grid-cols-2 gap-4">
-        <div class="flex items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/men/31.jpg" class="w-12 h-12 rounded-full object-cover">
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/31.jpg" class="w-12 h-12 rounded-full object-cover" alt="Adam Nowak portrait">
           <div>
             <p class="font-medium">Adam Nowak</p>
             <p class="text-sm text-charcoal/60">Handicap: 5</p>
           </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full object-cover">
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full object-cover" alt="Michał Lewandowski portrait">
           <div>
             <p class="font-medium">Michał Lewandowski</p>
             <p class="text-sm text-charcoal/60">Handicap: 4</p>
           </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/men/33.jpg" class="w-12 h-12 rounded-full object-cover">
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/33.jpg" class="w-12 h-12 rounded-full object-cover" alt="Tomasz Zieliński portrait">
           <div>
             <p class="font-medium">Tomasz Zieliński</p>
             <p class="text-sm text-charcoal/60">Handicap: 5</p>
           </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/men/34.jpg" class="w-12 h-12 rounded-full object-cover">
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/34.jpg" class="w-12 h-12 rounded-full object-cover" alt="Piotr Wiśniewski portrait">
           <div>
             <p class="font-medium">Piotr Wiśniewski</p>
             <p class="text-sm text-charcoal/60">Handicap: 4</p>
           </div>
-        </div>
+        </button>
       </div>
     </div>
 
-    <!-- Kolejna drużyna -->
+    <!-- ================= GERMANY ================= -->
     <div class="bg-white rounded-3xl shadow-lg p-6">
       <div class="flex items-center justify-between mb-6">
         <div class="flex items-center gap-3">
@@ -571,45 +592,310 @@
         </div>
         <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 17</span>
       </div>
-      <div class="flex items-center gap-3 mb-5 p-3 bg-cream rounded-xl">
-        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4zM4.9 16.2c-.1.5.2 1 .7 1.2 2.1.8 4.2 1.3 6.4 1.3h1.3c.6 0 1-.4 1-1s-.4-1-1-1H12c-1.9 0-3.9-.4-5.7-1.1-.5-.2-1 .1-1.1.7z"/>
+
+      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
+        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/>
         </svg>
-        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Hans Müller</span>
+        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Lukas Meier</span>
       </div>
+
+      <div class="mb-5">
+        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Germany+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Germany jersey">
+      </div>
+
       <div class="grid sm:grid-cols-2 gap-4">
-        <div class="flex items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/men/41.jpg" class="w-12 h-12 rounded-full object-cover">
-          <div>
-            <p class="font-medium">Lukas Schmidt</p>
-            <p class="text-sm text-charcoal/60">Handicap: 5</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/men/42.jpg" class="w-12 h-12 rounded-full object-cover">
-          <div>
-            <p class="font-medium">Jonas Becker</p>
-            <p class="text-sm text-charcoal/60">Handicap: 4</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/men/43.jpg" class="w-12 h-12 rounded-full object-cover">
-          <div>
-            <p class="font-medium">Max Wagner</p>
-            <p class="text-sm text-charcoal/60">Handicap: 4</p>
-          </div>
-        </div>
-        <div class="flex items-center gap-3">
-          <img src="https://randomuser.me/api/portraits/men/44.jpg" class="w-12 h-12 rounded-full object-cover">
-          <div>
-            <p class="font-medium">Felix Braun</p>
-            <p class="text-sm text-charcoal/60">Handicap: 4</p>
-          </div>
-        </div>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/41.jpg" class="w-12 h-12 rounded-full object-cover" alt="Felix Wagner portrait">
+          <div><p class="font-medium">Felix Wagner</p><p class="text-sm text-charcoal/60">Handicap: 5</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/42.jpg" class="w-12 h-12 rounded-full object-cover" alt="Maximilian Koch portrait">
+          <div><p class="font-medium">Maximilian Koch</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/43.jpg" class="w-12 h-12 rounded-full object-cover" alt="Jonas Becker portrait">
+          <div><p class="font-medium">Jonas Becker</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/44.jpg" class="w-12 h-12 rounded-full object-cover" alt="Leon Schröder portrait">
+          <div><p class="font-medium">Leon Schröder</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
       </div>
     </div>
+
+    <!-- ================= SWITZERLAND ================= -->
+    <div class="bg-white rounded-3xl shadow-lg p-6">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="flag" style="background-image:url('https://flagcdn.com/w40/ch.png');"></div>
+          <h3 class="font-serif text-xl text-burgundy">Switzerland</h3>
+        </div>
+        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 16</span>
+      </div>
+
+      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
+        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Matteo Frei</span>
+      </div>
+
+      <div class="mb-5">
+        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Switzerland+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Switzerland jersey">
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/51.jpg" class="w-12 h-12 rounded-full" alt="Luca Steiner">
+          <div><p class="font-medium">Luca Steiner</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/52.jpg" class="w-12 h-12 rounded-full" alt="Noah Keller">
+          <div><p class="font-medium">Noah Keller</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/53.jpg" class="w-12 h-12 rounded-full" alt="Elias Meier">
+          <div><p class="font-medium">Elias Meier</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/54.jpg" class="w-12 h-12 rounded-full" alt="Nico Baumgartner">
+          <div><p class="font-medium">Nico Baumgartner</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= NETHERLANDS ================= -->
+    <div class="bg-white rounded-3xl shadow-lg p-6">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="flag" style="background-image:url('https://flagcdn.com/w40/nl.png');"></div>
+          <h3 class="font-serif text-xl text-burgundy">Netherlands</h3>
+        </div>
+        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 15</span>
+      </div>
+
+      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
+        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Daan Visser</span>
+      </div>
+
+      <div class="mb-5">
+        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Netherlands+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Netherlands jersey">
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/61.jpg" class="w-12 h-12 rounded-full" alt="Daan Janssen">
+          <div><p class="font-medium">Daan Janssen</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/62.jpg" class="w-12 h-12 rounded-full" alt="Timo Bakker">
+          <div><p class="font-medium">Timo Bakker</p><p class="text-sm text-charcoal/60">Handicap: 3</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/63.jpg" class="w-12 h-12 rounded-full" alt="Milan de Vries">
+          <div><p class="font-medium">Milan de Vries</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/64.jpg" class="w-12 h-12 rounded-full" alt="Sven Visser">
+          <div><p class="font-medium">Sven Visser</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= SPAIN ================= -->
+    <div class="bg-white rounded-3xl shadow-lg p-6">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="flag" style="background-image:url('https://flagcdn.com/w40/es.png');"></div>
+          <h3 class="font-serif text-xl text-burgundy">Spain</h3>
+        </div>
+        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 19</span>
+      </div>
+
+      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
+        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Alejandro Ruiz</span>
+      </div>
+
+      <div class="mb-5">
+        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Spain+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Spain jersey">
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/71.jpg" class="w-12 h-12 rounded-full" alt="Juan Torres">
+          <div><p class="font-medium">Juan Torres</p><p class="text-sm text-charcoal/60">Handicap: 6</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/72.jpg" class="w-12 h-12 rounded-full" alt="Luis Gómez">
+          <div><p class="font-medium">Luis Gómez</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/73.jpg" class="w-12 h-12 rounded-full" alt="Pedro Sánchez">
+          <div><p class="font-medium">Pedro Sánchez</p><p class="text-sm text-charcoal/60">Handicap: 5</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/74.jpg" class="w-12 h-12 rounded-full" alt="Carlos Vega">
+          <div><p class="font-medium">Carlos Vega</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= ITALY ================= -->
+    <div class="bg-white rounded-3xl shadow-lg p-6">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="flag" style="background-image:url('https://flagcdn.com/w40/it.png');"></div>
+          <h3 class="font-serif text-xl text-burgundy">Italy</h3>
+        </div>
+        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 17</span>
+      </div>
+
+      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
+        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Marco Bianchi</span>
+      </div>
+
+      <div class="mb-5">
+        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Italy+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Italy jersey">
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/81.jpg" class="w-12 h-12 rounded-full" alt="Lorenzo Rossi">
+          <div><p class="font-medium">Lorenzo Rossi</p><p class="text-sm text-charcoal/60">Handicap: 5</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/82.jpg" class="w-12 h-12 rounded-full" alt="Matteo Conti">
+          <div><p class="font-medium">Matteo Conti</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/83.jpg" class="w-12 h-12 rounded-full" alt="Giulio Romano">
+          <div><p class="font-medium">Giulio Romano</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/84.jpg" class="w-12 h-12 rounded-full" alt="Alessio Greco">
+          <div><p class="font-medium">Alessio Greco</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= HUNGARY ================= -->
+    <div class="bg-white rounded-3xl shadow-lg p-6">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="flag" style="background-image:url('https://flagcdn.com/w40/hu.png');"></div>
+          <h3 class="font-serif text-xl text-burgundy">Hungary</h3>
+        </div>
+        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 14</span>
+      </div>
+
+      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
+        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> István Horváth</span>
+      </div>
+
+      <div class="mb-5">
+        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Hungary+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Hungary jersey">
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/91.jpg" class="w-12 h-12 rounded-full" alt="Bence Nagy">
+          <div><p class="font-medium">Bence Nagy</p><p class="text-sm text-charcoal/60">Handicap: 3</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/92.jpg" class="w-12 h-12 rounded-full" alt="Márk Tóth">
+          <div><p class="font-medium">Márk Tóth</p><p class="text-sm text-charcoal/60">Handicap: 3</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/93.jpg" class="w-12 h-12 rounded-full" alt="Ákos Kovács">
+          <div><p class="font-medium">Ákos Kovács</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/94.jpg" class="w-12 h-12 rounded-full" alt="Patrik Szabó">
+          <div><p class="font-medium">Patrik Szabó</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= FRANCE ================= -->
+    <div class="bg-white rounded-3xl shadow-lg p-6">
+      <div class="flex items-center justify-between mb-6">
+        <div class="flex items-center gap-3">
+          <div class="flag" style="background-image:url('https://flagcdn.com/w40/fr.png');"></div>
+          <h3 class="font-serif text-xl text-burgundy">France</h3>
+        </div>
+        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 18</span>
+      </div>
+
+      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
+        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Pierre Dubois</span>
+      </div>
+
+      <div class="mb-5">
+        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=France+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="France jersey">
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/12.jpg" class="w-12 h-12 rounded-full" alt="Alexandre Martin">
+          <div><p class="font-medium">Alexandre Martin</p><p class="text-sm text-charcoal/60">Handicap: 5</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/14.jpg" class="w-12 h-12 rounded-full" alt="Julien Bernard">
+          <div><p class="font-medium">Julien Bernard</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/16.jpg" class="w-12 h-12 rounded-full" alt="Thomas Girard">
+          <div><p class="font-medium">Thomas Girard</p><p class="text-sm text-charcoal/60">Handicap: 5</p></div>
+        </button>
+        <button class="flex items-center gap-3 text-left player-img">
+          <img src="https://randomuser.me/api/portraits/men/18.jpg" class="w-12 h-12 rounded-full" alt="Nicolas Lefevre">
+          <div><p class="font-medium">Nicolas Lefevre</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
+        </button>
+      </div>
+    </div>
+
+    <!-- ================= SWITZERLAND ALREADY ADDED; CONTINUE WITH SPAIN / ITALY DONE; ADD: NETHERLANDS DONE; ADD: WŁOCHY DONE; HUNGARY DONE; ADD: FRANCE DONE ================= -->
+
+    <!-- ================= EXTRA: SWITZERLAND/Germany etc. already present ================= -->
+
   </div>
 </section>
+
+<!-- Modal for player images (one global) -->
+<div id="imgModal" class="fixed inset-0 bg-black/70 flex items-center justify-center hidden z-50">
+  <div class="relative">
+    <button onclick="closePlayerModal()" class="absolute -top-3 -right-3 bg-white text-black rounded-full w-8 h-8 shadow">✕</button>
+    <img id="modalImg" src="" class="max-h-[80vh] max-w-[90vw] rounded-xl shadow-2xl" alt="Player large portrait">
+  </div>
+</div>
+
+<script>
+  // enlarge player photos
+  (function () {
+    const modal = document.getElementById('imgModal');
+    const modalImg = document.getElementById('modalImg');
+    document.querySelectorAll('.player-img img').forEach(img => {
+      img.addEventListener('click', () => {
+        modalImg.src = img.src;
+        modal.classList.remove('hidden');
+      });
+    });
+    window.closePlayerModal = () => modal.classList.add('hidden');
+    // close on background click
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) modal.classList.add('hidden');
+    });
+    // Esc to close
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) modal.classList.add('hidden');
+    });
+  })();
+</script>
+
 
 
   <!-- FOOTER -->
