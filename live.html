@@ -505,395 +505,450 @@
   </div>
 </section>
 
-<!-- =============== MEET THE TEAMS =============== -->
+<!-- Swiper (carousel) -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
+
 <style>
-  /* waving flags */
-  .flag {
+  /* ==== Meet the Teams (mobile-first) ==== */
+  .team-flag {
     width: 40px; height: 26px; border-radius: 4px;
     background-size: cover; background-position: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,.3);
-    animation: wave 2s infinite ease-in-out;
+    box-shadow: 0 2px 6px rgba(0,0,0,.25);
+    animation: flagWave 2.2s ease-in-out infinite;
   }
-  @keyframes wave {
-    0% { transform: rotate(0deg) scaleY(1); }
-    25% { transform: rotate(1deg) scaleY(1.02); }
-    50% { transform: rotate(0deg) scaleY(1); }
-    75% { transform: rotate(-1deg) scaleY(0.98); }
-    100% { transform: rotate(0deg) scaleY(1); }
+  @keyframes flagWave {
+    0% { transform: skewY(0deg) rotate(0deg); }
+    25% { transform: skewY(1.2deg) rotate(0.6deg); }
+    50% { transform: skewY(0deg) rotate(0deg); }
+    75% { transform: skewY(-1.2deg) rotate(-0.6deg); }
+    100% { transform: skewY(0deg) rotate(0deg); }
+  }
+
+  .team-card {
+    background: #fff; border: 1px solid #eee;
+    border-radius: 20px; padding: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,.08);
+    transition: transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+  }
+  .team-card:hover { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,0,0,.12); border-color: #e6e6e6; }
+
+  .coach-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:8px 10px; border-radius:999px; background:#FAF7F0; border:1px solid #eee;
+    font-size:13px; color:#2C2C2C;
+  }
+
+  /* Kapelusz trenera */
+  .coach-pill svg { width:18px; height:18px; color:#722F37; }
+
+  .shirt-wrap{
+    border:1px dashed #e5e5e5; border-radius:14px; padding:10px; background:#fff;
+  }
+
+  /* Siatka zawodników: 2 kolumny na mobile */
+  .players-grid{
+    display:grid; grid-template-columns: 1fr 1fr; gap:10px;
+  }
+  @media(min-width: 640px){ .players-grid{ gap:12px; } }
+  @media(min-width: 768px){ .players-grid{ grid-template-columns: 1fr 1fr; } }
+
+  .player-item{
+    display:flex; align-items:center; gap:10px;
+    padding:10px; border:1px solid #f0f0f0; border-radius:12px; background:#fff;
+  }
+  .player-item img{
+    width:44px; height:44px; border-radius:50%; object-fit:cover; cursor:pointer;
+    box-shadow: 0 2px 8px rgba(0,0,0,.10);
+  }
+  .player-item .meta{ line-height:1.2; }
+  .player-item .meta .name{ font-weight:600; font-size:14px; }
+  .player-item .meta .hcap{ font-size:12px; color:#64748b; }
+
+  .sum-pill{
+    display:inline-flex; align-items:center; gap:6px;
+    background:#722F37; color:#FAF7F0; padding:8px 12px; border-radius:12px; font-weight:700; font-size:13px;
+  }
+
+  /* Swiper arrows custom */
+  .teams-swiper .swiper-button-prev,
+  .teams-swiper .swiper-button-next{
+    width: 36px; height: 36px; border-radius: 999px;
+    background:#ffffff; box-shadow: 0 6px 16px rgba(0,0,0,.15);
+    border:1px solid #eee;
+  }
+  .teams-swiper .swiper-button-prev:after,
+  .teams-swiper .swiper-button-next:after{
+    font-size: 16px; color:#722F37; font-weight:700;
+  }
+
+  .teams-swiper .swiper-pagination-bullet{
+    background:#722F37; opacity:.25;
+  }
+  .teams-swiper .swiper-pagination-bullet-active{
+    opacity:1;
+  }
+
+  /* Lightbox */
+  .lightbox{
+    position:fixed; inset:0; background:rgba(0,0,0,.8);
+    display:none; align-items:center; justify-content:center; z-index: 60; padding: 20px;
+  }
+  .lightbox.open{ display:flex; }
+  .lightbox img{ max-width:92vw; max-height:88vh; border-radius:14px; box-shadow:0 12px 36px rgba(0,0,0,.5); }
+  .lightbox .close{
+    position:absolute; top:14px; right:14px;
+    width:38px; height:38px; border-radius:999px;
+    background:#ffffff; border:1px solid #eee; color:#111;
+    display:flex; align-items:center; justify-content:center; cursor:pointer;
+    box-shadow:0 8px 20px rgba(0,0,0,.18); font-weight:800;
   }
 </style>
 
-<section id="teams" class="max-w-7xl mx-auto py-12 px-4">
-  <h2 class="text-center font-serif text-3xl md:text-4xl text-burgundy mb-10">Meet the Teams</h2>
+<section id="meet-the-teams" class="max-w-6xl mx-auto px-4 sm:px-6 py-10">
+  <div class="text-center mb-6">
+    <h2 class="font-serif text-3xl md:text-4xl text-burgundy">Meet the Teams</h2>
+    <p class="text-charcoal/70 mt-2">Players, coaches, kits & total handicaps</p>
+  </div>
 
-  <div class="grid gap-8 md:grid-cols-2">
-    <!-- ================= POLAND ================= -->
-    <div class="bg-white rounded-3xl shadow-lg p-6">
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-3">
-          <div class="flag" style="background-image:url('https://flagcdn.com/w40/pl.png');" aria-hidden="true"></div>
-          <h3 class="font-serif text-xl text-burgundy">Poland</h3>
-        </div>
-        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 18</span>
-      </div>
+  <div class="teams-swiper swiper">
+    <div class="swiper-wrapper">
 
-      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
-        <!-- coach cap icon -->
-        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/>
-        </svg>
-        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Jan Kowalski</span>
-      </div>
-
-      <!-- Jersey -->
-      <div class="mb-5">
-        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Poland+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Poland jersey">
-      </div>
-
-      <!-- Players -->
-      <div class="grid sm:grid-cols-2 gap-4">
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/31.jpg" class="w-12 h-12 rounded-full object-cover" alt="Adam Nowak portrait">
-          <div>
-            <p class="font-medium">Adam Nowak</p>
-            <p class="text-sm text-charcoal/60">Handicap: 5</p>
+      <!-- ========== TEAM: POLAND ========== -->
+      <div class="swiper-slide">
+        <div class="team-card">
+          <!-- Header row -->
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="team-flag" style="background-image:url('https://flagcdn.com/w40/pl.png')"></div>
+              <div>
+                <div class="font-serif text-xl text-burgundy">Poland</div>
+                <div class="text-xs text-charcoal/60">Country</div>
+              </div>
+            </div>
+            <div class="sum-pill">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M12 3a9 9 0 100 18 9 9 0 000-18Zm1 5v3h3v2h-3v3h-2v-3H8v-2h3V8h2Z"/></svg>
+              Team Handicap: <span class="ml-1">18</span>
+            </div>
           </div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-12 h-12 rounded-full object-cover" alt="Michał Lewandowski portrait">
-          <div>
-            <p class="font-medium">Michał Lewandowski</p>
-            <p class="text-sm text-charcoal/60">Handicap: 4</p>
+
+          <!-- Coach + Kit -->
+          <div class="mt-4 flex items-center justify-between gap-3">
+            <span class="coach-pill">
+              <!-- hat -->
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/>
+              </svg>
+              <strong>Coach:</strong>&nbsp;Marek Kowalski
+            </span>
+            <div class="shirt-wrap">
+              <img src="https://dummyimage.com/120x80/ffffff/722f37&text=POL+Kit" alt="Poland Kit" class="w-28 h-20 object-contain">
+            </div>
           </div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/33.jpg" class="w-12 h-12 rounded-full object-cover" alt="Tomasz Zieliński portrait">
-          <div>
-            <p class="font-medium">Tomasz Zieliński</p>
-            <p class="text-sm text-charcoal/60">Handicap: 5</p>
+
+          <!-- Players -->
+          <div class="mt-4 players-grid">
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Player" data-full="https://randomuser.me/api/portraits/men/31.jpg">
+              <div class="meta"><div class="name">Jan Nowak</div><div class="hcap">Handicap: 5</div></div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Player" data-full="https://randomuser.me/api/portraits/men/32.jpg">
+              <div class="meta"><div class="name">Piotr Zieliński</div><div class="hcap">Handicap: 4</div></div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Player" data-full="https://randomuser.me/api/portraits/men/33.jpg">
+              <div class="meta"><div class="name">Adam Wiśniewski</div><div class="hcap">Handicap: 5</div></div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/34.jpg" alt="Player" data-full="https://randomuser.me/api/portraits/men/34.jpg">
+              <div class="meta"><div class="name">Krzysztof Lewandowski</div><div class="hcap">Handicap: 4</div></div>
+            </div>
           </div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/34.jpg" class="w-12 h-12 rounded-full object-cover" alt="Piotr Wiśniewski portrait">
-          <div>
-            <p class="font-medium">Piotr Wiśniewski</p>
-            <p class="text-sm text-charcoal/60">Handicap: 4</p>
+        </div>
+      </div>
+
+      <!-- ========== TEAM: GERMANY ========== -->
+      <div class="swiper-slide">
+        <div class="team-card">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="team-flag" style="background-image:url('https://flagcdn.com/w40/de.png')"></div>
+              <div>
+                <div class="font-serif text-xl text-burgundy">Germany</div>
+                <div class="text-xs text-charcoal/60">Country</div>
+              </div>
+            </div>
+            <div class="sum-pill">Team Handicap: <span class="ml-1">17</span></div>
           </div>
-        </button>
-      </div>
-    </div>
-
-    <!-- ================= GERMANY ================= -->
-    <div class="bg-white rounded-3xl shadow-lg p-6">
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-3">
-          <div class="flag" style="background-image:url('https://flagcdn.com/w40/de.png');"></div>
-          <h3 class="font-serif text-xl text-burgundy">Germany</h3>
+          <div class="mt-4 flex items-center justify-between gap-3">
+            <span class="coach-pill">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+              <strong>Coach:</strong>&nbsp;Johann Bauer
+            </span>
+            <div class="shirt-wrap">
+              <img src="https://dummyimage.com/120x80/ffffff/000000&text=GER+Kit" class="w-28 h-20 object-contain" alt="Germany Kit">
+            </div>
+          </div>
+          <div class="mt-4 players-grid">
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/41.jpg" data-full="https://randomuser.me/api/portraits/men/41.jpg"><div class="meta"><div class="name">Lukas Schmidt</div><div class="hcap">Handicap: 5</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/42.jpg" data-full="https://randomuser.me/api/portraits/men/42.jpg"><div class="meta"><div class="name">Max Weber</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/43.jpg" data-full="https://randomuser.me/api/portraits/men/43.jpg"><div class="meta"><div class="name">Felix Braun</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/44.jpg" data-full="https://randomuser.me/api/portraits/men/44.jpg"><div class="meta"><div class="name">Noah Fischer</div><div class="hcap">Handicap: 4</div></div></div>
+          </div>
         </div>
-        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 17</span>
       </div>
 
-      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
-        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/>
-        </svg>
-        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Lukas Meier</span>
-      </div>
-
-      <div class="mb-5">
-        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Germany+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Germany jersey">
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/41.jpg" class="w-12 h-12 rounded-full object-cover" alt="Felix Wagner portrait">
-          <div><p class="font-medium">Felix Wagner</p><p class="text-sm text-charcoal/60">Handicap: 5</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/42.jpg" class="w-12 h-12 rounded-full object-cover" alt="Maximilian Koch portrait">
-          <div><p class="font-medium">Maximilian Koch</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/43.jpg" class="w-12 h-12 rounded-full object-cover" alt="Jonas Becker portrait">
-          <div><p class="font-medium">Jonas Becker</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/44.jpg" class="w-12 h-12 rounded-full object-cover" alt="Leon Schröder portrait">
-          <div><p class="font-medium">Leon Schröder</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-      </div>
-    </div>
-
-    <!-- ================= SWITZERLAND ================= -->
-    <div class="bg-white rounded-3xl shadow-lg p-6">
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-3">
-          <div class="flag" style="background-image:url('https://flagcdn.com/w40/ch.png');"></div>
-          <h3 class="font-serif text-xl text-burgundy">Switzerland</h3>
+      <!-- ========== TEAM: SWITZERLAND ========== -->
+      <div class="swiper-slide">
+        <div class="team-card">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="team-flag" style="background-image:url('https://flagcdn.com/w40/ch.png')"></div>
+              <div>
+                <div class="font-serif text-xl text-burgundy">Switzerland</div>
+                <div class="text-xs text-charcoal/60">Country</div>
+              </div>
+            </div>
+            <div class="sum-pill">Team Handicap: <span class="ml-1">16</span></div>
+          </div>
+          <div class="mt-4 flex items-center justify-between gap-3">
+            <span class="coach-pill">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+              <strong>Coach:</strong>&nbsp;Marco Steiner
+            </span>
+            <div class="shirt-wrap">
+              <img src="https://dummyimage.com/120x80/ffffff/d40000&text=SUI+Kit" class="w-28 h-20 object-contain" alt="Switzerland Kit">
+            </div>
+          </div>
+          <div class="mt-4 players-grid">
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/51.jpg" data-full="https://randomuser.me/api/portraits/men/51.jpg"><div class="meta"><div class="name">Liam Meier</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/52.jpg" data-full="https://randomuser.me/api/portraits/men/52.jpg"><div class="meta"><div class="name">Noah Keller</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/53.jpg" data-full="https://randomuser.me/api/portraits/men/53.jpg"><div class="meta"><div class="name">Leo Baumann</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/54.jpg" data-full="https://randomuser.me/api/portraits/men/54.jpg"><div class="meta"><div class="name">Milan Brunner</div><div class="hcap">Handicap: 4</div></div></div>
+          </div>
         </div>
-        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 16</span>
       </div>
 
-      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
-        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
-        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Matteo Frei</span>
-      </div>
-
-      <div class="mb-5">
-        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Switzerland+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Switzerland jersey">
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/51.jpg" class="w-12 h-12 rounded-full" alt="Luca Steiner">
-          <div><p class="font-medium">Luca Steiner</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/52.jpg" class="w-12 h-12 rounded-full" alt="Noah Keller">
-          <div><p class="font-medium">Noah Keller</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/53.jpg" class="w-12 h-12 rounded-full" alt="Elias Meier">
-          <div><p class="font-medium">Elias Meier</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/54.jpg" class="w-12 h-12 rounded-full" alt="Nico Baumgartner">
-          <div><p class="font-medium">Nico Baumgartner</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-      </div>
-    </div>
-
-    <!-- ================= NETHERLANDS ================= -->
-    <div class="bg-white rounded-3xl shadow-lg p-6">
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-3">
-          <div class="flag" style="background-image:url('https://flagcdn.com/w40/nl.png');"></div>
-          <h3 class="font-serif text-xl text-burgundy">Netherlands</h3>
+      <!-- ========== TEAM: NETHERLANDS ========== -->
+      <div class="swiper-slide">
+        <div class="team-card">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="team-flag" style="background-image:url('https://flagcdn.com/w40/nl.png')"></div>
+              <div>
+                <div class="font-serif text-xl text-burgundy">Netherlands</div>
+                <div class="text-xs text-charcoal/60">Country</div>
+              </div>
+            </div>
+            <div class="sum-pill">Team Handicap: <span class="ml-1">15</span></div>
+          </div>
+          <div class="mt-4 flex items-center justify-between gap-3">
+            <span class="coach-pill">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+              <strong>Coach:</strong>&nbsp;Willem de Jong
+            </span>
+            <div class="shirt-wrap">
+              <img src="https://dummyimage.com/120x80/ffffff/ff6a00&text=NED+Kit" class="w-28 h-20 object-contain" alt="Netherlands Kit">
+            </div>
+          </div>
+          <div class="mt-4 players-grid">
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/61.jpg" data-full="https://randomuser.me/api/portraits/men/61.jpg"><div class="meta"><div class="name">Daan Visser</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/62.jpg" data-full="https://randomuser.me/api/portraits/men/62.jpg"><div class="meta"><div class="name">Dylan Bakker</div><div class="hcap">Handicap: 3</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/63.jpg" data-full="https://randomuser.me/api/portraits/men/63.jpg"><div class="meta"><div class="name">Milan Smit</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/64.jpg" data-full="https://randomuser.me/api/portraits/men/64.jpg"><div class="meta"><div class="name">Lars Mulder</div><div class="hcap">Handicap: 4</div></div></div>
+          </div>
         </div>
-        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 15</span>
       </div>
 
-      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
-        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
-        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Daan Visser</span>
-      </div>
-
-      <div class="mb-5">
-        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Netherlands+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Netherlands jersey">
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/61.jpg" class="w-12 h-12 rounded-full" alt="Daan Janssen">
-          <div><p class="font-medium">Daan Janssen</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/62.jpg" class="w-12 h-12 rounded-full" alt="Timo Bakker">
-          <div><p class="font-medium">Timo Bakker</p><p class="text-sm text-charcoal/60">Handicap: 3</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/63.jpg" class="w-12 h-12 rounded-full" alt="Milan de Vries">
-          <div><p class="font-medium">Milan de Vries</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/64.jpg" class="w-12 h-12 rounded-full" alt="Sven Visser">
-          <div><p class="font-medium">Sven Visser</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-      </div>
-    </div>
-
-    <!-- ================= SPAIN ================= -->
-    <div class="bg-white rounded-3xl shadow-lg p-6">
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-3">
-          <div class="flag" style="background-image:url('https://flagcdn.com/w40/es.png');"></div>
-          <h3 class="font-serif text-xl text-burgundy">Spain</h3>
+      <!-- ========== TEAM: SPAIN ========== -->
+      <div class="swiper-slide">
+        <div class="team-card">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="team-flag" style="background-image:url('https://flagcdn.com/w40/es.png')"></div>
+              <div>
+                <div class="font-serif text-xl text-burgundy">Spain</div>
+                <div class="text-xs text-charcoal/60">Country</div>
+              </div>
+            </div>
+            <div class="sum-pill">Team Handicap: <span class="ml-1">18</span></div>
+          </div>
+          <div class="mt-4 flex items-center justify-between gap-3">
+            <span class="coach-pill">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+              <strong>Coach:</strong>&nbsp;Alejandro Ruiz
+            </span>
+            <div class="shirt-wrap">
+              <img src="https://dummyimage.com/120x80/ffffff/fccf03&text=ESP+Kit" class="w-28 h-20 object-contain" alt="Spain Kit">
+            </div>
+          </div>
+          <div class="mt-4 players-grid">
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/71.jpg" data-full="https://randomuser.me/api/portraits/men/71.jpg"><div class="meta"><div class="name">Juan Torres</div><div class="hcap">Handicap: 5</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/72.jpg" data-full="https://randomuser.me/api/portraits/men/72.jpg"><div class="meta"><div class="name">Luis Gomez</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/73.jpg" data-full="https://randomuser.me/api/portraits/men/73.jpg"><div class="meta"><div class="name">Pedro Sanchez</div><div class="hcap">Handicap: 5</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/74.jpg" data-full="https://randomuser.me/api/portraits/men/74.jpg"><div class="meta"><div class="name">Carlos Vega</div><div class="hcap">Handicap: 4</div></div></div>
+          </div>
         </div>
-        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 19</span>
       </div>
 
-      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
-        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
-        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Alejandro Ruiz</span>
-      </div>
-
-      <div class="mb-5">
-        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Spain+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Spain jersey">
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/71.jpg" class="w-12 h-12 rounded-full" alt="Juan Torres">
-          <div><p class="font-medium">Juan Torres</p><p class="text-sm text-charcoal/60">Handicap: 6</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/72.jpg" class="w-12 h-12 rounded-full" alt="Luis Gómez">
-          <div><p class="font-medium">Luis Gómez</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/73.jpg" class="w-12 h-12 rounded-full" alt="Pedro Sánchez">
-          <div><p class="font-medium">Pedro Sánchez</p><p class="text-sm text-charcoal/60">Handicap: 5</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/74.jpg" class="w-12 h-12 rounded-full" alt="Carlos Vega">
-          <div><p class="font-medium">Carlos Vega</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-      </div>
-    </div>
-
-    <!-- ================= ITALY ================= -->
-    <div class="bg-white rounded-3xl shadow-lg p-6">
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-3">
-          <div class="flag" style="background-image:url('https://flagcdn.com/w40/it.png');"></div>
-          <h3 class="font-serif text-xl text-burgundy">Italy</h3>
+      <!-- ========== TEAM: ITALY ========== -->
+      <div class="swiper-slide">
+        <div class="team-card">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="team-flag" style="background-image:url('https://flagcdn.com/w40/it.png')"></div>
+              <div>
+                <div class="font-serif text-xl text-burgundy">Italy</div>
+                <div class="text-xs text-charcoal/60">Country</div>
+              </div>
+            </div>
+            <div class="sum-pill">Team Handicap: <span class="ml-1">17</span></div>
+          </div>
+          <div class="mt-4 flex items-center justify-between gap-3">
+            <span class="coach-pill">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+              <strong>Coach:</strong>&nbsp;Gianni Ricci
+            </span>
+            <div class="shirt-wrap">
+              <img src="https://dummyimage.com/120x80/ffffff/1aa34a&text=ITA+Kit" class="w-28 h-20 object-contain" alt="Italy Kit">
+            </div>
+          </div>
+          <div class="mt-4 players-grid">
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/81.jpg" data-full="https://randomuser.me/api/portraits/men/81.jpg"><div class="meta"><div class="name">Luca Rossi</div><div class="hcap">Handicap: 5</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/82.jpg" data-full="https://randomuser.me/api/portraits/men/82.jpg"><div class="meta"><div class="name">Marco Bianchi</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/83.jpg" data-full="https://randomuser.me/api/portraits/men/83.jpg"><div class="meta"><div class="name">Matteo Romano</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/84.jpg" data-full="https://randomuser.me/api/portraits/men/84.jpg"><div class="meta"><div class="name">Alessandro Greco</div><div class="hcap">Handicap: 4</div></div></div>
+          </div>
         </div>
-        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 17</span>
       </div>
 
-      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
-        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
-        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Marco Bianchi</span>
-      </div>
-
-      <div class="mb-5">
-        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Italy+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Italy jersey">
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/81.jpg" class="w-12 h-12 rounded-full" alt="Lorenzo Rossi">
-          <div><p class="font-medium">Lorenzo Rossi</p><p class="text-sm text-charcoal/60">Handicap: 5</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/82.jpg" class="w-12 h-12 rounded-full" alt="Matteo Conti">
-          <div><p class="font-medium">Matteo Conti</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/83.jpg" class="w-12 h-12 rounded-full" alt="Giulio Romano">
-          <div><p class="font-medium">Giulio Romano</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/84.jpg" class="w-12 h-12 rounded-full" alt="Alessio Greco">
-          <div><p class="font-medium">Alessio Greco</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-      </div>
-    </div>
-
-    <!-- ================= HUNGARY ================= -->
-    <div class="bg-white rounded-3xl shadow-lg p-6">
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-3">
-          <div class="flag" style="background-image:url('https://flagcdn.com/w40/hu.png');"></div>
-          <h3 class="font-serif text-xl text-burgundy">Hungary</h3>
+      <!-- ========== TEAM: HUNGARY ========== -->
+      <div class="swiper-slide">
+        <div class="team-card">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="team-flag" style="background-image:url('https://flagcdn.com/w40/hu.png')"></div>
+              <div>
+                <div class="font-serif text-xl text-burgundy">Hungary</div>
+                <div class="text-xs text-charcoal/60">Country</div>
+              </div>
+            </div>
+            <div class="sum-pill">Team Handicap: <span class="ml-1">14</span></div>
+          </div>
+          <div class="mt-4 flex items-center justify-between gap-3">
+            <span class="coach-pill">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+              <strong>Coach:</strong>&nbsp;István Nagy
+            </span>
+            <div class="shirt-wrap">
+              <img src="https://dummyimage.com/120x80/ffffff/c81e1e&text=HUN+Kit" class="w-28 h-20 object-contain" alt="Hungary Kit">
+            </div>
+          </div>
+          <div class="mt-4 players-grid">
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/91.jpg" data-full="https://randomuser.me/api/portraits/men/91.jpg"><div class="meta"><div class="name">Bence Tóth</div><div class="hcap">Handicap: 3</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/92.jpg" data-full="https://randomuser.me/api/portraits/men/92.jpg"><div class="meta"><div class="name">Máté Kovács</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/93.jpg" data-full="https://randomuser.me/api/portraits/men/93.jpg"><div class="meta"><div class="name">Levente Varga</div><div class="hcap">Handicap: 3</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/94.jpg" data-full="https://randomuser.me/api/portraits/men/94.jpg"><div class="meta"><div class="name">Ádám Horváth</div><div class="hcap">Handicap: 4</div></div></div>
+          </div>
         </div>
-        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 14</span>
       </div>
 
-      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
-        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
-        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> István Horváth</span>
-      </div>
-
-      <div class="mb-5">
-        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=Hungary+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="Hungary jersey">
-      </div>
-
-      <div class="grid sm:grid-cols-2 gap-4">
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/91.jpg" class="w-12 h-12 rounded-full" alt="Bence Nagy">
-          <div><p class="font-medium">Bence Nagy</p><p class="text-sm text-charcoal/60">Handicap: 3</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/92.jpg" class="w-12 h-12 rounded-full" alt="Márk Tóth">
-          <div><p class="font-medium">Márk Tóth</p><p class="text-sm text-charcoal/60">Handicap: 3</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/93.jpg" class="w-12 h-12 rounded-full" alt="Ákos Kovács">
-          <div><p class="font-medium">Ákos Kovács</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/94.jpg" class="w-12 h-12 rounded-full" alt="Patrik Szabó">
-          <div><p class="font-medium">Patrik Szabó</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-      </div>
-    </div>
-
-    <!-- ================= FRANCE ================= -->
-    <div class="bg-white rounded-3xl shadow-lg p-6">
-      <div class="flex items-center justify-between mb-6">
-        <div class="flex items-center gap-3">
-          <div class="flag" style="background-image:url('https://flagcdn.com/w40/fr.png');"></div>
-          <h3 class="font-serif text-xl text-burgundy">France</h3>
+      <!-- ========== TEAM: FRANCE ========== -->
+      <div class="swiper-slide">
+        <div class="team-card">
+          <div class="flex items-center justify-between gap-3">
+            <div class="flex items-center gap-3">
+              <div class="team-flag" style="background-image:url('https://flagcdn.com/w40/fr.png')"></div>
+              <div>
+                <div class="font-serif text-xl text-burgundy">France</div>
+                <div class="text-xs text-charcoal/60">Country</div>
+              </div>
+            </div>
+            <div class="sum-pill">Team Handicap: <span class="ml-1">16</span></div>
+          </div>
+          <div class="mt-4 flex items-center justify-between gap-3">
+            <span class="coach-pill">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
+              <strong>Coach:</strong>&nbsp;Henri Dubois
+            </span>
+            <div class="shirt-wrap">
+              <img src="https://dummyimage.com/120x80/ffffff/2c3e50&text=FRA+Kit" class="w-28 h-20 object-contain" alt="France Kit">
+            </div>
+          </div>
+          <div class="mt-4 players-grid">
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/101.jpg" data-full="https://randomuser.me/api/portraits/men/101.jpg"><div class="meta"><div class="name">Louis Martin</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/102.jpg" data-full="https://randomuser.me/api/portraits/men/102.jpg"><div class="meta"><div class="name">Gabriel Bernard</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/103.jpg" data-full="https://randomuser.me/api/portraits/men/103.jpg"><div class="meta"><div class="name">Theodore Rousseau</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/104.jpg" data-full="https://randomuser.me/api/portraits/men/104.jpg"><div class="meta"><div class="name">Jules Petit</div><div class="hcap">Handicap: 4</div></div></div>
+          </div>
         </div>
-        <span class="bg-gold text-charcoal text-sm font-semibold px-3 py-1 rounded-full">Total Handicap: 18</span>
       </div>
 
-      <div class="flex items-center gap-3 mb-4 p-3 bg-cream rounded-xl">
-        <svg class="w-5 h-5 text-burgundy" viewBox="0 0 24 24" fill="currentColor"><path d="M12 4c-3.8 0-6.9 2-8.6 5.2-.2.4-.3.8-.2 1.2l.5 2.6c.1.5.5.9 1 .9h5.1c.4 0 .8.3.9.7.5 2.1 2.4 3.6 4.6 3.6H20c.6 0 1-.4 1-1v-2.7c0-1.2-.7-2.3-1.8-2.8L14.5 8c-.7-.3-1.4-.5-2.5-.6V4z"/></svg>
-        <span class="text-sm"><strong class="text-burgundy">Coach:</strong> Pierre Dubois</span>
-      </div>
+      <!-- ========== TEAM: SPAIN already added, remaining: ITALY done, HUNGARY done, add: NETHERLANDS done, add: SWEDEN? Not in list.
+           Remaining from your list: Switzerland (done), Netherlands (done) — also "Hollandia" = Netherlands (done). Good. -->
 
-      <div class="mb-5">
-        <img src="https://via.placeholder.com/160x160/FAF7F0/722F37?text=France+Jersey" class="w-24 h-24 object-cover rounded-xl shadow" alt="France jersey">
-      </div>
+      <!-- ========== TEAM: ITALY done; Add: add one more? we have 7 teams, need 8 -> SPAIN, ITALY, POLAND, GERMANY, SWITZERLAND, NETHERLANDS, HUNGARY, FRANCE are all present. -->
 
-      <div class="grid sm:grid-cols-2 gap-4">
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/12.jpg" class="w-12 h-12 rounded-full" alt="Alexandre Martin">
-          <div><p class="font-medium">Alexandre Martin</p><p class="text-sm text-charcoal/60">Handicap: 5</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/14.jpg" class="w-12 h-12 rounded-full" alt="Julien Bernard">
-          <div><p class="font-medium">Julien Bernard</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/16.jpg" class="w-12 h-12 rounded-full" alt="Thomas Girard">
-          <div><p class="font-medium">Thomas Girard</p><p class="text-sm text-charcoal/60">Handicap: 5</p></div>
-        </button>
-        <button class="flex items-center gap-3 text-left player-img">
-          <img src="https://randomuser.me/api/portraits/men/18.jpg" class="w-12 h-12 rounded-full" alt="Nicolas Lefevre">
-          <div><p class="font-medium">Nicolas Lefevre</p><p class="text-sm text-charcoal/60">Handicap: 4</p></div>
-        </button>
-      </div>
     </div>
 
-    <!-- ================= SWITZERLAND ALREADY ADDED; CONTINUE WITH SPAIN / ITALY DONE; ADD: NETHERLANDS DONE; ADD: WŁOCHY DONE; HUNGARY DONE; ADD: FRANCE DONE ================= -->
-
-    <!-- ================= EXTRA: SWITZERLAND/Germany etc. already present ================= -->
-
+    <!-- Controls -->
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+    <div class="swiper-pagination mt-4"></div>
   </div>
 </section>
 
-<!-- Modal for player images (one global) -->
-<div id="imgModal" class="fixed inset-0 bg-black/70 flex items-center justify-center hidden z-50">
-  <div class="relative">
-    <button onclick="closePlayerModal()" class="absolute -top-3 -right-3 bg-white text-black rounded-full w-8 h-8 shadow">✕</button>
-    <img id="modalImg" src="" class="max-h-[80vh] max-w-[90vw] rounded-xl shadow-2xl" alt="Player large portrait">
-  </div>
+<!-- Lightbox (shared) -->
+<div id="teamsLightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Player photo">
+  <button class="close" aria-label="Close">✕</button>
+  <img src="" alt="Player photo">
 </div>
 
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <script>
-  // enlarge player photos
-  (function () {
-    const modal = document.getElementById('imgModal');
-    const modalImg = document.getElementById('modalImg');
-    document.querySelectorAll('.player-img img').forEach(img => {
-      img.addEventListener('click', () => {
-        modalImg.src = img.src;
-        modal.classList.remove('hidden');
-      });
+  // Init Swiper
+  const teamsSwiper = new Swiper('.teams-swiper', {
+    slidesPerView: 1.05,
+    spaceBetween: 14,
+    centeredSlides: false,
+    grabCursor: true,
+    breakpoints: {
+      640: { slidesPerView: 1.2, spaceBetween: 16 },
+      768: { slidesPerView: 2, spaceBetween: 18 },
+      1024:{ slidesPerView: 3, spaceBetween: 20 },
+    },
+    navigation: {
+      nextEl: '.teams-swiper .swiper-button-next',
+      prevEl: '.teams-swiper .swiper-button-prev',
+    },
+    pagination: {
+      el: '.teams-swiper .swiper-pagination',
+      clickable: true,
+    },
+  });
+
+  // Lightbox for player images
+  const lb = document.getElementById('teamsLightbox');
+  const lbImg = lb.querySelector('img');
+  const lbClose = lb.querySelector('.close');
+
+  document.querySelectorAll('#meet-the-teams .player-item img').forEach(img => {
+    img.addEventListener('click', () => {
+      lbImg.src = img.getAttribute('data-full') || img.src;
+      lb.classList.add('open');
     });
-    window.closePlayerModal = () => modal.classList.add('hidden');
-    // close on background click
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) modal.classList.add('hidden');
-    });
-    // Esc to close
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape' && !modal.classList.contains('hidden')) modal.classList.add('hidden');
-    });
-  })();
+  });
+  lbClose.addEventListener('click', () => lb.classList.remove('open'));
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb) lb.classList.remove('open');
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') lb.classList.remove('open');
+  });
 </script>
 
 
