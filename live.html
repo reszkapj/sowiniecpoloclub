@@ -45,13 +45,58 @@
 </head>
 <body class="bg-cream font-sans text-charcoal">
 
-  <!-- HEADER -->
-  <header class="bg-burgundy text-cream py-6 shadow-lg">
-    <div class="max-w-6xl mx-auto text-center">
-      <h1 class="font-serif text-3xl md:text-4xl mb-2">European Polo Championship</h1>
-      <p class="text-gold font-medium uppercase tracking-wide">Semi-final • Match for 3rd place</p>
+<!-- HEADER -->
+<header class="bg-burgundy text-cream py-6 shadow-lg">
+  <div class="max-w-6xl mx-auto text-center">
+    <!-- Nazwa turnieju -->
+    <h1 class="font-serif text-3xl md:text-4xl mb-4">The XV European Polo Championship</h1>
+
+    <!-- Logotypy -->
+    <div class="flex items-center justify-center gap-6 mb-2">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/FIP_logo.png" alt="FIP Logo" class="h-10 object-contain">
+      <img src="https://via.placeholder.com/100x40?text=Sowiniec" alt="Sowiniec Logo" class="h-10 object-contain">
+      <img src="https://via.placeholder.com/100x40?text=Partner" alt="Partner Logo" class="h-10 object-contain">
     </div>
-  </header>
+  </div>
+</header>
+
+<!-- MATCH CAROUSEL -->
+<section class="max-w-6xl mx-auto py-8 px-4">
+  <h2 class="text-burgundy font-serif text-xl mb-4 text-center">Check out the info about next matches</h2>
+
+  <!-- Scrollable container -->
+  <div class="flex gap-4 overflow-x-auto pb-4 snap-x">
+    <!-- Match card -->
+    <div class="min-w-[260px] bg-white rounded-2xl shadow-lg p-5 snap-start">
+      <p class="text-burgundy font-semibold text-lg">Poland vs Germany</p>
+      <p class="text-charcoal/80">Sep 15, 2025 — 15:30 CET</p>
+      <div class="bg-burgundy text-cream px-6 py-3 rounded-xl shadow mt-4 text-center">
+        <span class="text-2xl font-bold tracking-wider">07:30</span>
+        <p class="text-xs text-cream/80 mt-1">Timer paused</p>
+      </div>
+    </div>
+
+    <!-- Another match -->
+    <div class="min-w-[260px] bg-white rounded-2xl shadow-lg p-5 snap-start">
+      <p class="text-burgundy font-semibold text-lg">Spain vs Italy</p>
+      <p class="text-charcoal/80">Sep 16, 2025 — 17:30 CET</p>
+      <div class="bg-burgundy text-cream px-6 py-3 rounded-xl shadow mt-4 text-center">
+        <span class="text-2xl font-bold tracking-wider">--:--</span>
+        <p class="text-xs text-cream/80 mt-1">Not started</p>
+      </div>
+    </div>
+
+    <!-- Another match -->
+    <div class="min-w-[260px] bg-white rounded-2xl shadow-lg p-5 snap-start">
+      <p class="text-burgundy font-semibold text-lg">France vs Switzerland</p>
+      <p class="text-charcoal/80">Sep 17, 2025 — 12:00 CET</p>
+      <div class="bg-burgundy text-cream px-6 py-3 rounded-xl shadow mt-4 text-center">
+        <span class="text-2xl font-bold tracking-wider">--:--</span>
+        <p class="text-xs text-cream/80 mt-1">Upcoming</p>
+      </div>
+    </div>
+  </div>
+</section>
 
   <!-- MATCH INFO -->
   <section class="max-w-6xl mx-auto py-10 px-4 text-center">
