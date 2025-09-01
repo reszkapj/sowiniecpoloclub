@@ -1067,68 +1067,57 @@
 </section>
 
 
- <!-- POLO FIELD REALISTIC WITH ICONS -->
+<!-- POLO FIELD REALISTIC WITH ICONS (fixed distances & labels) -->
 <section class="relative py-20 bg-gradient-to-b from-green-100 via-green-200 to-cream">
   <div class="max-w-5xl mx-auto text-center mb-10">
     <h2 class="font-serif text-3xl md:text-4xl text-burgundy mb-4">Polo Field Explained</h2>
     <p class="text-charcoal/70 max-w-2xl mx-auto">
-      A regulation polo field is the largest in organized sport — about the size of nine football pitches. Here’s the layout:
+      A regulation outdoor polo field is one of the largest in sport — roughly the area of about nine football (soccer) pitches. Here’s the layout:
     </p>
   </div>
 
-  <!-- Field -->
+  <!-- Field (length = vertical; goals at top & bottom) -->
   <div class="relative max-w-5xl mx-auto aspect-[15/8] bg-green-700 rounded-3xl shadow-2xl border-[6px] border-green-900 overflow-hidden">
     <!-- Grass texture -->
     <div class="absolute inset-0 bg-[linear-gradient(90deg,#3f9d2f40_1px,transparent_1px),linear-gradient(#3f9d2f40_1px,transparent_1px)] bg-[size:40px_40px]"></div>
 
-    <!-- Midline -->
+    <!-- Halfway line (150 yd from each goal) -->
     <div class="absolute top-1/2 left-0 w-full border-t-4 border-white"></div>
 
-    <!-- 30 / 60 yard lines -->
-    <div class="absolute top-[20%] left-0 w-full border-t-2 border-dashed border-white"></div>
-    <div class="absolute top-[40%] left-0 w-full border-t-2 border-dashed border-white"></div>
-    <div class="absolute bottom-[40%] left-0 w-full border-t-2 border-dashed border-white"></div>
-    <div class="absolute bottom-[20%] left-0 w-full border-t-2 border-dashed border-white"></div>
+    <!-- Penalty lines measured FROM goal lines inward:
+         30 yd = 10% of full length, 60 yd = 20% of full length -->
+    <!-- Top goal side -->
+    <div class="absolute top-[10%] left-0 w-full border-t-2 border-dashed border-white"></div> <!-- 30 yd -->
+    <div class="absolute top-[20%] left-0 w-full border-t-2 border-dashed border-white"></div> <!-- 60 yd -->
+    <!-- Bottom goal side -->
+    <div class="absolute bottom-[20%] left-0 w-full border-t-2 border-dashed border-white"></div> <!-- 60 yd -->
+    <div class="absolute bottom-[10%] left-0 w-full border-t-2 border-dashed border-white"></div> <!-- 30 yd -->
 
-    <!-- Goals -->
+    <!-- Goals (centered on back/goal lines) -->
     <div class="absolute top-0 left-1/2 -translate-x-1/2 w-16 h-4 bg-white rounded-b-lg shadow-md"></div>
     <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-16 h-4 bg-white rounded-t-lg shadow-md"></div>
 
-    <!-- Center Circle -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-24 h-24 border-4 border-white rounded-full"></div>
-
-    <!-- Center Ball -->
-    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-6 h-6 bg-gold rounded-full shadow-lg"></div>
+    <!-- Center throw-in mark (small) -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-10 w-1 bg-white rounded-full shadow"></div>
 
     <!-- Labels -->
-    <div class="absolute top-[10%] left-2 text-xs text-white">60 yd Penalty</div>
-    <div class="absolute top-[30%] left-2 text-xs text-white">30 yd Penalty</div>
-    <div class="absolute bottom-[30%] left-2 text-xs text-white">30 yd Penalty</div>
-    <div class="absolute bottom-[10%] left-2 text-xs text-white">60 yd Penalty</div>
+    <div class="absolute top-[10%] left-2 text-[11px] md:text-xs text-white">30 yd line (penalty)</div>
+    <div class="absolute top-[20%] left-2 text-[11px] md:text-xs text-white">60 yd line (penalty)</div>
+    <div class="absolute bottom-[20%] left-2 text-[11px] md:text-xs text-white">60 yd line (penalty)</div>
+    <div class="absolute bottom-[10%] left-2 text-[11px] md:text-xs text-white">30 yd line (penalty)</div>
 
     <!-- Dimensions -->
     <div class="absolute bottom-2 left-1/2 -translate-x-1/2 text-sm text-white/80">
-      Field size: 300 x 160 yards (≈ 275 x 146 m)
+      Field size: 300 × 160 yards (≈ 274 × 146 m)
     </div>
 
-    <!-- Decorative icons -->
-    <div class="absolute top-4 left-4 animate-bounce">
-      🐎
-    </div>
-    <div class="absolute top-4 right-4 animate-pulse">
-      🏑
-    </div>
-    <div class="absolute bottom-4 left-4 animate-bounce">
-      🐎
-    </div>
-    <div class="absolute bottom-4 right-4 animate-bounce">
-      🐎
-    </div>
+    <!-- Decorative emojis -->
+    <div class="absolute top-4 left-4 animate-bounce">🐎</div>
+    <div class="absolute top-4 right-4 animate-pulse">🏑</div>
+    <div class="absolute bottom-4 left-4 animate-bounce">🐎</div>
+    <div class="absolute bottom-4 right-4 animate-bounce">🐎</div>
   </div>
 </section>
-
-
-
 
 
   <!-- FOOTER -->
