@@ -559,8 +559,6 @@
     padding:8px 10px; border-radius:999px; background:#FAF7F0; border:1px solid #eee;
     font-size:13px; color:#2C2C2C;
   }
-
-  /* Kapelusz trenera */
   .coach-pill svg { width:18px; height:18px; color:#722F37; }
 
   .shirt-wrap{
@@ -638,7 +636,7 @@
       <!-- ========== TEAM: POLAND ========== -->
       <div class="swiper-slide">
         <div class="team-card">
-          <!-- Header row -->
+          <!-- Header -->
           <div class="flex items-center justify-between gap-3">
             <div class="flex items-center gap-3">
               <div class="team-flag" style="background-image:url('https://flagcdn.com/w40/pl.png')"></div>
@@ -647,67 +645,57 @@
                 <div class="text-xs text-charcoal/60">Country</div>
               </div>
             </div>
-            <div class="sum-pill">
-              Team Handicap: <span class="ml-1">6</span>
-            </div>
+            <div class="sum-pill">Team Handicap: <span class="ml-1">6</span></div>
           </div>
 
           <!-- Coach + Kit -->
           <div class="mt-4 flex items-center justify-between gap-3">
-            <span class="coach-pill">
-              <strong>Coach:</strong>&nbsp;Facundo Cordeu
-            </span>
+            <span class="coach-pill"><strong>Coach:</strong>&nbsp;Facundo Cordeu</span>
             <div class="shirt-wrap">
               <img src="public/poland.png" alt="Poland Kit" class="w-28 h-20 object-contain">
             </div>
           </div>
 
           <!-- Players -->
-<div class="mt-4 players-grid">
-  <div class="player-item">
-    <img
-      src="public/EricAronowicz.jpg"
-      alt="Eric Aronowicz"
-      data-full="public/EricAronowicz.jpg"
-      loading="lazy" decoding="async">
-    <div class="meta"><div class="name">Eric Aronowicz</div><div class="hcap">Handicap: 1</div><div class="hcap">Total Goals: 1</div>
-</div>
-  </div>
+          <div class="mt-4 players-grid">
+            <div class="player-item">
+              <img src="public/EricAronowicz.jpg" alt="Eric Aronowicz" data-full="public/EricAronowicz.jpg" loading="lazy" decoding="async">
+              <div class="meta">
+                <div class="name">Eric Aronowicz</div>
+                <div class="hcap">Handicap: 1</div>
+                <div class="hcap">Total Goals: 1</div>
+              </div>
+            </div>
 
-  <div class="player-item">
-    <img
-      src="public/MilosRUSZKOWSKI.jpg"
-      alt="Milos Ruszkowski"
-      data-full="public/MilosRUSZKOWSKI.jpg"
-      loading="lazy" decoding="async">
-    <div class="meta"><div class="name">Milos Ruszkowski</div><div class="hcap">Handicap: 3</div><div class="hcap">Total Goals: 6</div>
-</div>
-  </div>
+            <div class="player-item">
+              <img src="public/MilosRUSZKOWSKI.jpg" alt="Milos Ruszkowski" data-full="public/MilosRUSZKOWSKI.jpg" loading="lazy" decoding="async">
+              <div class="meta">
+                <div class="name">Milos Ruszkowski</div>
+                <div class="hcap">Handicap: 3</div>
+                <div class="hcap">Total Goals: 6</div>
+              </div>
+            </div>
 
-  <div class="player-item">
-    <img
-      src="public/MarcinSwitalski.jpg"
-      alt="Marcin Świtalski"
-      data-full="public/MarcinSwitalski.jpg"
-      loading="lazy" decoding="async">
-    <div class="meta"><div class="name">Marcin Świtalski</div><div class="hcap">Handicap: 0</div><div class="hcap">Total Goals: 2</div>
-</div>
-  </div>
+            <div class="player-item">
+              <img src="public/MarcinSwitalski.jpg" alt="Marcin Świtalski" data-full="public/MarcinSwitalski.jpg" loading="lazy" decoding="async">
+              <div class="meta">
+                <div class="name">Marcin Świtalski</div>
+                <div class="hcap">Handicap: 0</div>
+                <div class="hcap">Total Goals: 2</div>
+              </div>
+            </div>
 
-  <div class="player-item">
-    <img
-      src="public/MateuszSwitalski.jpg"
-      alt="Mateusz Świtalski"
-      data-full="public/MateuszSwitalski.jpg"
-      loading="lazy" decoding="async">
-    <div class="meta"><div class="name">Mateusz Świtalski</div><div class="hcap">Handicap: 2</div><div class="hcap">Total Goals: 8</div>
-</div>
-</div> 
-</div> 
-</div>
-</div>
-
-
+            <div class="player-item">
+              <img src="public/MateuszSwitalski.jpg" alt="Mateusz Świtalski" data-full="public/MateuszSwitalski.jpg" loading="lazy" decoding="async">
+              <div class="meta">
+                <div class="name">Mateusz Świtalski</div>
+                <div class="hcap">Handicap: 2</div>
+                <div class="hcap">Total Goals: 8</div>
+              </div>
+            </div>
+          </div> <!-- /.players-grid -->
+        </div> <!-- /.team-card -->
+      </div> <!-- /.swiper-slide -->
 
       <!-- ========== TEAM: GERMANY ========== -->
       <div class="swiper-slide">
@@ -723,21 +711,43 @@
             <div class="sum-pill">Team Handicap: <span class="ml-1">7</span></div>
           </div>
           <div class="mt-4 flex items-center justify-between gap-3">
-            <span class="coach-pill">
-              <strong>Coach:</strong>&nbsp;Thomas Winter
-            </span>
+            <span class="coach-pill"><strong>Coach:</strong>&nbsp;Thomas Winter</span>
             <div class="shirt-wrap">
               <img src="public/germany.png" class="w-28 h-20 object-contain" alt="Germany Kit">
             </div>
           </div>
           <div class="mt-4 players-grid">
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/41.jpg" data-full="https://randomuser.me/api/portraits/men/41.jpg"><div class="meta"><div class="name">Julien Winter</div><div class="hcap">Handicap: 2</div><div class="hcap">Total Goals: 3</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/42.jpg" data-full="https://randomuser.me/api/portraits/men/42.jpg"><div class="meta"><div class="name">Finley Bright</div><div class="hcap">Handicap: 2</div><div class="hcap">Total Goals: 4</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/43.jpg" data-full="https://randomuser.me/api/portraits/men/43.jpg"><div class="meta"><div class="name">Fabian Stege</div><div class="hcap">Handicap: 1</div></div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/44.jpg" data-full="https://randomuser.me/api/portraits/men/44.jpg"><div class="meta"><div class="name">Mortiz Mahns</div><div class="hcap">Handicap: 2</div><div class="hcap">Total Goals: 9</div>
-</div></div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/41.jpg" data-full="https://randomuser.me/api/portraits/men/41.jpg" alt="Julien Winter">
+              <div class="meta">
+                <div class="name">Julien Winter</div>
+                <div class="hcap">Handicap: 2</div>
+                <div class="hcap">Total Goals: 3</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/42.jpg" data-full="https://randomuser.me/api/portraits/men/42.jpg" alt="Finley Bright">
+              <div class="meta">
+                <div class="name">Finley Bright</div>
+                <div class="hcap">Handicap: 2</div>
+                <div class="hcap">Total Goals: 4</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/43.jpg" data-full="https://randomuser.me/api/portraits/men/43.jpg" alt="Fabian Stege">
+              <div class="meta">
+                <div class="name">Fabian Stege</div>
+                <div class="hcap">Handicap: 1</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/44.jpg" data-full="https://randomuser.me/api/portraits/men/44.jpg" alt="Mortiz Mahns">
+              <div class="meta">
+                <div class="name">Mortiz Mahns</div>
+                <div class="hcap">Handicap: 2</div>
+                <div class="hcap">Total Goals: 9</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -756,30 +766,44 @@
             <div class="sum-pill">Team Handicap: <span class="ml-1">8</span></div>
           </div>
           <div class="mt-4 flex items-center justify-between gap-3">
-            <span class="coach-pill">
-              <strong>Coach:</strong>&nbsp;Raul Laplecette
-            </span>
+            <span class="coach-pill"><strong>Coach:</strong>&nbsp;Raul Laplecette</span>
             <div class="shirt-wrap">
               <img src="public/switzerland.png" class="w-28 h-20 object-contain" alt="Switzerland Kit">
             </div>
           </div>
           <div class="mt-4 players-grid">
-<div class="player-item">
-  <img src="https://randomuser.me/api/portraits/men/51.jpg"
-       data-full="https://randomuser.me/api/portraits/men/51.jpg"
-       alt="Fabio Meier">
-  <div class="meta">
-    <div class="name">Fabio Meier</div>
-    <div class="hcap">Handicap: 1</div>
-    <div class="hcap">Total Goals: 1</div>
-  </div>
-</div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/52.jpg" data-full="https://randomuser.me/api/portraits/men/52.jpg"><div class="meta"><div class="name">Luca Meier</div><div class="hcap">Handicap: 1</div><div class="hcap">Total Goals: 4</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/53.jpg" data-full="https://randomuser.me/api/portraits/men/53.jpg"><div class="meta"><div class="name">Patricio Gaynor Jr.</div><div class="hcap">Handicap: 2</div><div class="hcap">Total Goals: 14</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/54.jpg" data-full="https://randomuser.me/api/portraits/men/54.jpg"><div class="meta"><div class="name">Tomas Ruiz Guiñazu</div><div class="hcap">Handicap: 4</div><div class="hcap">Total Goals: 2</div>
-</div></div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/51.jpg" data-full="https://randomuser.me/api/portraits/men/51.jpg" alt="Fabio Meier">
+              <div class="meta">
+                <div class="name">Fabio Meier</div>
+                <div class="hcap">Handicap: 1</div>
+                <div class="hcap">Total Goals: 1</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/52.jpg" data-full="https://randomuser.me/api/portraits/men/52.jpg" alt="Luca Meier">
+              <div class="meta">
+                <div class="name">Luca Meier</div>
+                <div class="hcap">Handicap: 1</div>
+                <div class="hcap">Total Goals: 4</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/53.jpg" data-full="https://randomuser.me/api/portraits/men/53.jpg" alt="Patricio Gaynor Jr.">
+              <div class="meta">
+                <div class="name">Patricio Gaynor Jr.</div>
+                <div class="hcap">Handicap: 2</div>
+                <div class="hcap">Total Goals: 14</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/54.jpg" data-full="https://randomuser.me/api/portraits/men/54.jpg" alt="Tomas Ruiz Guiñazu">
+              <div class="meta">
+                <div class="name">Tomas Ruiz Guiñazu</div>
+                <div class="hcap">Handicap: 4</div>
+                <div class="hcap">Total Goals: 2</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -798,21 +822,43 @@
             <div class="sum-pill">Team Handicap: <span class="ml-1">6</span></div>
           </div>
           <div class="mt-4 flex items-center justify-between gap-3">
-            <span class="coach-pill">
-              <strong>Coach:</strong>&nbsp;Cristobal Durrieu
-            </span>
+            <span class="coach-pill"><strong>Coach:</strong>&nbsp;Cristobal Durrieu</span>
             <div class="shirt-wrap">
               <img src="public/netherlands.png" class="w-28 h-20 object-contain" alt="Netherlands Kit">
             </div>
           </div>
           <div class="mt-4 players-grid">
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/61.jpg" data-full="https://randomuser.me/api/portraits/men/61.jpg"><div class="meta"><div class="name">Jim Souren</div><div class="hcap">Handicap: 0</div></div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/62.jpg" data-full="https://randomuser.me/api/portraits/men/62.jpg"><div class="meta"><div class="name">Boudenwijn Brouns</div><div class="hcap">Handicap: 1</div><div class="hcap">Total Goals: 7</div>
-/div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/63.jpg" data-full="https://randomuser.me/api/portraits/men/63.jpg"><div class="meta"><div class="name">Mateo Ussher</div><div class="hcap">Handicap: 2</div><div class="hcap">Total Goals: 10</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/64.jpg" data-full="https://randomuser.me/api/portraits/men/64.jpg"><div class="meta"><div class="name">Robert Watson</div><div class="hcap">Handicap: 3</div><div class="hcap">Total Goals: 1</div>
-</div></div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/61.jpg" data-full="https://randomuser.me/api/portraits/men/61.jpg" alt="Jim Souren">
+              <div class="meta">
+                <div class="name">Jim Souren</div>
+                <div class="hcap">Handicap: 0</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/62.jpg" data-full="https://randomuser.me/api/portraits/men/62.jpg" alt="Boudenwijn Brouns">
+              <div class="meta">
+                <div class="name">Boudenwijn Brouns</div>
+                <div class="hcap">Handicap: 1</div>
+                <div class="hcap">Total Goals: 7</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/63.jpg" data-full="https://randomuser.me/api/portraits/men/63.jpg" alt="Mateo Ussher">
+              <div class="meta">
+                <div class="name">Mateo Ussher</div>
+                <div class="hcap">Handicap: 2</div>
+                <div class="hcap">Total Goals: 10</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/64.jpg" data-full="https://randomuser.me/api/portraits/men/64.jpg" alt="Robert Watson">
+              <div class="meta">
+                <div class="name">Robert Watson</div>
+                <div class="hcap">Handicap: 3</div>
+                <div class="hcap">Total Goals: 1</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -831,22 +877,44 @@
             <div class="sum-pill">Team Handicap: <span class="ml-1">7</span></div>
           </div>
           <div class="mt-4 flex items-center justify-between gap-3">
-            <span class="coach-pill">
-              <strong>Coach:</strong>&nbsp;Benjamin Araya
-            </span>
+            <span class="coach-pill"><strong>Coach:</strong>&nbsp;Benjamin Araya</span>
             <div class="shirt-wrap">
               <img src="public/spain.png" class="w-28 h-20 object-contain" alt="Spain Kit">
             </div>
           </div>
           <div class="mt-4 players-grid">
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/71.jpg" data-full="https://randomuser.me/api/portraits/men/71.jpg"><div class="meta"><div class="name">Juan Manuel Marulanda</div><div class="hcap">Handicap: 3</div><div class="hcap">Total Goals: 5</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/72.jpg" data-full="https://randomuser.me/api/portraits/men/72.jpg"><div class="meta"><div class="name">Sebastian Luque</div><div class="hcap">Handicap: 2</div><div class="hcap">Total Goals: 1</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/73.jpg" data-full="https://randomuser.me/api/portraits/men/73.jpg"><div class="meta"><div class="name">Juan Torroba</div><div class="hcap">Handicap: 1</div><div class="hcap">Total Goals: 4</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/74.jpg" data-full="https://randomuser.me/api/portraits/men/74.jpg"><div class="meta"><div class="name">Alfonso Figar</div><div class="hcap">Handicap: 1</div><div class="hcap">Total Goals: 2</div>
-</div></div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/71.jpg" data-full="https://randomuser.me/api/portraits/men/71.jpg" alt="Juan Manuel Marulanda">
+              <div class="meta">
+                <div class="name">Juan Manuel Marulanda</div>
+                <div class="hcap">Handicap: 3</div>
+                <div class="hcap">Total Goals: 5</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/72.jpg" data-full="https://randomuser.me/api/portraits/men/72.jpg" alt="Sebastian Luque">
+              <div class="meta">
+                <div class="name">Sebastian Luque</div>
+                <div class="hcap">Handicap: 2</div>
+                <div class="hcap">Total Goals: 1</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/73.jpg" data-full="https://randomuser.me/api/portraits/men/73.jpg" alt="Juan Torroba">
+              <div class="meta">
+                <div class="name">Juan Torroba</div>
+                <div class="hcap">Handicap: 1</div>
+                <div class="hcap">Total Goals: 4</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/74.jpg" data-full="https://randomuser.me/api/portraits/men/74.jpg" alt="Alfonso Figar">
+              <div class="meta">
+                <div class="name">Alfonso Figar</div>
+                <div class="hcap">Handicap: 1</div>
+                <div class="hcap">Total Goals: 2</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -865,21 +933,43 @@
             <div class="sum-pill">Team Handicap: <span class="ml-1">6</span></div>
           </div>
           <div class="mt-4 flex items-center justify-between gap-3">
-            <span class="coach-pill">
-              <strong>Coach:</strong>&nbsp;Franco Piazza
-            </span>
+            <span class="coach-pill"><strong>Coach:</strong>&nbsp;Franco Piazza</span>
             <div class="shirt-wrap">
               <img src="public/italty.png" class="w-28 h-20 object-contain" alt="Italy Kit">
             </div>
           </div>
           <div class="mt-4 players-grid">
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/81.jpg" data-full="https://randomuser.me/api/portraits/men/81.jpg"><div class="meta"><div class="name">Stefano Giansanti</div><div class="hcap">Handicap: 1</div></div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/82.jpg" data-full="https://randomuser.me/api/portraits/men/82.jpg"><div class="meta"><div class="name">Boris Bignoli</div><div class="hcap">Handicap: 1</div><div class="hcap">Total Goals: 3</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/83.jpg" data-full="https://randomuser.me/api/portraits/men/83.jpg"><div class="meta"><div class="name">Roman Rampello</div><div class="hcap">Handicap: 2</div><div class="hcap">Total Goals: 2</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/84.jpg" data-full="https://randomuser.me/api/portraits/men/84.jpg"><div class="meta"><div class="name">Mariano Raigal</div><div class="hcap">Handicap: 4</div><div class="hcap">Total Goals: 11</div>
-</div></div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/81.jpg" data-full="https://randomuser.me/api/portraits/men/81.jpg" alt="Stefano Giansanti">
+              <div class="meta">
+                <div class="name">Stefano Giansanti</div>
+                <div class="hcap">Handicap: 1</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/82.jpg" data-full="https://randomuser.me/api/portraits/men/82.jpg" alt="Boris Bignoli">
+              <div class="meta">
+                <div class="name">Boris Bignoli</div>
+                <div class="hcap">Handicap: 1</div>
+                <div class="hcap">Total Goals: 3</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/83.jpg" data-full="https://randomuser.me/api/portraits/men/83.jpg" alt="Roman Rampello">
+              <div class="meta">
+                <div class="name">Roman Rampello</div>
+                <div class="hcap">Handicap: 2</div>
+                <div class="hcap">Total Goals: 2</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/84.jpg" data-full="https://randomuser.me/api/portraits/men/84.jpg" alt="Mariano Raigal">
+              <div class="meta">
+                <div class="name">Mariano Raigal</div>
+                <div class="hcap">Handicap: 4</div>
+                <div class="hcap">Total Goals: 11</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -898,62 +988,54 @@
             <div class="sum-pill">Team Handicap: <span class="ml-1">8</span></div>
           </div>
           <div class="mt-4 flex items-center justify-between gap-3">
-            <span class="coach-pill">
-              <strong>Coach:</strong>&nbsp;Gabor Szegedi
-            </span>
+            <span class="coach-pill"><strong>Coach:</strong>&nbsp;Gabor Szegedi</span>
             <div class="shirt-wrap">
               <img src="public/hungary.png" class="w-28 h-20 object-contain" alt="Hungary Kit">
             </div>
           </div>
-         <div class="mt-4 players-grid">
-  <div class="player-item">
-    <img src="https://randomuser.me/api/portraits/men/91.jpg" data-full="https://randomuser.me/api/portraits/men/91.jpg">
-    <div class="meta">
-      <div class="name">Matias Gonzalez</div>
-      <div class="hcap">Handicap: 4</div>
-      <div class="hcap">Total Goals: 4</div>
-    </div>
-  </div>
-
-  <div class="player-item">
-    <img src="https://randomuser.me/api/portraits/men/92.jpg" data-full="https://randomuser.me/api/portraits/men/92.jpg">
-    <div class="meta">
-      <div class="name">Levente Szegedi</div>
-      <div class="hcap">Handicap: 2</div>
-      <div class="hcap">Total Goals: 1</div>
-    </div>
-  </div>
-
-  <div class="player-item">
-    <img src="https://randomuser.me/api/portraits/men/93.jpg" data-full="https://randomuser.me/api/portraits/men/93.jpg">
-    <div class="meta">
-      <div class="name">Balazs Cseri Kerekes</div>
-      <div class="hcap">Handicap: 2</div>
-      <div class="hcap">Total Goals: 2</div>
-    </div>
-  </div>
-
-  <div class="player-item">
-    <img src="https://randomuser.me/api/portraits/men/94.jpg" data-full="https://randomuser.me/api/portraits/men/94.jpg">
-    <div class="meta">
-      <div class="name">Daniel Radics</div>
-      <div class="hcap">Handicap: 0</div>
-    </div>
-  </div>
-
-  <!-- NEW: Polina Nazarova -->
-  <div class="player-item">
-    <img src="https://randomuser.me/api/portraits/women/95.jpg" data-full="https://randomuser.me/api/portraits/women/95.jpg">
-    <div class="meta">
-      <div class="name">Polina Nazarova</div>
-      <div class="hcap">Handicap: 0</div>
-      <div class="hcap">Total Goals: 1</div>
-    </div>
-  </div>
-</div>
-</div> <!-- ✅ zamykamy .team-card -->
-</div> <!-- ✅ zamykamy .swiper-slide -->
-
+          <div class="mt-4 players-grid">
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/91.jpg" data-full="https://randomuser.me/api/portraits/men/91.jpg" alt="Matias Gonzalez">
+              <div class="meta">
+                <div class="name">Matias Gonzalez</div>
+                <div class="hcap">Handicap: 4</div>
+                <div class="hcap">Total Goals: 4</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/92.jpg" data-full="https://randomuser.me/api/portraits/men/92.jpg" alt="Levente Szegedi">
+              <div class="meta">
+                <div class="name">Levente Szegedi</div>
+                <div class="hcap">Handicap: 2</div>
+                <div class="hcap">Total Goals: 1</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/93.jpg" data-full="https://randomuser.me/api/portraits/men/93.jpg" alt="Balazs Cseri Kerekes">
+              <div class="meta">
+                <div class="name">Balazs Cseri Kerekes</div>
+                <div class="hcap">Handicap: 2</div>
+                <div class="hcap">Total Goals: 2</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/94.jpg" data-full="https://randomuser.me/api/portraits/men/94.jpg" alt="Daniel Radics">
+              <div class="meta">
+                <div class="name">Daniel Radics</div>
+                <div class="hcap">Handicap: 0</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/women/95.jpg" data-full="https://randomuser.me/api/portraits/women/95.jpg" alt="Polina Nazarova">
+              <div class="meta">
+                <div class="name">Polina Nazarova</div>
+                <div class="hcap">Handicap: 0</div>
+                <div class="hcap">Total Goals: 1</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <!-- ========== TEAM: FRANCE ========== -->
       <div class="swiper-slide">
@@ -969,31 +1051,48 @@
             <div class="sum-pill">Team Handicap: <span class="ml-1">8</span></div>
           </div>
           <div class="mt-4 flex items-center justify-between gap-3">
-            <span class="coach-pill">
-              <strong>Coach:</strong>&nbsp; No data
-            </span>
+            <span class="coach-pill"><strong>Coach:</strong>&nbsp;No data</span>
             <div class="shirt-wrap">
               <img src="public/france.png" class="w-28 h-20 object-contain" alt="France Kit">
             </div>
           </div>
           <div class="mt-4 players-grid">
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/101.jpg" data-full="https://randomuser.me/api/portraits/men/101.jpg"><div class="meta"><div class="name">Gerald Bonvicini</div><div class="hcap">Handicap: 0</div><div class="hcap">Total Goals: 1</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/102.jpg" data-full="https://randomuser.me/api/portraits/men/102.jpg"><div class="meta"><div class="name">Wahib Geagea</div><div class="hcap">Handicap: 0</div></div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/103.jpg" data-full="https://randomuser.me/api/portraits/men/103.jpg"><div class="meta"><div class="name">Julien Reynes</div><div class="hcap">Handicap: 4</div><div class="hcap">Total Goals: 8</div>
-</div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/104.jpg" data-full="https://randomuser.me/api/portraits/men/104.jpg"><div class="meta"><div class="name">Louis Jarrige</div><div class="hcap">Handicap: 4</div><div class="hcap">Total Goals: 5</div>
-</div></div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/101.jpg" data-full="https://randomuser.me/api/portraits/men/101.jpg" alt="Gerald Bonvicini">
+              <div class="meta">
+                <div class="name">Gerald Bonvicini</div>
+                <div class="hcap">Handicap: 0</div>
+                <div class="hcap">Total Goals: 1</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/102.jpg" data-full="https://randomuser.me/api/portraits/men/102.jpg" alt="Wahib Geagea">
+              <div class="meta">
+                <div class="name">Wahib Geagea</div>
+                <div class="hcap">Handicap: 0</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/103.jpg" data-full="https://randomuser.me/api/portraits/men/103.jpg" alt="Julien Reynes">
+              <div class="meta">
+                <div class="name">Julien Reynes</div>
+                <div class="hcap">Handicap: 4</div>
+                <div class="hcap">Total Goals: 8</div>
+              </div>
+            </div>
+            <div class="player-item">
+              <img src="https://randomuser.me/api/portraits/men/104.jpg" data-full="https://randomuser.me/api/portraits/men/104.jpg" alt="Louis Jarrige">
+              <div class="meta">
+                <div class="name">Louis Jarrige</div>
+                <div class="hcap">Handicap: 4</div>
+                <div class="hcap">Total Goals: 5</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- ========== TEAM: SPAIN already added, remaining: ITALY done, HUNGARY done, add: NETHERLANDS done, add: SWEDEN? Not in list.
-           Remaining from your list: Switzerland (done), Netherlands (done) — also "Hollandia" = Netherlands (done). Good. -->
-
-      <!-- ========== TEAM: ITALY done; Add: add one more? we have 7 teams, need 8 -> SPAIN, ITALY, POLAND, GERMANY, SWITZERLAND, NETHERLANDS, HUNGARY, FRANCE are all present. -->
-
-    </div>
+    </div> <!-- /.swiper-wrapper -->
 
     <!-- Controls -->
     <div class="swiper-button-prev"></div>
@@ -1044,13 +1143,10 @@
     });
   });
   lbClose.addEventListener('click', () => lb.classList.remove('open'));
-  lb.addEventListener('click', (e) => {
-    if (e.target === lb) lb.classList.remove('open');
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') lb.classList.remove('open');
-  });
+  lb.addEventListener('click', (e) => { if (e.target === lb) lb.classList.remove('open'); });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') lb.classList.remove('open'); });
 </script>
+
 
 <!-- RULES OF POLO -->
 <section class="py-16 bg-white relative">
