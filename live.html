@@ -140,34 +140,26 @@
       </div>
     </div>
 
-   <!-- SCOREBOARD -->
+  <!-- SCOREBOARD -->
 <div class="grid grid-cols-2 gap-4 md:gap-6">
 
   <!-- Team A -->
   <div class="bg-cream rounded-2xl md:rounded-3xl p-4 md:p-6 shadow hover:shadow-lg transition">
-    <!-- Header: name+flag (top), jersey below on mobile; score on the right -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-      <div class="flex flex-col items-start gap-2">
-        <h3 class="font-serif text-base md:text-xl text-burgundy flex items-center gap-2">
-          Poland
-          <span class="flag" style="background-image:url('https://flagcdn.com/w40/pl.png');"></span>
-        </h3>
-        <!-- jersey under the name (mobile-first) -->
-        <img
-          src="public/poland.png"
-          alt="Poland Jersey"
-          class="w-12 h-12 md:w-10 md:h-10 rounded-full border border-charcoal/20"
-        >
-      </div>
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+      <h3 class="font-serif text-base md:text-xl text-burgundy flex items-center gap-2">
+        Poland
+        <span class="flag" style="background-image:url('https://flagcdn.com/w40/pl.png');"></span>
+      </h3>
       <span id="scoreA" class="text-xl md:text-3xl font-bold text-burgundy mt-2 md:mt-0">3</span>
     </div>
 
-    <!-- Coach: left-aligned on mobile -->
-    <div class="flex justify-start items-center w-full p-2 bg-white/70 rounded-xl border border-cream mb-4 text-left">
-      <span class="text-xs md:text-sm text-charcoal/80">
-        <span class="font-semibold text-burgundy">Coach:</span> Alejandro Ruiz
-      </span>
-    </div>
+    <!-- Jersey (centered) -->
+    <img
+      src="public/poland.png"
+      alt="Poland Jersey"
+      class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-charcoal/20 mx-auto mb-4"
+    >
 
     <!-- Players -->
     <div class="flex flex-col gap-2 text-left">
@@ -188,33 +180,32 @@
         <p class="text-[11px] md:text-sm text-charcoal/60">Handicap: 4</p>
       </div>
     </div>
+
+    <!-- Coach (moved below players) -->
+    <div class="mt-4 p-2 bg-white/70 rounded-xl border border-cream text-left">
+      <span class="text-xs md:text-sm text-charcoal/80">
+        <span class="font-semibold text-burgundy">Coach:</span> Alejandro Ruiz
+      </span>
+    </div>
   </div>
 
   <!-- Team B -->
   <div class="bg-cream rounded-2xl md:rounded-3xl p-4 md:p-6 shadow hover:shadow-lg transition">
-    <!-- Header: name+flag (top), jersey below on mobile; score on the right -->
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-      <div class="flex flex-col items-start gap-2">
-        <h3 class="font-serif text-base md:text-xl text-burgundy flex items-center gap-2">
-          Germany
-          <span class="flag" style="background-image:url('https://flagcdn.com/w40/de.png');"></span>
-        </h3>
-        <!-- jersey under the name (mobile-first) -->
-        <img
-          src="public/germany.png"
-          alt="Germany Jersey"
-          class="w-12 h-12 md:w-10 md:h-10 rounded-full border border-charcoal/20"
-        >
-      </div>
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+      <h3 class="font-serif text-base md:text-xl text-burgundy flex items-center gap-2">
+        Germany
+        <span class="flag" style="background-image:url('https://flagcdn.com/w40/de.png');"></span>
+      </h3>
       <span id="scoreB" class="text-xl md:text-3xl font-bold text-burgundy mt-2 md:mt-0">2</span>
     </div>
 
-    <!-- Coach: left-aligned on mobile -->
-    <div class="flex justify-start items-center w-full p-2 bg-white/70 rounded-xl border border-cream mb-4 text-left">
-      <span class="text-xs md:text-sm text-charcoal/80">
-        <span class="font-semibold text-burgundy">Coach:</span> Marcelo Paredes
-      </span>
-    </div>
+    <!-- Jersey (centered) -->
+    <img
+      src="public/germany.png"
+      alt="Germany Jersey"
+      class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-charcoal/20 mx-auto mb-4"
+    >
 
     <!-- Players -->
     <div class="flex flex-col gap-2 text-left">
@@ -234,6 +225,13 @@
         <p class="font-medium text-sm md:text-base">Stefan Bauer</p>
         <p class="text-[11px] md:text-sm text-charcoal/60">Handicap: 4</p>
       </div>
+    </div>
+
+    <!-- Coach (moved below players) -->
+    <div class="mt-4 p-2 bg-white/70 rounded-xl border border-cream text-left">
+      <span class="text-xs md:text-sm text-charcoal/80">
+        <span class="font-semibold text-burgundy">Coach:</span> Marcelo Paredes
+      </span>
     </div>
   </div>
 </div>
@@ -643,14 +641,14 @@
               </div>
             </div>
             <div class="sum-pill">
-              Team Handicap: <span class="ml-1">18</span>
+              Team Handicap: <span class="ml-1">6</span>
             </div>
           </div>
 
           <!-- Coach + Kit -->
           <div class="mt-4 flex items-center justify-between gap-3">
             <span class="coach-pill">
-              <strong>Coach:</strong>&nbsp;Marek Kowalski
+              <strong>Coach:</strong>&nbsp;Facundo Cordeu
             </span>
             <div class="shirt-wrap">
               <img src="public/poland.png" alt="Poland Kit" class="w-28 h-20 object-contain">
@@ -661,19 +659,19 @@
           <div class="mt-4 players-grid">
             <div class="player-item">
               <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Player" data-full="https://randomuser.me/api/portraits/men/31.jpg">
-              <div class="meta"><div class="name">Jan Nowak</div><div class="hcap">Handicap: 5</div></div>
+              <div class="meta"><div class="name">Eric Aronowicz</div><div class="hcap">Handicap: 1</div></div>
             </div>
             <div class="player-item">
               <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Player" data-full="https://randomuser.me/api/portraits/men/32.jpg">
-              <div class="meta"><div class="name">Piotr Zieliński</div><div class="hcap">Handicap: 4</div></div>
+              <div class="meta"><div class="name">Milos Ruszkowski</div><div class="hcap">Handicap: 3</div></div>
             </div>
             <div class="player-item">
               <img src="https://randomuser.me/api/portraits/men/33.jpg" alt="Player" data-full="https://randomuser.me/api/portraits/men/33.jpg">
-              <div class="meta"><div class="name">Adam Wiśniewski</div><div class="hcap">Handicap: 5</div></div>
+              <div class="meta"><div class="name">Marcin Świtalski</div><div class="hcap">Handicap: 0</div></div>
             </div>
             <div class="player-item">
               <img src="https://randomuser.me/api/portraits/men/34.jpg" alt="Player" data-full="https://randomuser.me/api/portraits/men/34.jpg">
-              <div class="meta"><div class="name">Krzysztof Lewandowski</div><div class="hcap">Handicap: 4</div></div>
+              <div class="meta"><div class="name">Mateusz Świtalski</div><div class="hcap">Handicap: 2</div></div>
             </div>
           </div>
         </div>
@@ -690,21 +688,21 @@
                 <div class="text-xs text-charcoal/60">Country</div>
               </div>
             </div>
-            <div class="sum-pill">Team Handicap: <span class="ml-1">17</span></div>
+            <div class="sum-pill">Team Handicap: <span class="ml-1">7</span></div>
           </div>
           <div class="mt-4 flex items-center justify-between gap-3">
             <span class="coach-pill">
-              <strong>Coach:</strong>&nbsp;Johann Bauer
+              <strong>Coach:</strong>&nbsp;Thomas Winter
             </span>
             <div class="shirt-wrap">
               <img src="public/germany.png" class="w-28 h-20 object-contain" alt="Germany Kit">
             </div>
           </div>
           <div class="mt-4 players-grid">
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/41.jpg" data-full="https://randomuser.me/api/portraits/men/41.jpg"><div class="meta"><div class="name">Lukas Schmidt</div><div class="hcap">Handicap: 5</div></div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/42.jpg" data-full="https://randomuser.me/api/portraits/men/42.jpg"><div class="meta"><div class="name">Max Weber</div><div class="hcap">Handicap: 4</div></div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/43.jpg" data-full="https://randomuser.me/api/portraits/men/43.jpg"><div class="meta"><div class="name">Felix Braun</div><div class="hcap">Handicap: 4</div></div></div>
-            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/44.jpg" data-full="https://randomuser.me/api/portraits/men/44.jpg"><div class="meta"><div class="name">Noah Fischer</div><div class="hcap">Handicap: 4</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/41.jpg" data-full="https://randomuser.me/api/portraits/men/41.jpg"><div class="meta"><div class="name">Julien Winter</div><div class="hcap">Handicap: 2</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/42.jpg" data-full="https://randomuser.me/api/portraits/men/42.jpg"><div class="meta"><div class="name">Finley Bright</div><div class="hcap">Handicap: 2</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/43.jpg" data-full="https://randomuser.me/api/portraits/men/43.jpg"><div class="meta"><div class="name">Fabian Stege</div><div class="hcap">Handicap: 1</div></div></div>
+            <div class="player-item"><img src="https://randomuser.me/api/portraits/men/44.jpg" data-full="https://randomuser.me/api/portraits/men/44.jpg"><div class="meta"><div class="name">Mortiz Mahns</div><div class="hcap">Handicap: 2</div></div></div>
           </div>
         </div>
       </div>
