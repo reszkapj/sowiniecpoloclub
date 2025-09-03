@@ -260,55 +260,24 @@
   setInterval(updateTimer, 1000);
 </script>
 
-<!-- ========== CHAMPIONSHIP STATS (Semifinals + Qualifying Games) ========== -->
+<!-- ========== CHAMPIONSHIP STATS (abbr. team names) ========== -->
 <section id="championship-stats" class="bg-cream/50 py-10 px-4">
   <style>
-    /* Mała flaga zgodna stylistycznie z Twoimi flagami */
     .flag-xs{
-      width: 22px; height: 14px; border-radius: 3px;
-      background-size: cover; background-position: center;
-      box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      width:22px;height:14px;border-radius:3px;
+      background-size:cover;background-position:center;
+      box-shadow:0 1px 2px rgba(0,0,0,.15);
     }
-    .stats-table th, .stats-table td { padding: 6px 8px; }
-    .stats-table thead th { border-bottom: 1px solid #eee; font-weight: 600; font-size: .85rem; color: #64748b; white-space: nowrap; }
-    .stats-table tbody tr { border-bottom: 1px solid #f1f1f1; }
-    .stats-num { text-align: right; font-variant-numeric: tabular-nums; }
+    .stats-table th,.stats-table td{padding:6px 8px}
+    .stats-table thead th{border-bottom:1px solid #eee;font-weight:600;font-size:.85rem;color:#64748b;white-space:nowrap}
+    .stats-table tbody tr{border-bottom:1px solid #f1f1f1}
+    .stats-num{text-align:right;font-variant-numeric:tabular-nums}
   </style>
 
   <div class="max-w-6xl mx-auto">
     <h2 class="font-serif text-2xl md:text-3xl text-burgundy text-center mb-6">
       Championship Stats
     </h2>
-
-    <!-- Semifinals + Final (TBA) -->
-    <div class="grid md:grid-cols-3 gap-4 mb-8 items-start">
-      <!-- SF left -->
-      <div class="bg-white rounded-2xl p-5 shadow border border-[#eee]">
-        <h3 class="font-semibold text-burgundy mb-2">Semifinal</h3>
-        <ul class="text-sm space-y-2">
-          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-burgundy/50"></span><span class="text-charcoal/70 italic">TBA</span></li>
-          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-burgundy/50"></span><span class="text-charcoal/70 italic">TBA</span></li>
-        </ul>
-      </div>
-
-      <!-- Final center -->
-      <div class="bg-white rounded-2xl p-5 shadow border border-[#eee] md:col-start-2">
-        <h3 class="font-semibold text-burgundy mb-2 text-center">Final</h3>
-        <ul class="text-sm space-y-2 max-w-xs mx-auto">
-          <li class="flex items-center gap-2 justify-center"><span class="w-2 h-2 rounded-full bg-burgundy/50"></span><span class="text-charcoal/70 italic">TBA</span></li>
-          <li class="flex items-center gap-2 justify-center"><span class="w-2 h-2 rounded-full bg-burgundy/50"></span><span class="text-charcoal/70 italic">TBA</span></li>
-        </ul>
-      </div>
-
-      <!-- SF right -->
-      <div class="bg-white rounded-2xl p-5 shadow border border-[#eee]">
-        <h3 class="font-semibold text-burgundy mb-2">Semifinal</h3>
-        <ul class="text-sm space-y-2">
-          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-burgundy/50"></span><span class="text-charcoal/70 italic">TBA</span></li>
-          <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-burgundy/50"></span><span class="text-charcoal/70 italic">TBA</span></li>
-        </ul>
-      </div>
-    </div>
 
     <!-- Qualifying Games -->
     <div class="bg-white rounded-2xl p-5 shadow border border-[#eee]">
@@ -338,7 +307,7 @@
                     <div class="flex items-center gap-2">
                       <span class="text-xs inline-flex justify-center items-center w-5 h-5 rounded-md bg-burgundy/10 text-burgundy font-bold">1</span>
                       <span class="flag-xs" style="background-image:url('https://flagcdn.com/pl.svg')"></span>
-                      <span class="font-semibold">POLAND</span>
+                      <span class="font-semibold">POL</span>
                     </div>
                   </td>
                   <td class="stats-num">2</td><td class="stats-num">2</td><td class="stats-num">0</td>
@@ -349,7 +318,7 @@
                     <div class="flex items-center gap-2">
                       <span class="text-xs inline-flex justify-center items-center w-5 h-5 rounded-md bg-burgundy/10 text-burgundy font-bold">2</span>
                       <span class="flag-xs" style="background-image:url('https://flagcdn.com/it.svg')"></span>
-                      <span class="font-semibold">ITALY</span>
+                      <span class="font-semibold">ITA</span>
                     </div>
                   </td>
                   <td class="stats-num">2</td><td class="stats-num">1</td><td class="stats-num">1</td>
@@ -360,7 +329,7 @@
                     <div class="flex items-center gap-2">
                       <span class="text-xs inline-flex justify-center items-center w-5 h-5 rounded-md bg-burgundy/10 text-burgundy font-bold">3</span>
                       <span class="flag-xs" style="background-image:url('https://flagcdn.com/de.svg')"></span>
-                      <span class="font-semibold">GERMANY</span>
+                      <span class="font-semibold">GER</span>
                     </div>
                   </td>
                   <td class="stats-num">2</td><td class="stats-num">1</td><td class="stats-num">1</td>
@@ -371,7 +340,7 @@
                     <div class="flex items-center gap-2">
                       <span class="text-xs inline-flex justify-center items-center w-5 h-5 rounded-md bg-burgundy/10 text-burgundy font-bold">4</span>
                       <span class="flag-xs" style="background-image:url('https://flagcdn.com/hu.svg')"></span>
-                      <span class="font-semibold">HUNGARY</span>
+                      <span class="font-semibold">HUN</span>
                     </div>
                   </td>
                   <td class="stats-num">2</td><td class="stats-num">0</td><td class="stats-num">2</td>
@@ -405,7 +374,7 @@
                     <div class="flex items-center gap-2">
                       <span class="text-xs inline-flex justify-center items-center w-5 h-5 rounded-md bg-burgundy/10 text-burgundy font-bold">1</span>
                       <span class="flag-xs" style="background-image:url('https://flagcdn.com/ch.svg')"></span>
-                      <span class="font-semibold">SWITZERLAND</span>
+                      <span class="font-semibold">SUI</span>
                     </div>
                   </td>
                   <td class="stats-num">2</td><td class="stats-num">2</td><td class="stats-num">0</td>
@@ -416,7 +385,7 @@
                     <div class="flex items-center gap-2">
                       <span class="text-xs inline-flex justify-center items-center w-5 h-5 rounded-md bg-burgundy/10 text-burgundy font-bold">2</span>
                       <span class="flag-xs" style="background-image:url('https://flagcdn.com/nl.svg')"></span>
-                      <span class="font-semibold">NETHERLANDS</span>
+                      <span class="font-semibold">NED</span>
                     </div>
                   </td>
                   <td class="stats-num">2</td><td class="stats-num">1</td><td class="stats-num">1</td>
@@ -427,7 +396,7 @@
                     <div class="flex items-center gap-2">
                       <span class="text-xs inline-flex justify-center items-center w-5 h-5 rounded-md bg-burgundy/10 text-burgundy font-bold">3</span>
                       <span class="flag-xs" style="background-image:url('https://flagcdn.com/es.svg')"></span>
-                      <span class="font-semibold">SPAIN</span>
+                      <span class="font-semibold">ESP</span>
                     </div>
                   </td>
                   <td class="stats-num">2</td><td class="stats-num">1</td><td class="stats-num">1</td>
@@ -438,7 +407,7 @@
                     <div class="flex items-center gap-2">
                       <span class="text-xs inline-flex justify-center items-center w-5 h-5 rounded-md bg-burgundy/10 text-burgundy font-bold">4</span>
                       <span class="flag-xs" style="background-image:url('https://flagcdn.com/fr.svg')"></span>
-                      <span class="font-semibold">FRANCE</span>
+                      <span class="font-semibold">FRA</span>
                     </div>
                   </td>
                   <td class="stats-num">2</td><td class="stats-num">0</td><td class="stats-num">2</td>
@@ -454,6 +423,7 @@
   </div>
 </section>
 <!-- ========== /CHAMPIONSHIP STATS ========== -->
+
 
 
 <!-- ======= ZONES & SCHEDULE (EN + country abbreviations by the score) ======= -->
