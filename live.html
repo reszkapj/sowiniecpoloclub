@@ -260,184 +260,100 @@
   setInterval(updateTimer, 1000);
 </script>
 
- <!-- Match Details: drop‑in section (widoczny od razu). -->
-<section id="match-details">
-  <!-- HEADER: Tournament / Venue / Date & Final Score -->
-  <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow mb-6 border border-cream">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-      <div class="flex items-start gap-3">
-        <img src="public/sowiniec-logo.png" alt="Sowiniec Polo Club" class="w-10 h-10 rounded object-contain"/>
-        <div>
-          <p class="text-xs md:text-sm text-charcoal/70 leading-tight">SOWINIEC POLO CLUB · EUROPEAN POLO CHAMPIONSHIP</p>
-          <h2 class="font-serif text-lg md:text-2xl text-burgundy leading-tight">Germany vs France</h2>
-          <p class="text-xs md:text-sm text-charcoal/70">04 Sep 2025 · Kick-off 13:00</p>
-        </div>
+<!-- Match Details: compact mobile‑first version -->
+<section id="match-details" class="p-2 max-w-full">
+  <div class="bg-white rounded-xl p-3 shadow mb-3 border border-cream">
+    <div class="flex flex-col items-start justify-between gap-2">
+      <div>
+        <p class="text-[10px] text-charcoal/70 leading-tight">Sowiniec Polo Club · European Polo Championship</p>
+        <h2 class="font-serif text-base font-bold text-burgundy leading-tight">Germany vs France</h2>
+        <p class="text-[10px] text-charcoal/70">04 Sep 2025 · Kick-off 13:00</p>
       </div>
-      <div class="text-center md:text-right">
-        <div class="text-charcoal/60 text-xs">Final score</div>
-        <div class="text-2xl md:text-4xl font-bold text-burgundy">GER 10.5 · 7 FRA</div>
-        <div class="text-[11px] text-charcoal/60">After 4 chukkers (CHK: 4)</div>
+      <div class="text-right w-full">
+        <div class="text-[10px] text-charcoal/60">Final score</div>
+        <div class="text-lg font-bold text-burgundy">GER 10.5 · 7 FRA</div>
+        <div class="text-[10px] text-charcoal/60">After 4 chukkers (CHK: 4)</div>
       </div>
     </div>
   </div>
 
-  <!-- SCOREBOARD: Two team cards -->
-  <div class="grid grid-cols-2 gap-4 md:gap-6">
+  <!-- Teams side by side -->
+  <div class="grid grid-cols-2 gap-2">
     <!-- Team A -->
-    <div class="bg-cream rounded-2xl md:rounded-3xl p-4 md:p-6 shadow">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-        <h3 class="font-serif text-base md:text-xl text-burgundy flex items-center gap-2">
-          Germany
-          <span class="flag w-6 h-4 inline-block bg-center bg-cover rounded-sm" style="background-image:url('https://flagcdn.com/w40/de.png');"></span>
-        </h3>
-        <span id="scoreA" class="text-xl md:text-3xl font-bold text-burgundy mt-2 md:mt-0">10.5</span>
+    <div class="bg-cream rounded-lg p-2 shadow text-xs">
+      <div class="flex items-center justify-between mb-1">
+        <h3 class="font-bold text-burgundy flex items-center gap-1">Germany <span class="flag w-5 h-3" style="background-image:url('https://flagcdn.com/w40/de.png')"></span></h3>
+        <span class="font-bold text-burgundy">10.5</span>
       </div>
-      <img src="public/germany.png" alt="Germany Jersey" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-charcoal/20 mx-auto mb-4">
-      <div class="flex flex-col divide-y divide-white/60">
-        <div class="flex items-center justify-between py-2">
-          <div class="flex items-center gap-3 min-w-0">
-            <img src="public/players/julien-winter.jpg" alt="Julien Winter" class="w-8 h-8 rounded-full object-cover border border-white"/>
-            <p class="font-medium text-sm md:text-base truncate">Julien Winter <span class="text-charcoal/60">(2)</span></p>
-          </div>
-          <div class="text-right"><span class="font-semibold">5</span></div>
+      <img src="public/germany.png" alt="Germany Jersey" class="w-8 h-8 mx-auto mb-2 rounded-full border">
+      <div class="space-y-1">
+        <div class="flex items-center justify-between">
+          <span>Julien Winter (2)</span><span class="font-semibold">5</span>
         </div>
-        <div class="flex items-center justify-between py-2">
-          <div class="flex items-center gap-3 min-w-0">
-            <img src="public/players/finley-brigth.jpg" alt="Finley Brigth" class="w-8 h-8 rounded-full object-cover border border-white"/>
-            <p class="font-medium text-sm md:text-base truncate">Finley Brigth <span class="text-charcoal/60">(2)</span></p>
-          </div>
-          <div class="text-right"><span class="font-semibold">1</span></div>
+        <div class="flex items-center justify-between">
+          <span>Finley Brigth (2)</span><span class="font-semibold">1</span>
         </div>
-        <div class="flex items-center justify-between py-2">
-          <div class="flex items-center gap-3 min-w-0">
-            <img src="public/players/fabian-stege.jpg" alt="Fabian Stege" class="w-8 h-8 rounded-full object-cover border border-white"/>
-            <p class="font-medium text-sm md:text-base truncate">Fabian Stege <span class="text-charcoal/60">(1)</span></p>
-          </div>
-          <div class="text-right"><span class="font-semibold">1</span></div>
+        <div class="flex items-center justify-between">
+          <span>Fabian Stege (1)</span><span class="font-semibold">1</span>
         </div>
-        <div class="flex items-center justify-between py-2">
-          <div class="flex items-center gap-3 min-w-0">
-            <img src="public/players/moritz-mahns.jpg" alt="Moritz Mahns" class="w-8 h-8 rounded-full object-cover border border-white"/>
-            <p class="font-medium text-sm md:text-base truncate">Moritz Mahns <span class="text-charcoal/60">(2)</span></p>
-          </div>
-          <div class="text-right"><span class="font-semibold">3</span></div>
+        <div class="flex items-center justify-between">
+          <span>Moritz Mahns (2)</span><span class="font-semibold">3</span>
         </div>
-        <div class="flex items-center justify-between pt-2 text-xs md:text-sm text-charcoal/60">
-          <p>Team handicap</p>
-          <p class="font-medium">+0.5</p>
+        <div class="flex items-center justify-between text-[10px] text-charcoal/60">
+          <span>Team handicap</span><span>+0.5</span>
         </div>
       </div>
-      <div class="mt-4 p-2 bg-white/70 rounded-xl border border-cream">
-        <div class="flex items-center gap-2">
-          <img src="public/cap-couch.svg" alt="" class="w-4 h-4">
-          <span class="text-xs md:text-sm">Coach: Thomas Winter</span>
-        </div>
-      </div>
+      <div class="mt-2 text-[10px] text-charcoal/80">Coach: Thomas Winter</div>
     </div>
 
     <!-- Team B -->
-    <div class="bg-cream rounded-2xl md:rounded-3xl p-4 md:p-6 shadow">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
-        <h3 class="font-serif text-base md:text-xl text-burgundy flex items-center gap-2">
-          France
-          <span class="flag w-6 h-4 inline-block bg-center bg-cover rounded-sm" style="background-image:url('https://flagcdn.com/w40/fr.png');"></span>
-        </h3>
-        <span id="scoreB" class="text-xl md:text-3xl font-bold text-burgundy mt-2 md:mt-0">7</span>
+    <div class="bg-cream rounded-lg p-2 shadow text-xs">
+      <div class="flex items-center justify-between mb-1">
+        <h3 class="font-bold text-burgundy flex items-center gap-1">France <span class="flag w-5 h-3" style="background-image:url('https://flagcdn.com/w40/fr.png')"></span></h3>
+        <span class="font-bold text-burgundy">7</span>
       </div>
-      <img src="public/france.png" alt="France Jersey" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-charcoal/20 mx-auto mb-4">
-      <div class="flex flex-col divide-y divide-white/60">
-        <div class="flex items-center justify-between py-2">
-          <div class="flex items-center gap-3 min-w-0">
-            <img src="public/players/gerard-bonvicini.jpg" alt="Gerard Bonvicini" class="w-8 h-8 rounded-full object-cover border border-white"/>
-            <p class="font-medium text-sm md:text-base truncate">Gerard Bonvicini <span class="text-charcoal/60">(0)</span></p>
-          </div>
-          <div class="text-right"><span class="font-semibold">0</span></div>
+      <img src="public/france.png" alt="France Jersey" class="w-8 h-8 mx-auto mb-2 rounded-full border">
+      <div class="space-y-1">
+        <div class="flex items-center justify-between">
+          <span>Gerard Bonvicini (0)</span><span class="font-semibold">0</span>
         </div>
-        <div class="flex items-center justify-between py-2">
-          <div class="flex items-center gap-3 min-w-0">
-            <img src="public/players/wahib-geagea.jpg" alt="Wahib Geagea" class="w-8 h-8 rounded-full object-cover border border-white"/>
-            <p class="font-medium text-sm md:text-base truncate">Wahib Geagea <span class="text-charcoal/60">(0)</span></p>
-          </div>
-          <div class="text-right"><span class="font-semibold">1</span></div>
+        <div class="flex items-center justify-between">
+          <span>Wahib Geagea (0)</span><span class="font-semibold">1</span>
         </div>
-        <div class="flex items-center justify-between py-2">
-          <div class="flex items-center gap-3 min-w-0">
-            <img src="public/players/julien-reynes.jpg" alt="Julien Reynes" class="w-8 h-8 rounded-full object-cover border border-white"/>
-            <p class="font-medium text-sm md:text-base truncate">Julien Reynes <span class="text-charcoal/60">(4)</span></p>
-          </div>
-          <div class="text-right"><span class="font-semibold">1</span></div>
+        <div class="flex items-center justify-between">
+          <span>Julien Reynes (4)</span><span class="font-semibold">1</span>
         </div>
-        <div class="flex items-center justify-between py-2">
-          <div class="flex items-center gap-3 min-w-0">
-            <img src="public/players/louis-jarrige.jpg" alt="Louis Jarrige" class="w-8 h-8 rounded-full object-cover border border-white"/>
-            <p class="font-medium text-sm md:text-base truncate">Louis Jarrige <span class="text-charcoal/60">(4)</span></p>
-          </div>
-          <div class="text-right"><span class="font-semibold">4</span></div>
+        <div class="flex items-center justify-between">
+          <span>Louis Jarrige (4)</span><span class="font-semibold">4</span>
         </div>
-        <div class="flex items-center justify-between pt-2 text-xs md:text-sm text-charcoal/60">
-          <p>Penalties</p>
-          <p class="font-medium">1</p>
+        <div class="flex items-center justify-between text-[10px] text-charcoal/60">
+          <span>Penalties</span><span>1</span>
         </div>
       </div>
-      <div class="mt-4 p-2 bg-white/70 rounded-xl border border-cream">
-        <div class="flex items-center gap-2">
-          <img src="public/cap-couch.svg" alt="" class="w-4 h-4">
-          <span class="text-xs md:text-sm">Coach: —</span>
-        </div>
-      </div>
+      <div class="mt-2 text-[10px] text-charcoal/80">Coach: —</div>
     </div>
   </div>
 
-  <!-- CHUKKER‑BY‑CHUKKER TABLE -->
-  <div class="mt-6 bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow border border-cream">
-    <div class="overflow-x-auto">
-      <table class="min-w-full text-sm md:text-base">
-        <thead>
-          <tr class="text-charcoal/70">
-            <th class="text-left font-medium py-2 pr-3"></th>
-            <th class="text-center font-medium px-3">1</th>
-            <th class="text-center font-medium px-3">2</th>
-            <th class="text-center font-medium px-3">3</th>
-            <th class="text-center font-medium px-3">4</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr class="border-t">
-            <td class="py-2 pr-3">
-              <div class="flex items-center gap-2">
-                <img src="public/germany.png" alt="Germany Jersey" class="w-8 h-8 rounded-full border border-charcoal/20">
-                <span>Germany</span>
-              </div>
-            </td>
-            <td class="text-center">3.5</td>
-            <td class="text-center">7.5</td>
-            <td class="text-center">9.5</td>
-            <td class="text-center">10.5</td>
-          </tr>
-          <tr class="border-t">
-            <td class="py-2 pr-3">
-              <div class="flex items-center gap-2">
-                <img src="public/france.png" alt="France Jersey" class="w-8 h-8 rounded-full border border-charcoal/20">
-                <span>France</span>
-              </div>
-            </td>
-            <td class="text-center">1</td>
-            <td class="text-center">2</td>
-            <td class="text-center">4</td>
-            <td class="text-center">7</td>
-            <td class="text-center">—</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  <!-- Chukker Table compact -->
+  <div class="bg-white rounded-lg p-2 shadow mt-3 text-xs">
+    <table class="w-full">
+      <thead class="text-[10px] text-charcoal/60">
+        <tr><th></th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+      </thead>
+      <tbody>
+        <tr class="border-t"><td>Germany</td><td>3.5</td><td>7.5</td><td>9.5</td><td>10.5</td><td>-</td></tr>
+        <tr class="border-t"><td>France</td><td>1</td><td>2</td><td>4</td><td>7</td><td>-</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <!-- REFEREES -->
-  <div class="mt-6 bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow border border-cream">
-    <h4 class="font-serif text-base md:text-lg text-burgundy mb-2">Referees</h4>
-    <p class="text-sm md:text-base">Martin Scortichini, Estanislao Jauregui. 3° Cesar Ruiz Guiñazu.</p>
+  <!-- Referees -->
+  <div class="bg-white rounded-lg p-2 shadow mt-3 text-xs">
+    <div class="font-bold text-burgundy mb-1">Referees</div>
+    <p>Martin Scortichini, Estanislao Jauregui, Cesar Ruiz Guiñazu</p>
   </div>
 </section>
+
 
 
 
