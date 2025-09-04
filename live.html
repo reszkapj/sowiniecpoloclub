@@ -260,232 +260,185 @@
   setInterval(updateTimer, 1000);
 </script>
 
-  <!-- ===== MATCH DETAILS (drop-in) ===== -->
-<section id="match-details" class="md-wrap">
-  <style>
-    /* --- Minimal styles for the component only --- */
-    #match-details{--bg:#f7f4ef;--card:#fff;--ink:#2b2b2b;--muted:#6b6b6b;--accent:#7a1624;--line:#eee;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; color:var(--ink)}
-    #match-details .wrap{max-width:1100px;margin:0 auto;padding:16px}
-    #match-details .card{background:var(--card);border:1px solid #f1e9dc;border-radius:16px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
-    #match-details .grid{display:grid;gap:16px}
-    #match-details .grid-2{grid-template-columns:1fr}
-    @media(min-width:900px){#match-details .grid-2{grid-template-columns:1fr 1fr}}
-    #match-details .h{font-weight:700;color:var(--accent)}
-    #match-details .muted{color:var(--muted)}
-    #match-details .flag{display:inline-block;width:24px;height:16px;background-size:cover;border-radius:2px}
-    #match-details .score{font-size:28px;font-weight:800;color:var(--accent)}
-    #match-details .team-card{background:var(--bg);border-radius:16px;padding:16px;border:1px solid #eadfcc}
-    #match-details .row{display:flex;align-items:center;justify-content:space-between;gap:12px}
-    #match-details .row + .row{margin-top:10px}
-    #match-details .left{display:flex;align-items:center;gap:10px;min-width:0}
-    #match-details .avatar{width:36px;height:36px;border-radius:50%;object-fit:cover;border:1px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.08)}
-    #match-details .jersey{width:44px;height:44px;border-radius:50%;border:1px solid #d9d9d9;object-fit:cover;display:block;margin:10px auto}
-    #match-details .name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-    #match-details .goals{min-width:2ch;text-align:right;font-weight:700}
-    #match-details table{width:100%;border-collapse:collapse}
-    #match-details th,#match-details td{padding:10px;border-top:1px solid var(--line);text-align:center}
-    #match-details th:first-child,#match-details td:first-child{text-align:left}
-    #match-details .badge{display:inline-flex;align-items:center;gap:6px}
-    #match-details .tiny{font-size:12px}
-    #match-details .btn{display:inline-block;padding:8px 12px;border:1px solid #e1d7c7;border-radius:10px;background:#fff;cursor:pointer}
-  </style>
-
-  <div class="wrap">
-
-    <!-- Optional toggle button (możesz usunąć, jeśli niepotrzebne) -->
-    <button id="toggle-details" class="btn tiny" type="button">Pokaż / ukryj szczegóły meczu</button>
-
-    <!-- HEADER -->
-    <div class="card" style="margin-top:12px">
-      <div class="row" style="align-items:flex-start">
-        <div class="left">
-          <img src="public/sowiniec-logo.png" alt="Sowiniec Polo Club" style="width:42px;height:42px;object-fit:contain;border-radius:8px">
-          <div>
-            <div class="tiny muted">SOWINIEC POLO CLUB · EUROPEAN POLO CHAMPIONSHIP</div>
-            <div class="h" style="font-size:22px;line-height:1.2">GERMANY vs FRANCE</div>
-            <div class="tiny muted">04-Sep-2025 · Start 13:00 (Local 13:00)</div>
-          </div>
+ <!-- Match Details: drop‑in section (widoczny od razu). -->
+<section id="match-details">
+  <!-- HEADER: Tournament / Venue / Date & Final Score -->
+  <div class="bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow mb-6 border border-cream">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+      <div class="flex items-start gap-3">
+        <img src="public/sowiniec-logo.png" alt="Sowiniec Polo Club" class="w-10 h-10 rounded object-contain"/>
+        <div>
+          <p class="text-xs md:text-sm text-charcoal/70 leading-tight">SOWINIEC POLO CLUB · EUROPEAN POLO CHAMPIONSHIP</p>
+          <h2 class="font-serif text-lg md:text-2xl text-burgundy leading-tight">Germany vs France</h2>
+          <p class="text-xs md:text-sm text-charcoal/70">04 Sep 2025 · Kick-off 13:00</p>
         </div>
-        <div style="text-align:right">
-          <div class="tiny muted">Wynik końcowy</div>
-          <div class="score">GER 10.5 · 7 FRA</div>
-          <div class="tiny muted">Po 4 chukkers (CHK: 4)</div>
+      </div>
+      <div class="text-center md:text-right">
+        <div class="text-charcoal/60 text-xs">Final score</div>
+        <div class="text-2xl md:text-4xl font-bold text-burgundy">GER 10.5 · 7 FRA</div>
+        <div class="text-[11px] text-charcoal/60">After 4 chukkers (CHK: 4)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCOREBOARD: Two team cards -->
+  <div class="grid grid-cols-2 gap-4 md:gap-6">
+    <!-- Team A -->
+    <div class="bg-cream rounded-2xl md:rounded-3xl p-4 md:p-6 shadow">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+        <h3 class="font-serif text-base md:text-xl text-burgundy flex items-center gap-2">
+          Germany
+          <span class="flag w-6 h-4 inline-block bg-center bg-cover rounded-sm" style="background-image:url('https://flagcdn.com/w40/de.png');"></span>
+        </h3>
+        <span id="scoreA" class="text-xl md:text-3xl font-bold text-burgundy mt-2 md:mt-0">10.5</span>
+      </div>
+      <img src="public/germany.png" alt="Germany Jersey" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-charcoal/20 mx-auto mb-4">
+      <div class="flex flex-col divide-y divide-white/60">
+        <div class="flex items-center justify-between py-2">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="public/players/julien-winter.jpg" alt="Julien Winter" class="w-8 h-8 rounded-full object-cover border border-white"/>
+            <p class="font-medium text-sm md:text-base truncate">Julien Winter <span class="text-charcoal/60">(2)</span></p>
+          </div>
+          <div class="text-right"><span class="font-semibold">5</span></div>
+        </div>
+        <div class="flex items-center justify-between py-2">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="public/players/finley-brigth.jpg" alt="Finley Brigth" class="w-8 h-8 rounded-full object-cover border border-white"/>
+            <p class="font-medium text-sm md:text-base truncate">Finley Brigth <span class="text-charcoal/60">(2)</span></p>
+          </div>
+          <div class="text-right"><span class="font-semibold">1</span></div>
+        </div>
+        <div class="flex items-center justify-between py-2">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="public/players/fabian-stege.jpg" alt="Fabian Stege" class="w-8 h-8 rounded-full object-cover border border-white"/>
+            <p class="font-medium text-sm md:text-base truncate">Fabian Stege <span class="text-charcoal/60">(1)</span></p>
+          </div>
+          <div class="text-right"><span class="font-semibold">1</span></div>
+        </div>
+        <div class="flex items-center justify-between py-2">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="public/players/moritz-mahns.jpg" alt="Moritz Mahns" class="w-8 h-8 rounded-full object-cover border border-white"/>
+            <p class="font-medium text-sm md:text-base truncate">Moritz Mahns <span class="text-charcoal/60">(2)</span></p>
+          </div>
+          <div class="text-right"><span class="font-semibold">3</span></div>
+        </div>
+        <div class="flex items-center justify-between pt-2 text-xs md:text-sm text-charcoal/60">
+          <p>Team handicap</p>
+          <p class="font-medium">+0.5</p>
+        </div>
+      </div>
+      <div class="mt-4 p-2 bg-white/70 rounded-xl border border-cream">
+        <div class="flex items-center gap-2">
+          <img src="public/cap-couch.svg" alt="" class="w-4 h-4">
+          <span class="text-xs md:text-sm">Coach: Thomas Winter</span>
         </div>
       </div>
     </div>
 
-    <!-- TWO TEAM CARDS -->
-    <div class="grid grid-2" style="margin-top:16px">
-
-      <!-- TEAM A: GERMANY -->
-      <div class="team-card">
-        <div class="row">
-          <div class="badge">
-            <span class="h" style="font-size:18px">Germany</span>
-            <span class="flag" style="background-image:url('https://flagcdn.com/w40/de.png')"></span>
+    <!-- Team B -->
+    <div class="bg-cream rounded-2xl md:rounded-3xl p-4 md:p-6 shadow">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-3">
+        <h3 class="font-serif text-base md:text-xl text-burgundy flex items-center gap-2">
+          France
+          <span class="flag w-6 h-4 inline-block bg-center bg-cover rounded-sm" style="background-image:url('https://flagcdn.com/w40/fr.png');"></span>
+        </h3>
+        <span id="scoreB" class="text-xl md:text-3xl font-bold text-burgundy mt-2 md:mt-0">7</span>
+      </div>
+      <img src="public/france.png" alt="France Jersey" class="w-12 h-12 md:w-14 md:h-14 rounded-full border border-charcoal/20 mx-auto mb-4">
+      <div class="flex flex-col divide-y divide-white/60">
+        <div class="flex items-center justify-between py-2">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="public/players/gerard-bonvicini.jpg" alt="Gerard Bonvicini" class="w-8 h-8 rounded-full object-cover border border-white"/>
+            <p class="font-medium text-sm md:text-base truncate">Gerard Bonvicini <span class="text-charcoal/60">(0)</span></p>
           </div>
-          <div class="score">10.5</div>
+          <div class="text-right"><span class="font-semibold">0</span></div>
         </div>
-
-        <img class="jersey" src="public/germany.png" alt="Germany Jersey">
-
-        <!-- Players: photo + Name (handicap) + goals -->
-        <div class="row">
-          <div class="left">
-            <img class="avatar" src="public/players/julien-winter.jpg" alt="Julien Winter">
-            <div class="name">Julien Winter <span class="muted">(2)</span></div>
+        <div class="flex items-center justify-between py-2">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="public/players/wahib-geagea.jpg" alt="Wahib Geagea" class="w-8 h-8 rounded-full object-cover border border-white"/>
+            <p class="font-medium text-sm md:text-base truncate">Wahib Geagea <span class="text-charcoal/60">(0)</span></p>
           </div>
-          <div class="goals">5</div>
+          <div class="text-right"><span class="font-semibold">1</span></div>
         </div>
-
-        <div class="row">
-          <div class="left">
-            <img class="avatar" src="public/players/finley-brigth.jpg" alt="Finley Brigth">
-            <div class="name">Finley Brigth <span class="muted">(2)</span></div>
+        <div class="flex items-center justify-between py-2">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="public/players/julien-reynes.jpg" alt="Julien Reynes" class="w-8 h-8 rounded-full object-cover border border-white"/>
+            <p class="font-medium text-sm md:text-base truncate">Julien Reynes <span class="text-charcoal/60">(4)</span></p>
           </div>
-          <div class="goals">1</div>
+          <div class="text-right"><span class="font-semibold">1</span></div>
         </div>
-
-        <div class="row">
-          <div class="left">
-            <img class="avatar" src="public/players/fabian-stege.jpg" alt="Fabian Stege">
-            <div class="name">Fabian Stege <span class="muted">(1)</span></div>
+        <div class="flex items-center justify-between py-2">
+          <div class="flex items-center gap-3 min-w-0">
+            <img src="public/players/louis-jarrige.jpg" alt="Louis Jarrige" class="w-8 h-8 rounded-full object-cover border border-white"/>
+            <p class="font-medium text-sm md:text-base truncate">Louis Jarrige <span class="text-charcoal/60">(4)</span></p>
           </div>
-          <div class="goals">1</div>
+          <div class="text-right"><span class="font-semibold">4</span></div>
         </div>
-
-        <div class="row">
-          <div class="left">
-            <img class="avatar" src="public/players/moritz-mahns.jpg" alt="Moritz Mahns">
-            <div class="name">Moritz Mahns <span class="muted">(2)</span></div>
-          </div>
-          <div class="goals">3</div>
-        </div>
-
-        <div class="row tiny muted" style="margin-top:6px">
-          <div>Handicap drużyny</div>
-          <div class="goals" style="font-weight:600">+0.5</div>
-        </div>
-
-        <div class="card tiny" style="margin-top:12px;background:#fff7ef;border-color:#f1e1cb">
-          Coach: Thomas Winter
+        <div class="flex items-center justify-between pt-2 text-xs md:text-sm text-charcoal/60">
+          <p>Penalties</p>
+          <p class="font-medium">1</p>
         </div>
       </div>
-
-      <!-- TEAM B: FRANCE -->
-      <div class="team-card">
-        <div class="row">
-          <div class="badge">
-            <span class="h" style="font-size:18px">France</span>
-            <span class="flag" style="background-image:url('https://flagcdn.com/w40/fr.png')"></span>
-          </div>
-          <div class="score">7</div>
-        </div>
-
-        <img class="jersey" src="public/france.png" alt="France Jersey">
-
-        <div class="row">
-          <div class="left">
-            <img class="avatar" src="public/players/gerard-bonvicini.jpg" alt="Gerard Bonvicini">
-            <div class="name">Gerard Bonvicini <span class="muted">(0)</span></div>
-          </div>
-          <div class="goals">0</div>
-        </div>
-
-        <div class="row">
-          <div class="left">
-            <img class="avatar" src="public/players/wahib-geagea.jpg" alt="Wahib Geagea">
-            <div class="name">Wahib Geagea <span class="muted">(0)</span></div>
-          </div>
-          <div class="goals">1</div>
-        </div>
-
-        <div class="row">
-          <div class="left">
-            <img class="avatar" src="public/players/julien-reynes.jpg" alt="Julien Reynes">
-            <div class="name">Julien Reynes <span class="muted">(4)</span></div>
-          </div>
-          <div class="goals">1</div>
-        </div>
-
-        <div class="row">
-          <div class="left">
-            <img class="avatar" src="public/players/louis-jarrige.jpg" alt="Louis Jarrige">
-            <div class="name">Louis Jarrige <span class="muted">(4)</span></div>
-          </div>
-          <div class="goals">4</div>
-        </div>
-
-        <div class="row tiny muted" style="margin-top:6px">
-          <div>Rzuty karne</div>
-          <div class="goals" style="font-weight:600">1</div>
-        </div>
-
-        <div class="card tiny" style="margin-top:12px;background:#fff7ef;border-color:#f1e1cb">
-          Coach: —
+      <div class="mt-4 p-2 bg-white/70 rounded-xl border border-cream">
+        <div class="flex items-center gap-2">
+          <img src="public/cap-couch.svg" alt="" class="w-4 h-4">
+          <span class="text-xs md:text-sm">Coach: —</span>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- CHUKKER TABLE -->
-    <div class="card" style="margin-top:16px">
-      <div class="tiny muted" style="margin-bottom:6px">Podsumowanie chukker-po-chukker</div>
-      <div style="overflow:auto">
-        <table>
-          <thead>
-            <tr class="muted">
-              <th></th>
-              <th>1</th><th>2</th><th>3</th><th>4</th><th>5</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>
-                <span class="badge">
-                  <img class="jersey" src="public/germany.png" alt="Germany" style="width:28px;height:28px;margin:0;border-radius:50%">
-                  <span>Germany</span>
-                </span>
-              </td>
-              <td>3.5</td><td>7.5</td><td>9.5</td><td>10.5</td><td>—</td>
-            </tr>
-            <tr>
-              <td>
-                <span class="badge">
-                  <img class="jersey" src="public/france.png" alt="France" style="width:28px;height:28px;margin:0;border-radius:50%">
-                  <span>France</span>
-                </span>
-              </td>
-              <td>1</td><td>2</td><td>4</td><td>7</td><td>—</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+  <!-- CHUKKER‑BY‑CHUKKER TABLE -->
+  <div class="mt-6 bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow border border-cream">
+    <div class="overflow-x-auto">
+      <table class="min-w-full text-sm md:text-base">
+        <thead>
+          <tr class="text-charcoal/70">
+            <th class="text-left font-medium py-2 pr-3"></th>
+            <th class="text-center font-medium px-3">1</th>
+            <th class="text-center font-medium px-3">2</th>
+            <th class="text-center font-medium px-3">3</th>
+            <th class="text-center font-medium px-3">4</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-t">
+            <td class="py-2 pr-3">
+              <div class="flex items-center gap-2">
+                <img src="public/germany.png" alt="Germany Jersey" class="w-8 h-8 rounded-full border border-charcoal/20">
+                <span>Germany</span>
+              </div>
+            </td>
+            <td class="text-center">3.5</td>
+            <td class="text-center">7.5</td>
+            <td class="text-center">9.5</td>
+            <td class="text-center">10.5</td>
+          </tr>
+          <tr class="border-t">
+            <td class="py-2 pr-3">
+              <div class="flex items-center gap-2">
+                <img src="public/france.png" alt="France Jersey" class="w-8 h-8 rounded-full border border-charcoal/20">
+                <span>France</span>
+              </div>
+            </td>
+            <td class="text-center">1</td>
+            <td class="text-center">2</td>
+            <td class="text-center">4</td>
+            <td class="text-center">7</td>
+            <td class="text-center">—</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
+  </div>
 
-    <!-- REFEREES -->
-    <div class="card" style="margin-top:16px">
-      <div class="h" style="font-size:18px;margin-bottom:6px">Sędziowie</div>
-      <div>Martin Scortichini, Estanislao Jauregui. 3° Cesar Ruiz Guiñazu.</div>
-    </div>
-
+  <!-- REFEREES -->
+  <div class="mt-6 bg-white rounded-2xl md:rounded-3xl p-4 md:p-6 shadow border border-cream">
+    <h4 class="font-serif text-base md:text-lg text-burgundy mb-2">Referees</h4>
+    <p class="text-sm md:text-base">Martin Scortichini, Estanislao Jauregui. 3° Cesar Ruiz Guiñazu.</p>
   </div>
 </section>
 
-<script>
-  // Prosty toggle widoczności sekcji (opcjonalnie)
-  (function(){
-    const btn = document.getElementById('toggle-details');
-    const panel = document.getElementById('match-details');
-    if(!btn || !panel) return;
-    let visible = true;
-    btn.addEventListener('click', () => {
-      visible = !visible;
-      panel.style.display = visible ? '' : 'none';
-    });
-  })();
-</script>
-<!-- ===== END MATCH DETAILS ===== -->
 
 
   <!-- Match Details: drop‑in section (hidden by default). Show this when user taps “Szczegóły meczu”. -->
