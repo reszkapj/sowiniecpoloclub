@@ -74,7 +74,7 @@
   </div>
 </header>
 
-<!-- =========== FINAL RANKING – SINGLE CARD =========== -->
+<!-- =========== FINAL RANKING – SINGLE CARD (medal next to name, flag on right) =========== -->
 <style>
   .ranking-card{
     background:linear-gradient(180deg,#ffffff 0%, #fbf8f1 100%);
@@ -83,22 +83,38 @@
   }
   .ranking-title{font-family:ui-serif,Georgia,serif;font-size:22px;font-weight:800;color:#722F37;text-align:center;}
   .ranking-sub{font-size:12px;color:#6b7280;text-align:center;margin-top:4px;margin-bottom:12px;}
+
+  /* wiersz listy */
   .rank-item{
-    display:flex;align-items:center;justify-content:space-between;gap:10px;
-    padding:10px 12px;background:#fff;border:1px solid #eee;border-radius:12px;
-    box-shadow:0 4px 10px rgba(0,0,0,.05);transition:.2s;
+    display:flex; align-items:center; justify-content:space-between; gap:10px;
+    padding:10px 12px; background:#fff; border:1px solid #eee; border-radius:12px;
+    box-shadow:0 4px 10px rgba(0,0,0,.05); transition:.2s;
   }
-  .rank-item + .rank-item{margin-top:8px;}
-  .rank-item:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(0,0,0,.08);}
-  .rank-left{display:flex;align-items:center;gap:8px;min-width:0;}
-  .rank-no{font-weight:800;font-size:16px;color:#722F37;width:20px;text-align:center;}
-  .rank-name{font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
-  .team-flag{width:34px;height:22px;border-radius:4px;background-size:cover;background-position:center;box-shadow:0 2px 6px rgba(0,0,0,.25);animation:flagWave 2.2s ease-in-out infinite;}
-  @keyframes flagWave{0%{transform:skewY(0deg)}25%{transform:skewY(1.2deg)}50%{transform:skewY(0deg)}75%{transform:skewY(-1.2deg)}100%{transform:skewY(0deg)}}
-  .medal{width:20px;height:20px;}
-  .rank-1{border-color:#fae7a4;box-shadow:0 6px 14px rgba(255,196,58,.25);}
-  .rank-2{border-color:#dfe5ef;box-shadow:0 6px 14px rgba(150,160,175,.25);}
-  .rank-3{border-color:#ffd8b5;box-shadow:0 6px 14px rgba(222,141,69,.25);}
+  .rank-item + .rank-item{ margin-top:8px; }
+  .rank-item:hover{ transform:translateY(-2px); box-shadow:0 8px 18px rgba(0,0,0,.08); }
+
+  /* lewa strona: miejsce + nazwa + (ew. medal) */
+  .rank-left{ display:flex; align-items:center; gap:8px; min-width:0; }
+  .rank-no{ font-weight:800; font-size:16px; color:#722F37; width:20px; text-align:center; }
+  .rank-name{ font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  .medal{ width:20px; height:20px; flex:0 0 auto; }
+
+  /* prawa strona: flaga kraju */
+  .rank-right{ display:flex; align-items:center; gap:6px; }
+  .team-flag{
+    width:34px; height:22px; border-radius:4px;
+    background-size:cover; background-position:center;
+    box-shadow:0 2px 6px rgba(0,0,0,.25);
+    animation:flagWave 2.2s ease-in-out infinite;
+  }
+  @keyframes flagWave{
+    0%{transform:skewY(0deg)}25%{transform:skewY(1.2deg)}50%{transform:skewY(0deg)}75%{transform:skewY(-1.2deg)}100%{transform:skewY(0deg)}
+  }
+
+  /* wyróżnienie podium (zostawiam Twoje kolory) */
+  .rank-1{ border-color:#fae7a4; box-shadow:0 6px 14px rgba(255,196,58,.25); }
+  .rank-2{ border-color:#dfe5ef; box-shadow:0 6px 14px rgba(150,160,175,.25); }
+  .rank-3{ border-color:#ffd8b5; box-shadow:0 6px 14px rgba(222,141,69,.25); }
 </style>
 
 <section id="final-ranking" class="max-w-md mx-auto px-4 py-6">
@@ -107,69 +123,101 @@
     <p class="ranking-sub">Top 8 · European Polo Championship 2025</p>
 
     <ol class="list-none m-0 p-0">
+      <!-- 1 -->
       <li class="rank-item rank-1">
         <div class="rank-left">
           <span class="rank-no">1</span>
-          <img src="public/goldmedal.svg" alt="Gold medal" class="medal">
-          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/de.png')"></span>
           <span class="rank-name">Germany</span>
+          <img src="public/goldmedal.svg" alt="Gold medal" class="medal">
+        </div>
+        <div class="rank-right">
+          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/de.png')"></span>
         </div>
       </li>
+
+      <!-- 2 -->
       <li class="rank-item rank-2">
         <div class="rank-left">
           <span class="rank-no">2</span>
-          <img src="public/silvermedal.svg" alt="Silver medal" class="medal">
-          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/fr.png')"></span>
           <span class="rank-name">France</span>
+          <img src="public/silvermedal.svg" alt="Silver medal" class="medal">
+        </div>
+        <div class="rank-right">
+          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/fr.png')"></span>
         </div>
       </li>
+
+      <!-- 3 -->
       <li class="rank-item rank-3">
         <div class="rank-left">
           <span class="rank-no">3</span>
-          <img src="public/bronzemedal.svg" alt="Bronze medal" class="medal">
-          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/es.png')"></span>
           <span class="rank-name">Spain</span>
+          <img src="public/bronzemedal.svg" alt="Bronze medal" class="medal">
+        </div>
+        <div class="rank-right">
+          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/es.png')"></span>
         </div>
       </li>
+
+      <!-- 4 -->
       <li class="rank-item">
         <div class="rank-left">
           <span class="rank-no">4</span>
-          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/it.png')"></span>
           <span class="rank-name">Italy</span>
         </div>
+        <div class="rank-right">
+          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/it.png')"></span>
+        </div>
       </li>
+
+      <!-- 5 -->
       <li class="rank-item">
         <div class="rank-left">
           <span class="rank-no">5</span>
-          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/pl.png')"></span>
           <span class="rank-name">Poland</span>
         </div>
+        <div class="rank-right">
+          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/pl.png')"></span>
+        </div>
       </li>
+
+      <!-- 6 -->
       <li class="rank-item">
         <div class="rank-left">
           <span class="rank-no">6</span>
-          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/nl.png')"></span>
           <span class="rank-name">Netherlands</span>
         </div>
+        <div class="rank-right">
+          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/nl.png')"></span>
+        </div>
       </li>
+
+      <!-- 7 -->
       <li class="rank-item">
         <div class="rank-left">
           <span class="rank-no">7</span>
-          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/at.png')"></span>
           <span class="rank-name">Austria</span>
         </div>
+        <div class="rank-right">
+          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/at.png')"></span>
+        </div>
       </li>
+
+      <!-- 8 -->
       <li class="rank-item">
         <div class="rank-left">
           <span class="rank-no">8</span>
-          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/ch.png')"></span>
           <span class="rank-name">Switzerland</span>
+        </div>
+        <div class="rank-right">
+          <span class="team-flag" style="background-image:url('https://flagcdn.com/w40/ch.png')"></span>
         </div>
       </li>
     </ol>
   </div>
 </section>
 <!-- =========== END FINAL RANKING =========== -->
+
 
 
 
