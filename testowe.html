@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Julia Piotrowska — architektka wnętrz</title>
+  <meta name="description" content="Nowoczesne, minimalistyczne projekty wnętrz — Julia Piotrowska, architektka wnętrz." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0e0e10; /* tło */
+      --fg:#f7f7f7; /* tekst */
+      --muted:#b5b5b8; /* subtelny tekst */
+      --accent:#9ad0c2; /* delikatny akcent */
+      --card:#131316; /* karty/sekcje */
+      --border:rgba(255,255,255,0.08);
+      --shadow:0 10px 30px rgba(0,0,0,.25);
+      --radius:18px;
+      --max:1200px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      background:var(--bg); color:var(--fg); line-height:1.5; -webkit-font-smoothing:antialiased;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{width:100%; max-width:var(--max); margin-inline:auto; padding:0 24px}
+    header.site{
+      position:fixed; inset-inline:0; top:0; z-index:30; backdrop-filter:saturate(130%) blur(8px);
+      background:linear-gradient(180deg, rgba(14,14,16,.85), rgba(14,14,16,.45));
+      border-bottom:1px solid var(--border);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:68px}
+    .logo{font-weight:600; letter-spacing:.5px}
+    .dot{color:var(--accent)}
+    .btn{display:inline-flex; align-items:center; gap:.6em; padding:.9em 1.2em; border-radius:999px; border:1px solid var(--border);
+      background:linear-gradient(180deg, #1b1b1f, #131317); color:var(--fg);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.05), var(--shadow);
+      transform:translateZ(0); transition:transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(255,255,255,.15)}
+    .btn--ghost{background:transparent; box-shadow:none}
+
+    /* HERO */
+    .hero{position:relative; min-height:100svh; display:grid; place-items:center; overflow:hidden}
+    .hero::before{ /* tło */
+      content:""; position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1554995207-c18c203602cb?q=80&w=2000&auto=format&fit=crop') center/cover no-repeat; filter:grayscale(.15) contrast(1.05);
+      transform:scale(1.02);
+    }
+    .hero::after{ /* winieta */
+      content:""; position:absolute; inset:0; background:radial-gradient(80% 60% at 50% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.45) 60%, rgba(0,0,0,.75) 100%), linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.85));
+    }
+    .hero__inner{position:relative; z-index:2; width:100%}
+    .hero__card{max-width:840px; padding:40px; margin-inline:auto; border:1px solid var(--border); border-radius:var(--radius);
+      background:linear-gradient(180deg, rgba(19,19,22,.75), rgba(19,19,22,.35)); box-shadow:var(--shadow)}
+    .eyebrow{letter-spacing:.25em; text-transform:uppercase; color:var(--muted); font-size:.8rem}
+    h1{font-size:clamp(2rem, 4vw + 1rem, 4rem); line-height:1.05; margin:.35em 0}
+    .sub{color:var(--muted); font-size:clamp(1rem, .8vw + .8rem, 1.25rem)}
+    .cta{display:flex; gap:12px; flex-wrap:wrap; margin-top:24px}
+
+    /* SECTION */
+    section{padding:96px 0}
+    .section__hd{display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:28px}
+    .section__title{font-size:clamp(1.4rem, 1.4vw + 1rem, 2rem)}
+    .section__desc{color:var(--muted)}
+    .pill{font-size:.8rem; color:var(--muted); border:1px solid var(--border); padding:.35em .7em; border-radius:999px}
+
+    /* PORTFOLIO */
+    .grid{display:grid; gap:14px}
+    .grid--portfolio{grid-template-columns:repeat(12, 1fr)}
+    .card{position:relative; overflow:hidden; border-radius:14px; border:1px solid var(--border); background:var(--card)}
+    .ratio{aspect-ratio:4/3}
+    .span-6{grid-column:span 6}
+    .span-4{grid-column:span 4}
+    .span-8{grid-column:span 8}
+    .media{width:100%; height:100%; object-fit:cover; transition:transform .5s ease}
+    .card:hover .media{transform:scale(1.035)}
+    .cap{position:absolute; inset:auto 10px 10px 10px; display:flex; justify-content:space-between; align-items:center; gap:10px; background:rgba(0,0,0,.45); color:#fff; padding:10px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.12)}
+
+    /* LIGHTBOX */
+    dialog.lightbox{width:min(92vw, 1100px); padding:0; border:none; background:transparent;}
+    dialog::backdrop{background:rgba(0,0,0,.65)}
+    .lightbox__img{width:100%; height:auto; display:block; border-radius:16px}
+    .lightbox__close{position:absolute; top:16px; right:16px}
+
+    /* INSTAGRAM */
+    .ig-note{color:var(--muted); font-size:.95rem}
+    .ig-grid{display:grid; grid-template-columns:repeat(6, 1fr); gap:12px}
+    .ig-grid .card{grid-column:span 2}
+
+    /* FOOTER */
+    footer{padding:32px 0; border-top:1px solid var(--border); color:var(--muted)}
+
+    /* RESPONSIVE */
+    @media (max-width: 1000px){
+      .span-8{grid-column:span 12}
+      .span-6{grid-column:span 12}
+      .span-4{grid-column:span 6}
+      .ig-grid{grid-template-columns:repeat(3, 1fr)}
+      .ig-grid .card{grid-column:span 1}
+    }
+    @media (max-width:640px){
+      header.site .nav{height:60px}
+      .hero__card{padding:28px}
+      .span-4{grid-column:span 12}
+      section{padding:72px 0}
+    }
+
+    /* small reveal animation */
+    [data-reveal]{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
+    [data-reveal].in{opacity:1; transform:none}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <header class="site">
+    <div class="container nav">
+      <div class="logo">Julia&nbsp;Piotrowska<span class="dot">·</span>Wnętrza</div>
+      <nav class="nav__cta">
+        <a class="btn btn--ghost" href="#portfolio" aria-label="Przejdź do portfolio">Portfolio</a>
+        <a class="btn" href="#kontakt" aria-label="Przejdź do kontaktu">Skontaktuj się</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero" aria-label="Sekcja hero: zdjęcie wyróżniające z tytułem i przyciskiem">
+    <div class="hero__inner container">
+      <div class="hero__card" data-reveal>
+        <div class="eyebrow">Architektura wnętrz</div>
+        <h1>Julia Piotrowska</h1>
+        <p class="sub">Nowoczesne, harmonijne i funkcjonalne przestrzenie — projektuję mieszkania, domy i wnętrza komercyjne.
+        </p>
+        <div class="cta">
+          <a class="btn" href="#kontakt">Umów konsultację</a>
+          <a class="btn btn--ghost" href="#portfolio">Zobacz portfolio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio" aria-labelledby="portfolio-h">
+    <div class="container">
+      <div class="section__hd">
+        <h2 id="portfolio-h" class="section__title">Portfolio</h2>
+        <span class="pill">wybór realizacji</span>
+      </div>
+
+      <div class="grid grid--portfolio">
+        <!-- TIP: podmień src na własne zdjęcia. Użyto przykładowych z Unsplash. -->
+        <figure class="card span-8 ratio" data-reveal>
+          <img class="media" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2000&auto=format&fit=crop" alt="Salon w stylu modern minimal" loading="lazy" data-lightbox>
+          <figcaption class="cap">Apartament — Modern Minimal</figcaption>
+        </figure>
+        <figure class="card span-4 ratio" data-reveal>
+          <img class="media" src="https://images.unsplash.com/photo-1501045661006-fcebe0257c3f?q=80&w=1600&auto=format&fit=crop" alt="Kuchnia z wyspą i oświetleniem liniowym" loading="lazy" data-lightbox>
+          <figcaption class="cap">Kuchnia — Ciepła geometria</figcaption>
+        </figure>
+        <figure class="card span-6 ratio" data-reveal>
+          <img class="media" src="https://images.unsplash.com/photo-1493666438817-866a91353ca9?q=80&w=1600&auto=format&fit=crop" alt="Sypialnia w odcieniach beżu" loading="lazy" data-lightbox>
+          <figcaption class="cap">Sypialnia — Soft Beige</figcaption>
+        </figure>
+        <figure class="card span-6 ratio" data-reveal>
+          <img class="media" src="https://images.unsplash.com/photo-1505691723518-36a5ac3b2aa4?q=80&w=1600&auto=format&fit=crop" alt="Łazienka z mikrocementem" loading="lazy" data-lightbox>
+          <figcaption class="cap">Łazienka — Mikrocement</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section id="instagram" aria-labelledby="ig-h">
+    <div class="container">
+      <div class="section__hd">
+        <h2 id="ig-h" class="section__title">Instagram</h2>
+        <span class="pill">zobacz więcej</span>
+      </div>
+      <p class="ig-note" data-reveal>
+        <!--
+          Integracja: Najprościej wkleić osadzenia (oEmbed) poszczególnych postów z Instagrama
+          lub użyć Graph API z tokenem. Poniżej wstawki przykładowe — podmień adresy URL na te z profilu @twoj_profil.
+          Alternatywa: pozostaw miniatury linkujące do profilu.
+        -->
+        Aktualne posty z Twojego profilu Instagram mogą być osadzone poniżej — podmień adresy URL w <code>blockquote</code>.
+      </p>
+
+      <div class="ig-grid">
+        <!-- PRZYKŁADOWE EMBEDY: wklej docelowe linki do postów i zachowaj skrypt Instagrama -->
+        <div class="card ratio" data-reveal>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Ct0Example1/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+        </div>
+        <div class="card ratio" data-reveal>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cu1Example2/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+        </div>
+        <div class="card ratio" data-reveal>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cv2Example3/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+        </div>
+        <div class="card ratio" data-reveal>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cw3Example4/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+        </div>
+        <div class="card ratio" data-reveal>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cx4Example5/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+        </div>
+        <div class="card ratio" data-reveal>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cy5Example6/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+        </div>
+      </div>
+
+      <div style="margin-top:16px" class="ig-note">
+        Profil: <a href="https://www.instagram.com/" target="_blank" rel="noopener">@julia.piotrowska</a> — podmień na właściwy.
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT -->
+  <section id="kontakt" aria-labelledby="contact-h">
+    <div class="container">
+      <div class="section__hd">
+        <h2 id="contact-h" class="section__title">Kontakt</h2>
+        <span class="pill">zapytaj o wycenę</span>
+      </div>
+      <div class="grid" style="grid-template-columns:repeat(12,1fr); gap:18px">
+        <div class="card" style="grid-column:span 7; padding:24px" data-reveal>
+          <form action="https://formspree.io/f/your-id" method="POST" aria-label="Formularz kontaktowy">
+            <!-- TIP: podmień action na swój endpoint (np. Formspree / Netlify Forms / własny backend). -->
+            <div style="display:grid; gap:14px">
+              <label>Imię i nazwisko<br>
+                <input name="name" required placeholder="Jan Kowalski" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#0f0f12; color:var(--fg)">
+              </label>
+              <label>E‑mail<br>
+                <input type="email" name="email" required placeholder="email@domena.pl" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#0f0f12; color:var(--fg)">
+              </label>
+              <label>Wiadomość<br>
+                <textarea name="message" rows="5" required placeholder="Opowiedz krótko o projekcie…" style="width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#0f0f12; color:var(--fg)"></textarea>
+              </label>
+              <button class="btn" type="submit">Wyślij</button>
+            </div>
+          </form>
+        </div>
+        <div class="card" style="grid-column:span 5; padding:24px; display:grid; gap:12px" data-reveal>
+          <div>
+            <div class="eyebrow">Dane kontaktowe</div>
+            <p style="margin:.5rem 0 0">E‑mail: <a href="mailto:hello@juliapiotrowska.pl">hello@juliapiotrowska.pl</a><br>
+            Telefon: <a href="tel:+48500111222">+48 500 111 222</a></p>
+          </div>
+          <div>
+            <div class="eyebrow">Lokalizacja</div>
+            <p style="margin:.5rem 0 0">Poznań · projekty zdalne w całej Polsce i UE</p>
+          </div>
+          <div>
+            <div class="eyebrow">Social</div>
+            <p style="margin:.5rem 0 0">
+              <a href="#instagram">Instagram</a> · <a href="#">Behance</a> · <a href="#">LinkedIn</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STOPKA -->
+  <footer>
+    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap">
+      <div>© <span id="year"></span> Julia Piotrowska — architektka wnętrz</div>
+      <div>
+        <a href="#" style="margin-right:12px">Polityka prywatności</a>
+        <a href="#top">Do góry ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox + drobne interakcje -->
+  <script>
+    // Rok w stopce
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Reveal on scroll
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{ threshold:.12 });
+    document.querySelectorAll('[data-reveal]').forEach(el=>io.observe(el));
+
+    // Lightbox dla portfolio (prosta implementacja)
+    const dlg = document.createElement('dialog');
+    dlg.className = 'lightbox';
+    dlg.innerHTML = `<button class="btn btn--ghost lightbox__close" aria-label="Zamknij">✕</button><img class="lightbox__img" alt="Podgląd"/>`;
+    document.body.appendChild(dlg);
+    const lbImg = dlg.querySelector('img');
+    dlg.querySelector('button').addEventListener('click', ()=> dlg.close());
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') dlg.close(); });
+
+    document.querySelectorAll('[data-lightbox]').forEach(img=>{
+      img.style.cursor='zoom-in';
+      img.addEventListener('click', ()=>{ lbImg.src = img.src; dlg.showModal(); });
+    });
+  </script>
+
+  <!-- Skrypt osadzeń Instagrama (wymagany dla <blockquote class="instagram-media">) -->
+  <script async src="https://www.instagram.com/embed.js"></script>
+</body>
+</html>
