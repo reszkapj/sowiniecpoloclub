@@ -7,24 +7,24 @@
   <meta name="description" content="Nowoczesne, minimalistyczne projekty wnętrz — Julia Piotrowska, architektka wnętrz." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#ffffff;                /* tło strony */
-      --bg-soft:#f7f7f7;           /* delikatne tło sekcji */
-      --fg:#121212;                /* tekst */
-      --muted:#6d6d6d;             /* tekst pomocniczy */
-      --accent:#111111;            /* akcent (grafit) */
-      --card:#ffffff;              /* karty */
+      --bg:#ffffff;
+      --bg-soft:#f7f7f7;
+      --fg:#121212;
+      --muted:#6d6d6d;
+      --accent:#2a2a28; /* ciepły szarobeż jako akcent */
+      --card:#ffffff;
       --border:rgba(0,0,0,.08);
-      --radius:10px;               /* subtelniejszy promień */
+      --radius:10px;
       --max:1200px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
     html{scroll-behavior:smooth}
     body{
-      margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+      margin:0; font-family:Manrope,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
       background:var(--bg); color:var(--fg); line-height:1.55; -webkit-font-smoothing:antialiased;
     }
     h1,h2,h3{font-family:"Playfair Display", Georgia, serif; font-weight:500; letter-spacing:.2px}
@@ -34,16 +34,16 @@
 
     /* NAV */
     header.site{position:fixed; inset-inline:0; top:0; z-index:30; background:rgba(255,255,255,.7); backdrop-filter:saturate(120%) blur(10px); border-bottom:1px solid var(--border)}
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:68px}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:68px; flex-wrap:wrap}
     .logo{font-weight:600; letter-spacing:.3px}
     .logo .dot{opacity:.65}
-    .nav__links{display:flex; gap:22px; align-items:center}
-    .nav__links a{position:relative; padding:6px 0}
+    .nav__links{display:flex; gap:18px; align-items:center; flex-wrap:wrap}
+    .nav__links a{position:relative; padding:6px 0; white-space:nowrap}
     .nav__links a::after{content:""; position:absolute; left:0; right:100%; bottom:-2px; height:1px; background:currentColor; opacity:.35; transition:right .2s ease}
     .nav__links a:hover::after{right:0}
 
-    /* BUTTONS — proste, bez pastylek */
-    .btn{display:inline-flex; align-items:center; gap:.6em; padding:.8em 1.1em; border-radius:6px; border:1px solid var(--border); background:var(--accent); color:#fff; font-weight:500; transition:transform .18s ease, opacity .18s ease}
+    /* BUTTONS */
+    .btn{display:inline-flex; align-items:center; gap:.6em; padding:.8em 1.1em; border-radius:0; border:1px solid var(--border); background:var(--accent); color:#fff; font-weight:600; letter-spacing:.2px; transition:transform .18s ease, opacity .18s ease; white-space:nowrap}
     .btn:hover{transform:translateY(-1px); opacity:.94}
     .btn--ghost{background:transparent; color:var(--fg); border-color:var(--border)}
     .btn--link{background:transparent; border:none; padding:0}
@@ -52,12 +52,12 @@
     /* SECTION BASICS */
     section{padding:104px 0}
     .section--soft{background:var(--bg-soft)}
-    .section__hd{display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:32px}
+    .section__hd{display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:32px; flex-wrap:wrap}
     .section__title{font-size:clamp(1.6rem, 1.4vw + 1rem, 2.2rem)}
     .section__desc{color:var(--muted)}
     .pill{font-size:.8rem; color:var(--muted); border:1px solid var(--border); padding:.35em .65em; border-radius:6px; background:#fff}
 
-    /* HERO — pełnoekranowe zdjęcie na całą szerokość */
+    /* HERO */
     .hero{position:relative; min-height:100svh; display:grid; align-items:end; color:#111; padding:0}
     .hero::before{content:""; position:absolute; inset:0; background:var(--hero-img) center/cover no-repeat;}
     .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(255,255,255,.9), rgba(255,255,255,.6) 50%, rgba(255,255,255,.2) 85%, rgba(255,255,255,0));}
@@ -67,23 +67,23 @@
     .sub{color:#2a2a2a; max-width:780px; font-size:clamp(1rem, .8vw + .8rem, 1.2rem)}
     .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:28px}
 
-    /* PORTFOLIO — masonry look */
-    .grid{display:grid; gap:16px}
+    /* PORTFOLIO */
+    .grid{display:grid; gap:24px}
     .grid--portfolio{grid-template-columns:repeat(12, 1fr)}
-    .card{position:relative; overflow:hidden; border-radius:12px; border:1px solid var(--border); background:var(--card)}
+    .card{position:relative; overflow:hidden; border-radius:14px; border:none; background:var(--card); box-shadow:0 18px 36px rgba(0,0,0,.06)}
     .ratio{aspect-ratio:4/3}
     .span-6{grid-column:span 6}
     .span-4{grid-column:span 4}
     .span-8{grid-column:span 8}
-    .media{width:100%; height:100%; object-fit:cover; transition:transform .5s ease}
-    .card:hover .media{transform:scale(1.03)}
-    figcaption.cap{padding:12px 14px; border-top:1px solid var(--border); color:#333; background:#fff}
+    .media{width:100%; height:100%; object-fit:cover; transition:transform .6s ease, filter .6s ease}
+    .card:hover .media{transform:scale(1.05); filter:brightness(1.05)}
+    figcaption.cap{padding:16px 18px; font-weight:500; font-size:1rem; color:#111; background:#fff; position:absolute; bottom:0; left:0; right:0; background:rgba(255,255,255,.85); backdrop-filter:blur(6px)}
 
-    /* LIGHTBOX */
-    dialog.lightbox{width:min(92vw, 1100px); padding:0; border:none; background:transparent;}
-    dialog::backdrop{background:rgba(0,0,0,.45)}
-    .lightbox__img{width:100%; height:auto; display:block; border-radius:12px; background:#fff}
-    .lightbox__close{position:absolute; top:16px; right:16px}
+    /* OFERTA */
+    .offer-grid{display:grid; gap:24px; grid-template-columns:repeat(auto-fit, minmax(260px,1fr))}
+    .offer-card{background:#fff; padding:32px; border-radius:12px; border:1px solid var(--border); box-shadow:0 10px 24px rgba(0,0,0,.04); display:flex; flex-direction:column; gap:12px}
+    .offer-card h3{font-size:1.25rem; margin:0}
+    .offer-card p{color:var(--muted); margin:0}
 
     /* INSTAGRAM */
     .ig-note{color:var(--muted); font-size:.95rem}
@@ -96,36 +96,23 @@
     /* FOOTER */
     footer{padding:36px 0; border-top:1px solid var(--border); color:var(--muted); background:#fff}
 
-    /* Accessibility / motion */
     @media (prefers-reduced-motion: reduce){
       .media{transition:none}
       .btn{transition:none}
       [data-reveal]{transition:none}
     }
-
-    /* RESPONSIVE */
-    @media (max-width: 1100px){
-      .hero__inner{padding:18svh 0 10svh}
-    }
     @media (max-width: 1000px){
-      .span-8{grid-column:span 12}
-      .span-6{grid-column:span 12}
-      .span-4{grid-column:span 6}
+      .span-8,.span-6,.span-4{grid-column:span 12}
       .ig-grid{grid-template-columns:repeat(3, 1fr)}
       .ig-grid .card{grid-column:span 1}
     }
     @media (max-width:640px){
       header.site .nav{height:60px}
-      .span-4{grid-column:span 12}
       section{padding:80px 0}
-      .hero__inner{padding:20svh 0 12svh}
     }
 
-    /* reveal */
     [data-reveal]{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
     [data-reveal].in{opacity:1; transform:none}
-
-    /* anchor offset */
     :is(section, [id]){scroll-margin-top:80px}
   </style>
 </head>
@@ -135,15 +122,16 @@
     <div class="container nav">
       <div class="logo">Julia&nbsp;Piotrowska<span class="dot">·</span>Wnętrza</div>
       <nav class="nav__links" aria-label="Główna nawigacja">
-        <a href="#portfolio" aria-label="Przejdź do portfolio">Portfolio</a>
-        <a href="#instagram" aria-label="Przejdź do Instagramu">Instagram</a>
-        <a class="btn btn--ghost" href="#kontakt" aria-label="Przejdź do kontaktu">Skontaktuj się</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#oferta">Oferta</a>
+        <a href="#instagram">Instagram</a>
+        <a class="btn btn--ghost" href="#kontakt">Skontaktuj się</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO — pełnoekranowe zdjęcie -->
-  <section class="hero" style="--hero-img:url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2400&auto=format&fit=crop')" aria-label="Sekcja hero: pełnoekranowe zdjęcie tła z tytułem i przyciskiem">
+  <!-- HERO -->
+  <section class="hero" style="--hero-img:url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2400&auto=format&fit=crop')">
     <div class="container hero__inner">
       <div class="eyebrow" data-reveal>Architektura wnętrz</div>
       <h1 data-reveal>Julia&nbsp;Piotrowska</h1>
@@ -162,7 +150,6 @@
         <h2 id="portfolio-h" class="section__title">Portfolio</h2>
         <span class="pill">wybór realizacji</span>
       </div>
-
       <div class="grid grid--portfolio">
         <figure class="card span-8 ratio" data-reveal>
           <img class="media" src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=2000&auto=format&fit=crop" alt="Salon w stylu modern minimal" loading="lazy" data-lightbox>
@@ -184,6 +171,34 @@
     </div>
   </section>
 
+  <!-- OFERTA -->
+  <section id="oferta" class="section--soft" aria-labelledby="offer-h">
+    <div class="container">
+      <div class="section__hd">
+        <h2 id="offer-h" class="section__title">Oferta</h2>
+        <span class="pill">jak mogę pomóc</span>
+      </div>
+      <div class="offer-grid">
+        <div class="offer-card" data-reveal>
+          <h3>Projekty mieszkań</h3>
+          <p>Kompleksowe aranżacje przestrzeni prywatnych — od kawalerek po przestronne apartamenty.</p>
+        </div>
+        <div class="offer-card" data-reveal>
+          <h3>Domy jednorodzinne</h3>
+          <p>Świetliste, funkcjonalne wnętrza dopasowane do rytmu życia domowników.</p>
+        </div>
+        <div class="offer-card" data-reveal>
+          <h3>Wnętrza komercyjne</h3>
+          <p>Biura, showroomy i przestrzenie usługowe — minimalistyczne, reprezentacyjne, spójne z marką.</p>
+        </div>
+        <div class="offer-card" data-reveal>
+          <h3>Konsultacje online</h3>
+          <p>Szybkie porady i ukierunkowanie projektu na etapie planowania lub remontu.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- INSTAGRAM -->
   <section id="instagram" class="section--soft" aria-labelledby="ig-h">
     <div class="container">
@@ -194,7 +209,6 @@
       <p class="ig-note" data-reveal>
         Aktualne posty z Twojego profilu Instagram mogą być osadzone poniżej — podmień adresy URL w <code>blockquote</code>.
       </p>
-
       <div class="ig-grid">
         <div class="card ratio" data-reveal>
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Ct0Example1/" data-instgrm-version="14" style="background:#fff; border-radius:8px; width:100%; height:100%; display:block"></blockquote>
@@ -213,14 +227,8 @@
         </div>
         <div class="card ratio" data-reveal>
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cy5Example6/" data-instgrm-version="14" style="background:#fff; border-radius:8px; width:100%; height:100%; display:block"></blockquote>
-        </div>
-      </div>
+        </div
 
-      <div style="margin-top:16px" class="ig-note">
-        Profil: <a href="https://www.instagram.com/" target="_blank" rel="noopener">@julia.piotrowska</a> — podmień na właściwy.
-      </div>
-    </div>
-  </section>
 
   <!-- KONTAKT -->
   <section id="kontakt" aria-labelledby="contact-h">
