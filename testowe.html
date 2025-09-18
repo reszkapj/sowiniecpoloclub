@@ -7,22 +7,22 @@
   <meta name="description" content="Nowoczesne, minimalistyczne projekty wnętrz — Julia Piotrowska, architektka wnętrz." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
     :root{
-      --bg:#ffffff;          /* tło strony */
-      --bg-soft:#f7f6f3;     /* delikatne tło sekcji */
-      --fg:#1a1a1a;          /* tekst */
-      --muted:#6b6b6b;       /* tekst pomocniczy */
-      --accent:#3e7f76;      /* akcent (stonowana zieleń) */
-      --card:#ffffff;        /* karty */
+      --bg:#ffffff;                /* tło strony */
+      --bg-soft:#f7f7f7;           /* delikatne tło sekcji */
+      --fg:#121212;                /* tekst */
+      --muted:#6d6d6d;             /* tekst pomocniczy */
+      --accent:#111111;            /* akcent (grafit) */
+      --card:#ffffff;              /* karty */
       --border:rgba(0,0,0,.08);
-      --shadow:0 10px 24px rgba(0,0,0,.06);
-      --radius:18px;
+      --radius:10px;               /* subtelniejszy promień */
       --max:1200px;
     }
     *{box-sizing:border-box}
     html,body{height:100%}
+    html{scroll-behavior:smooth}
     body{
       margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
       background:var(--bg); color:var(--fg); line-height:1.55; -webkit-font-smoothing:antialiased;
@@ -33,15 +33,21 @@
     .container{width:100%; max-width:var(--max); margin-inline:auto; padding:0 24px}
 
     /* NAV */
-    header.site{position:fixed; inset-inline:0; top:0; z-index:30; background:rgba(255,255,255,.8); backdrop-filter:saturate(120%) blur(10px); border-bottom:1px solid var(--border)}
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:76px}
-    .logo{font-weight:600; letter-spacing:.4px}
-    .logo .dot{color:var(--accent)}
-    .btn{display:inline-flex; align-items:center; gap:.6em; padding:.9em 1.2em; border-radius:999px; border:1px solid var(--border); background:var(--accent); color:#fff; font-weight:500; box-shadow:var(--shadow); transition:transform .18s ease, opacity .18s ease}
-    .btn:hover{transform:translateY(-1px); opacity:.92}
-    .btn--ghost{background:transparent; color:var(--fg)}
-    .btn--link{background:transparent; border:none; box-shadow:none; padding:0; border-radius:0; color:var(--fg); position:relative}
-    .btn--link::after{content:""; position:absolute; left:0; right:0; bottom:-2px; height:1px; background:currentColor; opacity:.35}
+    header.site{position:fixed; inset-inline:0; top:0; z-index:30; background:rgba(255,255,255,.7); backdrop-filter:saturate(120%) blur(10px); border-bottom:1px solid var(--border)}
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px; height:68px}
+    .logo{font-weight:600; letter-spacing:.3px}
+    .logo .dot{opacity:.65}
+    .nav__links{display:flex; gap:22px; align-items:center}
+    .nav__links a{position:relative; padding:6px 0}
+    .nav__links a::after{content:""; position:absolute; left:0; right:100%; bottom:-2px; height:1px; background:currentColor; opacity:.35; transition:right .2s ease}
+    .nav__links a:hover::after{right:0}
+
+    /* BUTTONS — proste, bez pastylek */
+    .btn{display:inline-flex; align-items:center; gap:.6em; padding:.8em 1.1em; border-radius:6px; border:1px solid var(--border); background:var(--accent); color:#fff; font-weight:500; transition:transform .18s ease, opacity .18s ease}
+    .btn:hover{transform:translateY(-1px); opacity:.94}
+    .btn--ghost{background:transparent; color:var(--fg); border-color:var(--border)}
+    .btn--link{background:transparent; border:none; padding:0}
+    .btn--link:hover{opacity:.8}
 
     /* SECTION BASICS */
     section{padding:104px 0}
@@ -49,34 +55,34 @@
     .section__hd{display:flex; align-items:end; justify-content:space-between; gap:24px; margin-bottom:32px}
     .section__title{font-size:clamp(1.6rem, 1.4vw + 1rem, 2.2rem)}
     .section__desc{color:var(--muted)}
-    .pill{font-size:.8rem; color:var(--muted); border:1px solid var(--border); padding:.4em .75em; border-radius:999px; background:#fff}
+    .pill{font-size:.8rem; color:var(--muted); border:1px solid var(--border); padding:.35em .65em; border-radius:6px; background:#fff}
 
-    /* HERO (jasny, inspirowany emaurri) */
-    .hero{position:relative; min-height:92svh; display:grid; place-items:center; overflow:hidden; background:var(--bg-soft); border-bottom:1px solid var(--border)}
-    .hero__wrap{display:grid; grid-template-columns:1.2fr .8fr; gap:42px; align-items:center}
-    .hero__media{border-radius:20px; overflow:hidden; background:#fff; border:1px solid var(--border); box-shadow:var(--shadow)}
-    .hero__media img{width:100%; height:100%; object-fit:cover}
+    /* HERO — pełnoekranowe zdjęcie na całą szerokość */
+    .hero{position:relative; min-height:100svh; display:grid; align-items:end; color:#111; padding:0}
+    .hero::before{content:""; position:absolute; inset:0; background:var(--hero-img) center/cover no-repeat;}
+    .hero::after{content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(255,255,255,.9), rgba(255,255,255,.6) 50%, rgba(255,255,255,.2) 85%, rgba(255,255,255,0));}
+    .hero__inner{position:relative; z-index:1; padding:16svh 0 8svh}
     .eyebrow{letter-spacing:.22em; text-transform:uppercase; color:var(--muted); font-size:.8rem}
-    h1{font-size:clamp(2.2rem, 3.6vw + 1rem, 4rem); line-height:1.06; margin:.35em 0}
-    .sub{color:var(--muted); font-size:clamp(1rem, .8vw + .8rem, 1.2rem)}
+    h1{font-size:clamp(2.4rem, 3.8vw + 1rem, 4.2rem); line-height:1.06; margin:.35em 0}
+    .sub{color:#2a2a2a; max-width:780px; font-size:clamp(1rem, .8vw + .8rem, 1.2rem)}
     .cta{display:flex; gap:14px; flex-wrap:wrap; margin-top:28px}
 
     /* PORTFOLIO — masonry look */
     .grid{display:grid; gap:16px}
     .grid--portfolio{grid-template-columns:repeat(12, 1fr)}
-    .card{position:relative; overflow:hidden; border-radius:16px; border:1px solid var(--border); background:var(--card); box-shadow:var(--shadow)}
+    .card{position:relative; overflow:hidden; border-radius:12px; border:1px solid var(--border); background:var(--card)}
     .ratio{aspect-ratio:4/3}
     .span-6{grid-column:span 6}
     .span-4{grid-column:span 4}
     .span-8{grid-column:span 8}
     .media{width:100%; height:100%; object-fit:cover; transition:transform .5s ease}
     .card:hover .media{transform:scale(1.03)}
-    figcaption.cap{padding:14px 16px; border-top:1px solid var(--border); color:#333; background:#fff}
+    figcaption.cap{padding:12px 14px; border-top:1px solid var(--border); color:#333; background:#fff}
 
     /* LIGHTBOX */
     dialog.lightbox{width:min(92vw, 1100px); padding:0; border:none; background:transparent;}
     dialog::backdrop{background:rgba(0,0,0,.45)}
-    .lightbox__img{width:100%; height:auto; display:block; border-radius:16px; background:#fff}
+    .lightbox__img{width:100%; height:auto; display:block; border-radius:12px; background:#fff}
     .lightbox__close{position:absolute; top:16px; right:16px}
 
     /* INSTAGRAM */
@@ -85,14 +91,21 @@
     .ig-grid .card{grid-column:span 2; background:#fff}
 
     /* KONTAKT */
-    .form-input{width:100%; padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#fff; color:var(--fg)}
+    .form-input{width:100%; padding:12px 14px; border-radius:8px; border:1px solid var(--border); background:#fff; color:var(--fg)}
 
     /* FOOTER */
     footer{padding:36px 0; border-top:1px solid var(--border); color:var(--muted); background:#fff}
 
+    /* Accessibility / motion */
+    @media (prefers-reduced-motion: reduce){
+      .media{transition:none}
+      .btn{transition:none}
+      [data-reveal]{transition:none}
+    }
+
     /* RESPONSIVE */
     @media (max-width: 1100px){
-      .hero__wrap{grid-template-columns:1fr;}
+      .hero__inner{padding:18svh 0 10svh}
     }
     @media (max-width: 1000px){
       .span-8{grid-column:span 12}
@@ -102,42 +115,42 @@
       .ig-grid .card{grid-column:span 1}
     }
     @media (max-width:640px){
-      header.site .nav{height:64px}
+      header.site .nav{height:60px}
       .span-4{grid-column:span 12}
       section{padding:80px 0}
+      .hero__inner{padding:20svh 0 12svh}
     }
 
     /* reveal */
     [data-reveal]{opacity:0; transform:translateY(12px); transition:opacity .6s ease, transform .6s ease}
     [data-reveal].in{opacity:1; transform:none}
+
+    /* anchor offset */
+    :is(section, [id]){scroll-margin-top:80px}
   </style>
 </head>
 <body>
   <!-- NAV -->
-  <header class="site">
+  <header class="site" id="top">
     <div class="container nav">
       <div class="logo">Julia&nbsp;Piotrowska<span class="dot">·</span>Wnętrza</div>
-      <nav class="nav__cta">
-        <a class="btn btn--link" href="#portfolio" aria-label="Przejdź do portfolio">Portfolio</a>
-        <a class="btn" href="#kontakt" aria-label="Przejdź do kontaktu">Skontaktuj się</a>
+      <nav class="nav__links" aria-label="Główna nawigacja">
+        <a href="#portfolio" aria-label="Przejdź do portfolio">Portfolio</a>
+        <a href="#instagram" aria-label="Przejdź do Instagramu">Instagram</a>
+        <a class="btn btn--ghost" href="#kontakt" aria-label="Przejdź do kontaktu">Skontaktuj się</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO (jasny) -->
-  <section class="hero section--soft" aria-label="Sekcja hero: zdjęcie wyróżniające z tytułem i przyciskiem">
-    <div class="container hero__wrap" style="margin-top:76px">
-      <div class="hero__media" data-reveal>
-        <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2000&auto=format&fit=crop" alt="Nowoczesne wnętrze — jasny salon z minimalistycznymi detalami">
-      </div>
-      <div class="hero__copy" data-reveal>
-        <div class="eyebrow">Architektura wnętrz</div>
-        <h1>Julia&nbsp;Piotrowska</h1>
-        <p class="sub">Projektuję świetliste, funkcjonalne przestrzenie — mieszkania, domy i wnętrza komercyjne w duchu minimalizmu.</p>
-        <div class="cta">
-          <a class="btn" href="#kontakt">Umów konsultację</a>
-          <a class="btn btn--ghost" href="#portfolio">Zobacz portfolio</a>
-        </div>
+  <!-- HERO — pełnoekranowe zdjęcie -->
+  <section class="hero" style="--hero-img:url('https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=2400&auto=format&fit=crop')" aria-label="Sekcja hero: pełnoekranowe zdjęcie tła z tytułem i przyciskiem">
+    <div class="container hero__inner">
+      <div class="eyebrow" data-reveal>Architektura wnętrz</div>
+      <h1 data-reveal>Julia&nbsp;Piotrowska</h1>
+      <p class="sub" data-reveal>Projektuję świetliste, funkcjonalne przestrzenie — mieszkania, domy i wnętrza komercyjne w duchu współczesnego minimalizmu.</p>
+      <div class="cta" data-reveal>
+        <a class="btn" href="#kontakt">Umów konsultację</a>
+        <a class="btn btn--ghost" href="#portfolio">Zobacz portfolio</a>
       </div>
     </div>
   </section>
@@ -171,7 +184,7 @@
     </div>
   </section>
 
-  <!-- INSTAGRAM (jasne karty) -->
+  <!-- INSTAGRAM -->
   <section id="instagram" class="section--soft" aria-labelledby="ig-h">
     <div class="container">
       <div class="section__hd">
@@ -184,22 +197,22 @@
 
       <div class="ig-grid">
         <div class="card ratio" data-reveal>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Ct0Example1/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Ct0Example1/" data-instgrm-version="14" style="background:#fff; border-radius:8px; width:100%; height:100%; display:block"></blockquote>
         </div>
         <div class="card ratio" data-reveal>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cu1Example2/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cu1Example2/" data-instgrm-version="14" style="background:#fff; border-radius:8px; width:100%; height:100%; display:block"></blockquote>
         </div>
         <div class="card ratio" data-reveal>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cv2Example3/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cv2Example3/" data-instgrm-version="14" style="background:#fff; border-radius:8px; width:100%; height:100%; display:block"></blockquote>
         </div>
         <div class="card ratio" data-reveal>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cw3Example4/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cw3Example4/" data-instgrm-version="14" style="background:#fff; border-radius:8px; width:100%; height:100%; display:block"></blockquote>
         </div>
         <div class="card ratio" data-reveal>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cx4Example5/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cx4Example5/" data-instgrm-version="14" style="background:#fff; border-radius:8px; width:100%; height:100%; display:block"></blockquote>
         </div>
         <div class="card ratio" data-reveal>
-          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cy5Example6/" data-instgrm-version="14" style="background:#fff; border-radius:12px; width:100%; height:100%; display:block"></blockquote>
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cy5Example6/" data-instgrm-version="14" style="background:#fff; border-radius:8px; width:100%; height:100%; display:block"></blockquote>
         </div>
       </div>
 
@@ -209,7 +222,7 @@
     </div>
   </section>
 
-  <!-- KONTAKT (jasny) -->
+  <!-- KONTAKT -->
   <section id="kontakt" aria-labelledby="contact-h">
     <div class="container">
       <div class="section__hd">
